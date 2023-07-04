@@ -12,6 +12,10 @@ export default function Home() {
         }
         article {
             section {
+                width: 30vw;
+                img {
+                    width: 100%;
+                }
                 span {
                     display: flex;
                     align-items: center;
