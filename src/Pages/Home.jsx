@@ -1,5 +1,5 @@
 import { styled } from "styled-components"
-import { FaGithubSquare, FaLinkedin } from "react-icons/fa"
+import { FaGithubSquare } from "react-icons/fa"
 
 export default function Home() {
     const StyledHome = styled.main`
@@ -12,7 +12,7 @@ export default function Home() {
         }
         article {
             section {
-                width: 30vw;
+                width: 70%;
                 img {
                     width: 100%;
                 }
