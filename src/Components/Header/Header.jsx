@@ -6,8 +6,9 @@ export default function Header() {
             <nav>
                 <ul>
                     <li>Home</li>
+                    <li>prosjektere</li>
                     <li>Kurser</li>
-                    <li>Cv</li>
+                    <li>Curriclum Vite</li>
                 </ul>
             </nav>
         </StyledHeader>
