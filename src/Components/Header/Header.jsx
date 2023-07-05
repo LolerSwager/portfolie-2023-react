@@ -31,6 +31,7 @@ const StyledHeader = styled.header`
             display: flex;
             justify-content: center;
             align-items: center;
+            flex-wrap: wrap;
             gap: 1rem;
             margin: 1rem;
             li {
