@@ -11,7 +11,8 @@ export default function Home() {
             margin: 4rem;
         }
         h2 {
-            text-align: ceter;
+            text-align: center;
+            margin: 2rem;
         }
         article {
             display: flex;
@@ -21,7 +22,7 @@ export default function Home() {
             a {
                 text-decoration: none;
                 section {
-                    width: 400px;
+                    max-width: 400px;
                     img {
                         width: 100%;
                         aspect-ratio: 5/3;

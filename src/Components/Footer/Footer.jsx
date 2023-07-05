@@ -2,6 +2,7 @@ import { styled } from "styled-components"
 import { FaGithubSquare, FaLinkedin, FaDiscord, FaPhone, FaEnvelope } from "react-icons/fa"
 import { IconContext } from "react-icons"
 import ContactForm from "../ContactForm"
+import { Link } from "react-router-dom"
 
 export default function Footer() {
     return (
@@ -35,6 +36,23 @@ export default function Footer() {
                     </div>
                 </section>
                 <section>
+                    <h4>Navigation</h4>
+                    <ul className="Navigation">
+                        <li>
+                            <Link to="/">Home</Link>
+                        </li>
+                        <li>
+                            <Link to="projects">projects</Link>
+                        </li>
+                        <li>
+                            <Link to="kurser">Kurser</Link>
+                        </li>
+                        <li>
+                            <Link to="cv">Curriclum Vite</Link>
+                        </li>
+                    </ul>
+                </section>
+                <section>
                     <h4>Kontakt Oplysninger</h4>
                     <ul className="Contact-info">
                         <li>
@@ -50,6 +68,7 @@ export default function Footer() {
                     </ul>
                 </section>
                 <section>
+                    <h4>Kontakt Mig</h4>
                     <ContactForm />
                 </section>
             </IconContext.Provider>
@@ -67,7 +86,7 @@ const StyledFooter = styled.footer`
         margin: 1rem;
         h4 {
             font-size: 1.3rem;
-            margin: 0 0 1em 0;
+            margin: 0 0 0.8em 0;
         }
     }
     .Social-icons {
@@ -85,6 +104,18 @@ const StyledFooter = styled.footer`
             margin: 0 0.5rem 0 0;
             &:hover {
                 color: #8400db;
+            }
+        }
+    }
+    .Navigation {
+        li {
+            margin: 0.5rem 1.5rem;
+            a {
+                color: #eeeeee;
+                text-decoration: none;
+                &:hover {
+                    color: #8400db;
+                }
             }
         }
     }
