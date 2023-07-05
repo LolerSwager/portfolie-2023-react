@@ -13,6 +13,7 @@ export default function ContactForm() {
 const StyledContactForm = styled.div`
     display: grid;
     gap: 0.8rem;
+    width: 100%;
     input,
     textarea,
     button {
