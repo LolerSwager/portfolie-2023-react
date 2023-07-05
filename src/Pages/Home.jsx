@@ -1,5 +1,5 @@
 import { styled } from "styled-components"
-import { FaGithubSquare } from "react-icons/fa"
+import { FaGithubSquare, FaLinkedin } from "react-icons/fa"
 
 export default function Home() {
     const StyledHome = styled.main`
@@ -10,18 +10,31 @@ export default function Home() {
             justify-content: center;
             margin: 4rem;
         }
+        h2 {
+            text-align: ceter;
+        }
         article {
-            section {
-                width: 70%;
-                img {
-                    width: 100%;
-                }
-                span {
-                    display: flex;
-                    align-items: center;
-                    font-size: 1.5rem;
-                    h2 {
-                        font-size: 1rem;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            justify-content: center;
+            a {
+                text-decoration: none;
+                section {
+                    width: 400px;
+                    img {
+                        width: 100%;
+                        aspect-ratio: 5/3;
+                    }
+                    span {
+                        display: flex;
+                        gap: 0.5rem;
+                        align-items: center;
+                        font-size: 1.5rem;
+                        margin: 0.3rem 0;
+                        h3 {
+                            font-size: 1.3rem;
+                        }
                     }
                 }
             }
@@ -31,7 +44,7 @@ export default function Home() {
     return (
         <StyledHome>
             <h1>Hej med dig</h1>
-            <h2>Tjek min Github</h2>
+            <h2>Tjek min Github samt min Linkind</h2>
             <article>
                 <a href="https://github.com/LolerSwager" target="_blank" rel="noreferrer">
                     <section>
@@ -42,6 +55,18 @@ export default function Home() {
                         <span>
                             <FaGithubSquare />
                             <h3>Github</h3>
+                        </span>
+                    </section>
+                </a>
+                <a href="https://www.linkedin.com/in/jannick-nielsen-web/" target="_blank" rel="noreferrer">
+                    <section>
+                        <img
+                            src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fdonaldpiccione.com%2Fwp-content%2Fuploads%2F2018%2F12%2FLinkedin-network.jpg&f=1&nofb=1&ipt=a5f4039b2640a0ae1c2dda5072cb2cf6db1aa91aa4d50d07848d2064f4f14548&ipo=images"
+                            alt="cover img af github"
+                        />
+                        <span>
+                            <FaLinkedin />
+                            <h3>Linkind</h3>
                         </span>
                     </section>
                 </a>
