@@ -1,14 +1,17 @@
-import Home from "./Pages/Home"
-import Header from "./Components/Header/Header"
 import { styled } from "styled-components"
+import Header from "./Components/Header/Header"
 import Footer from "./Components/Footer/Footer"
+import AppRouter from "./Router/AppRouter"
+import { BrowserRouter } from "react-router-dom"
 
 export default function App() {
     return (
         <STyledApp>
-            <Header />
-            <Home />
-            <Footer />
+            <BrowserRouter>
+                <Header />
+                <AppRouter />
+                <Footer />
+            </BrowserRouter>
         </STyledApp>
     )
 }
@@ -34,6 +37,4 @@ const STyledApp = styled.body`
     width: 100%;
     min-height: 100dvh;
     background-color: #181818;
-
-    
 `

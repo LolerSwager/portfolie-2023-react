@@ -8,10 +8,12 @@ export default function Footer() {
             <IconContext.Provider value={{ className: "react-icons" }}>
                 <section>
                     <a href="https://github.com/LolerSwager" target="_blank" rel="noreferrer">
-                        <FaLinkedin /> <p>Github</p>
+                        <FaGithubSquare />
+                        <p>Github</p>
                     </a>
                     <a href="https://www.linkedin.com/in/jannick-nielsen-web/" target="_blank" rel="noreferrer">
-                        <FaGithubSquare /> <p>Linkedin</p>
+                        <FaLinkedin />
+                        <p>Linkedin</p>
                     </a>
                     <a href="https://discord.gg/uaCRvZU" target="_blank" rel="noreferrer">
                         <FaDiscord /> <p>Discord</p>
@@ -27,6 +29,14 @@ export default function Footer() {
                         <li>
                             <FaPhone />
                             <p>+45 20 66 55 86</p>
+                        </li>
+                    </ul>
+                    <h4>Andre Sider</h4>
+                    <ul>
+                        <li>
+                            <a href="https://www.lolerswager.com/" target="_blank" rel="noreferrer">
+                                LolerSwager.com
+                            </a>
                         </li>
                     </ul>
                 </section>
