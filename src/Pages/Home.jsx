@@ -19,6 +19,7 @@ export default function Home() {
             flex-wrap: wrap;
             gap: 1rem;
             justify-content: center;
+            margin: 2rem;
             a {
                 text-decoration: none;
                 section {

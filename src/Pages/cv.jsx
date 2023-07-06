@@ -1,0 +1,133 @@
+import { styled } from "styled-components"
+
+export default function Cv() {
+    return (
+        <main>
+            <StyledList>
+                <h1>Curriclum Vite</h1>
+                <section>
+                    <h3>ERHVERVSERFARING</h3>
+                    <ul>
+                        <li>
+                            <span>
+                                <h4>Montører</h4>
+                                <h5>DUELCO A/S</h5>
+                                <p>
+                                    Opbygning samt installation af kritisk strøm fordeling elementer til ophæng i og på
+                                    væggen med fokus af Hospitaler.
+                                </p>
+                            </span>
+                            <p>2021 - 2022</p>
+                        </li>
+                    </ul>
+                </section>
+                <section>
+                    <h3>UDDANNELSE & KURSER</h3>
+                    <ul>
+                        <li>
+                            <span>
+                                <h4>Webudvikler</h4>
+                                <h5>TECHCOLLEGE</h5>
+                            </span>
+                            <p>2022-2023</p>
+                        </li>
+                        <li>
+                            <span>
+                                <h4>Webudvikler</h4>
+                                <h5>TECHCOLLEGE</h5>
+                            </span>
+                            <p>2019-2021</p>
+                        </li>
+                        <li>
+                            <span>
+                                <h4>Grundudannelse</h4>
+                                <h5>FGU Aalborg</h5>
+                            </span>
+                            <p>2016-2019</p>
+                        </li>
+                        <li>
+                            <span>
+                                <h4>Data og kommunikation</h4>
+                                <h5>TECHCOLLEGE</h5>
+                            </span>
+                            <p>2016-2016</p>
+                        </li>
+                        <li>
+                            <span>
+                                <h4>It web og media</h4>
+                                <h5>TECHCOLLEGE</h5>
+                            </span>
+                            <p>2015-2016</p>
+                        </li>
+                        <li>
+                            <span>
+                                <h4>20 Klasse</h4>
+                                <h5>LØVVANGSKOLEN</h5>
+                            </span>
+                            <p>2014-2015</p>
+                        </li>
+                    </ul>
+                </section>
+            </StyledList>
+        </main>
+    )
+}
+
+const StyledList = styled.article`
+    max-width: 1200px;
+    margin: auto;
+    h1 {
+        background-color: #8400db;
+        display: block;
+        font-size: 40px;
+        padding: 0.3em;
+        width: 300px;
+        margin: 2rem 0;
+    }
+    section {
+        h3 {
+            margin: 1rem;
+        }
+        ul {
+            margin: 1rem 1.3rem 1rem 2.7rem;
+            li {
+                display: flex;
+                justify-content: space-between;
+                margin: 0 0 2.2rem 0;
+                position: relative;
+                &::before {
+                    background: #8400db;
+                    content: "";
+                    height: 16px;
+                    width: 16px;
+                    border-radius: 50%;
+                    position: absolute;
+                    top: 6px;
+                    left: -27px;
+                }
+                &:not(:last-child) {
+                    &::after {
+                        background: gray;
+                        content: "";
+                        height: 47px;
+                        width: 3px;
+                        position: absolute;
+                        top: 30px;
+                        left: -21px;
+                    }
+                }
+                h4 {
+                    color: #8400db;
+                    font-size: 24px;
+                }
+                h5,
+                p {
+                    display: inherit;
+                    align-items: center;
+                    font-size: 18px;
+                    font-weight: 500;
+                }
+            }
+        }
+    }
+`
