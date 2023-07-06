@@ -13,9 +13,6 @@ export default function Header() {
                         <Link to="projects">projects</Link>
                     </li>
                     <li>
-                        <Link to="kurser">Kurser</Link>
-                    </li>
-                    <li>
                         <Link to="cv">Curriclum Vite</Link>
                     </li>
                 </ul>

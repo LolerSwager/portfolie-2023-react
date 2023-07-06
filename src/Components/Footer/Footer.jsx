@@ -28,7 +28,7 @@ export default function Footer() {
             <section>
                 <h4>Andre Sider</h4>
                 <div className="Outgoing-links">
-                    <a href="https://www.lolerswager.com/" target="_blank" rel="noreferrer">
+                    <a href="https://www.lolerswager.com/" target="_blank" rel="noreferrer" title="en hjemmeside til game tools">
                         LolerSwager.com
                     </a>
                 </div>
@@ -55,11 +55,11 @@ export default function Footer() {
                 <ul className="Contact-info">
                     <li>
                         <FaEnvelope />
-                        <p onClick={() => (window.location = "mailto:JannickTrolleNielsen@hotmail.com")}>
+                        <p onClick={() => (window.location = "mailto:JannickTrolleNielsen@hotmail.com")} title="Skriv mig en mail">
                             JannickTrolleNielsen@hotmail.com
                         </p>
                     </li>
-                    <li onClick={() => window.open("tel:20665586")}>
+                    <li onClick={() => window.open("tel:+4520665586")} title="Ring til mig :D">
                         <FaPhone />
                         <p>+45 20 66 55 86</p>
                     </li>

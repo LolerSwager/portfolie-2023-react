@@ -36,7 +36,7 @@ export default function Cv() {
                                 <h4>Webudvikler</h4>
                                 <h5>TECHCOLLEGE</h5>
                             </span>
-                            <h5>2019-2021</h5>
+                            <h5>2020-2021</h5>
                         </li>
                         <li>
                             <span>
