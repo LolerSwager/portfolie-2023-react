@@ -4,7 +4,7 @@ export default function Cv() {
     return (
         <main>
             <StyledList>
-                <h1>Curriclum Vite</h1>
+                <h1>Curriculum Vitae</h1>
                 <section>
                     <h3>ERHVERVSERFARING</h3>
                     <ul>

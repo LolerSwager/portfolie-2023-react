@@ -28,7 +28,12 @@ export default function Footer() {
             <section>
                 <h4>Andre Sider</h4>
                 <div className="Outgoing-links">
-                    <a href="https://www.lolerswager.com/" target="_blank" rel="noreferrer" title="en hjemmeside til game tools">
+                    <a
+                        href="https://www.lolerswager.com/"
+                        target="_blank"
+                        rel="noreferrer"
+                        title="en hjemmeside til game tools"
+                    >
                         LolerSwager.com
                     </a>
                 </div>
@@ -46,7 +51,7 @@ export default function Footer() {
                         <Link to="kurser">Kurser</Link>
                     </li>
                     <li>
-                        <Link to="cv">Curriclum Vite</Link>
+                        <Link to="cv">Curriculum Vitae</Link>
                     </li>
                 </ul>
             </section>
@@ -55,7 +60,10 @@ export default function Footer() {
                 <ul className="Contact-info">
                     <li>
                         <FaEnvelope />
-                        <p onClick={() => (window.location = "mailto:JannickTrolleNielsen@hotmail.com")} title="Skriv mig en mail">
+                        <p
+                            onClick={() => (window.location = "mailto:JannickTrolleNielsen@hotmail.com")}
+                            title="Skriv mig en mail"
+                        >
                             JannickTrolleNielsen@hotmail.com
                         </p>
                     </li>
