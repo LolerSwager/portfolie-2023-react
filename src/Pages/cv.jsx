@@ -17,7 +17,7 @@ export default function Cv() {
                                     væggen med fokus af Hospitaler.
                                 </p>
                             </span>
-                            <p>2021 - 2022</p>
+                            <h5>2021 - 2022</h5>
                         </li>
                     </ul>
                 </section>
@@ -29,42 +29,42 @@ export default function Cv() {
                                 <h4>Webudvikler</h4>
                                 <h5>TECHCOLLEGE</h5>
                             </span>
-                            <p>2022-2023</p>
+                            <h5>2022-2023</h5>
                         </li>
                         <li>
                             <span>
                                 <h4>Webudvikler</h4>
                                 <h5>TECHCOLLEGE</h5>
                             </span>
-                            <p>2019-2021</p>
+                            <h5>2019-2021</h5>
                         </li>
                         <li>
                             <span>
                                 <h4>Grundudannelse</h4>
                                 <h5>FGU Aalborg</h5>
                             </span>
-                            <p>2016-2019</p>
+                            <h5>2016-2019</h5>
                         </li>
                         <li>
                             <span>
                                 <h4>Data og kommunikation</h4>
                                 <h5>TECHCOLLEGE</h5>
                             </span>
-                            <p>2016-2016</p>
+                            <h5>2016-2016</h5>
                         </li>
                         <li>
                             <span>
                                 <h4>It web og media</h4>
                                 <h5>TECHCOLLEGE</h5>
                             </span>
-                            <p>2015-2016</p>
+                            <h5>2015-2016</h5>
                         </li>
                         <li>
                             <span>
                                 <h4>20 Klasse</h4>
                                 <h5>LØVVANGSKOLEN</h5>
                             </span>
-                            <p>2014-2015</p>
+                            <h5>2014-2015</h5>
                         </li>
                     </ul>
                 </section>
@@ -120,7 +120,14 @@ const StyledList = styled.article`
                     color: #8400db;
                     font-size: 24px;
                 }
-                h5,
+                h5 {
+                    min-width: 100px;
+                    display: inherit;
+                    align-items: center;
+                    font-size: 18px;
+                    font-weight: 500;
+                }
+
                 p {
                     display: inherit;
                     align-items: center;
