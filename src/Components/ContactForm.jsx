@@ -5,7 +5,7 @@ export default function ContactForm() {
         <StyledContactForm>
             <input type="text" placeholder="Dit Navn" />
             <textarea placeholder="skriv her..."></textarea>
-            <button>Send</button>
+            <button onClick={() => alert("virker ikke i nu kom tilbage senere")}>Send</button>
         </StyledContactForm>
     )
 }
