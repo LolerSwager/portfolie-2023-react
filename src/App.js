@@ -31,11 +31,9 @@ const STyledApp = styled.body`
         color: #eeeeee;
     }
 
-    
-
     display: grid;
     grid-template-columns: 1fr;
-    grid-template-rows: auto 1fr auto;
+    grid-template-rows: auto minmax(500px, 1fr) auto;
     width: 100%;
     min-height: 100dvh;
     background-color: #181818;

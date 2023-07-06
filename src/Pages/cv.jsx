@@ -75,7 +75,8 @@ export default function Cv() {
 
 const StyledList = styled.article`
     max-width: 1200px;
-    margin: auto;
+    margin: 0 auto;
+
     h1 {
         background-color: #8400db;
         display: block;
