@@ -2,7 +2,7 @@ import { styled } from "styled-components"
 
 export default function Cv() {
     return (
-        <main>
+        <StyledMain>
             <StyledList>
                 <h1>Curriculum Vitae</h1>
                 <section>
@@ -69,20 +69,23 @@ export default function Cv() {
                     </ul>
                 </section>
             </StyledList>
-        </main>
+        </StyledMain>
     )
 }
 
+const StyledMain = styled.main`
+    display: flex;
+    justify-content: center;
+`
+
 const StyledList = styled.article`
     max-width: 1200px;
-    margin: 0 auto;
-
     h1 {
         background-color: #8400db;
         display: block;
         font-size: 40px;
         padding: 0.3em;
-        width: 300px;
+        width: 350px;
         margin: 2rem 0;
     }
     section {
@@ -110,7 +113,7 @@ const StyledList = styled.article`
                     &::after {
                         background: gray;
                         content: "";
-                        height: 47px;
+                        height: 100%;
                         width: 3px;
                         position: absolute;
                         top: 30px;

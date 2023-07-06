@@ -88,9 +88,21 @@ const StyledFooter = styled.footer`
     flex-wrap: wrap; */
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(330px, 1fr));
+    position: relative;
+    &::before {
+        content: "";
+        height: 2px;
+        width: 100%;
+        position: absolute;
+        bottom: 100%;
+        right: 1;
+        background: linear-gradient(90deg, #8400db 0%, #000000 100%);
+        transition: 0.2s, background-position 0s;
+    }
     section {
         padding: 1.5rem;
         margin: 0.5rem;
+
         h4 {
             font-size: 1.3rem;
             margin: 0 0 0.8em 0;
