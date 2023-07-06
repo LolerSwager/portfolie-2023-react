@@ -125,6 +125,9 @@ const StyledFooter = styled.footer`
             display: inline-flex;
             border: 1px solid #181818;
             font-size: 1.5rem;
+            &:hover {
+                border: 1px solid #8400db;
+            }
         }
         section {
             margin-top: 0;
