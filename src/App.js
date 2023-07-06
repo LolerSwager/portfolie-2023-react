@@ -31,6 +31,8 @@ const STyledApp = styled.body`
         color: #eeeeee;
     }
 
+    
+
     display: grid;
     grid-template-columns: 1fr;
     grid-template-rows: auto 1fr auto;
