@@ -11,7 +11,7 @@ export default function Weather() {
             .then(function (response) {
                 // handle success
 
-                setWeatherData(response.data.name + " " + response.data.main.temp + " °C")
+                setWeatherData(response.data.name + " " + Math.round(response.data.main.temp) + " °C")
                 console.log(response.data.main.temp)
             })
             .catch(function (error) {
