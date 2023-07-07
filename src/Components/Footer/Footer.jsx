@@ -46,9 +46,6 @@ export default function Footer() {
                             <Link to="projects">projects</Link>
                         </li>
                         <li>
-                            <Link to="kurser">Kurser</Link>
-                        </li>
-                        <li>
                             <Link to="cv">Curriculum Vitae</Link>
                         </li>
                     </ul>
