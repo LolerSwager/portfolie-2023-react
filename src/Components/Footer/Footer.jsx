@@ -32,7 +32,6 @@ export default function Footer() {
                     </div>
                 </section>
             </section>
-
             <section>
                 <section>
                     <h4>Navigation</h4>
@@ -114,16 +113,6 @@ const StyledFooter = styled.footer`
             font-size: 1.3rem;
             margin: 0 0 0.8em 0;
         }
-
-        h3 {
-            padding: 1rem;
-            display: inline-flex;
-            border: 1px solid #181818;
-            font-size: 1.5rem;
-            &:hover {
-                border: 1px solid #8400db;
-            }
-        }
         section {
             margin-top: 0;
             padding-top: 0;
@@ -172,6 +161,20 @@ const StyledFooter = styled.footer`
                     color: #8400db;
                 }
             }
+        }
+    }
+
+    .weather {
+        padding: 1rem;
+        display: inline-flex;
+        border: 1px solid #181818;
+        align-items: center;
+        gap: 1rem;
+        &:hover {
+            border: 1px solid #8400db;
+        }
+        h3 {
+            font-size: 1.5rem;
         }
     }
 `

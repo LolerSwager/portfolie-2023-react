@@ -29,15 +29,20 @@ export default function Weather() {
         Axios.get(openweathermapUrl)
             .then(function (response) {
                 // handle success
-
                 setWeatherData(response.data.name + " " + Math.round(response.data.main.temp) + " °C")
                 console.log(response.data.main.temp)
             })
             .catch(function (error) {
                 // handle error
+                setWeatherData("error")
                 console.log(error)
             })
     }, [])
 
-    return <h3 onClick={() => getUserCoordinates()}>{weatherData}</h3>
+    return (
+        <div className="weather" onClick={() => getUserCoordinates()} title="Click mig for at se dit område">
+            <h3>{weatherData}</h3>
+            <i class="fa-solid fa-cloud fa-2x"></i>
+        </div>
+    )
 }

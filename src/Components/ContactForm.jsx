@@ -3,7 +3,7 @@ import { styled } from "styled-components"
 export default function ContactForm() {
     return (
         <StyledContactForm>
-            <input type="text" placeholder="Dit Navn" />
+            <input type="text" placeholder="Din E-mail" />
             <textarea placeholder="skriv her..."></textarea>
             <button onClick={() => alert("virker ikke i nu kom tilbage senere")}>Send</button>
         </StyledContactForm>

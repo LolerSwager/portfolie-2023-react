@@ -9,15 +9,18 @@ export default function Cv() {
                     <h3>ERHVERVSERFARING</h3>
                     <ul>
                         <li>
-                            <span>
-                                <h4>Montører</h4>
-                                <h5>DUELCO A/S</h5>
-                                <p>
-                                    Opbygning samt installation af kritisk strøm fordeling elementer til ophæng i og på
-                                    væggen med fokus af Hospitaler.
-                                </p>
-                            </span>
-                            <h5>2021 - 2022</h5>
+                            <div>
+                                <span>
+                                    <h4>Montører</h4>
+                                    <h5>DUELCO A/S</h5>
+                                </span>
+                                <h5>2021 - 2022</h5>
+                            </div>
+
+                            <p>
+                                Opbygning samt installation af kritisk strøm fordeling elementer til ophæng i og på
+                                væggen med fokus af Hospitaler.
+                            </p>
                         </li>
                     </ul>
                 </section>
@@ -25,46 +28,58 @@ export default function Cv() {
                     <h3>UDDANNELSE & KURSER</h3>
                     <ul>
                         <li>
-                            <span>
-                                <h4>Webudvikler</h4>
-                                <h5>TECHCOLLEGE</h5>
-                            </span>
-                            <h5>2022-2023</h5>
+                            <div>
+                                <span>
+                                    <h4>Webudvikler</h4>
+                                    <h5>TECHCOLLEGE</h5>
+                                </span>
+                                <h5>2022-2023</h5>
+                            </div>
                         </li>
                         <li>
-                            <span>
-                                <h4>Webudvikler</h4>
-                                <h5>TECHCOLLEGE</h5>
-                            </span>
-                            <h5>2020-2021</h5>
+                            <div>
+                                <span>
+                                    <h4>Webudvikler</h4>
+                                    <h5>TECHCOLLEGE</h5>
+                                </span>
+                                <h5>2020-2021</h5>
+                            </div>
                         </li>
                         <li>
-                            <span>
-                                <h4>Grundudannelse</h4>
-                                <h5>FGU Aalborg</h5>
-                            </span>
-                            <h5>2016-2019</h5>
+                            <div>
+                                <span>
+                                    <h4>Grundudannelse</h4>
+                                    <h5>FGU Aalborg</h5>
+                                </span>
+                                <h5>2016-2019</h5>
+                            </div>
                         </li>
                         <li>
-                            <span>
-                                <h4>Data og kommunikation</h4>
-                                <h5>TECHCOLLEGE</h5>
-                            </span>
-                            <h5>2016-2016</h5>
+                            <div>
+                                <span>
+                                    <h4>Data og kommunikation</h4>
+                                    <h5>TECHCOLLEGE</h5>
+                                </span>
+                                <h5>2016-2016</h5>
+                            </div>
                         </li>
                         <li>
-                            <span>
-                                <h4>It web og media</h4>
-                                <h5>TECHCOLLEGE</h5>
-                            </span>
-                            <h5>2015-2016</h5>
+                            <div>
+                                <span>
+                                    <h4>It web og media</h4>
+                                    <h5>TECHCOLLEGE</h5>
+                                </span>
+                                <h5>2015-2016</h5>
+                            </div>
                         </li>
                         <li>
-                            <span>
-                                <h4>20 Klasse</h4>
-                                <h5>LØVVANGSKOLEN</h5>
-                            </span>
-                            <h5>2014-2015</h5>
+                            <div>
+                                <span>
+                                    <h4>20 Klasse</h4>
+                                    <h5>LØVVANGSKOLEN</h5>
+                                </span>
+                                <h5>2014-2015</h5>
+                            </div>
                         </li>
                     </ul>
                 </section>
@@ -95,18 +110,21 @@ const StyledList = styled.article`
         ul {
             margin: 1rem 1.3rem 1rem 2.7rem;
             li {
-                display: flex;
-                justify-content: space-between;
+                div {
+                    display: flex;
+                    justify-content: space-between;
+                }
                 margin: 0 0 2.2rem 0;
+                list-style: none;
                 position: relative;
                 &::before {
                     background: #8400db;
                     content: "";
-                    height: 16px;
-                    width: 16px;
+                    height: 17px;
+                    width: 17px;
                     border-radius: 50%;
                     position: absolute;
-                    top: 6px;
+                    top: 5px;
                     left: -27px;
                 }
                 &:not(:last-child) {
@@ -116,8 +134,8 @@ const StyledList = styled.article`
                         height: 100%;
                         width: 3px;
                         position: absolute;
-                        top: 30px;
-                        left: -21px;
+                        top: 31px;
+                        left: -20px;
                     }
                 }
                 h4 {
