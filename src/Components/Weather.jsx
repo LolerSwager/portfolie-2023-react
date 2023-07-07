@@ -4,7 +4,9 @@ import { useEffect, useState } from "react"
 export default function Weather() {
     const [weatherData, setWeatherData] = useState("Loading...")
     const [lat, setLat] = useState(57.442711)
-    const [long, setLong] = useState(10.521006)
+    const [lon, setLon] = useState(10.521006)
+
+    console.log(lat, lon)
 
     const geolocationAPI = navigator.geolocation
     const getUserCoordinates = () => {
@@ -15,7 +17,7 @@ export default function Weather() {
                 (position) => {
                     const { coords } = position
                     setLat(coords.latitude)
-                    setLong(coords.longitude)
+                    setLon(coords.longitude)
                 },
                 (error) => {
                     console.log("Something went wrong getting your position!")
@@ -25,7 +27,7 @@ export default function Weather() {
     }
 
     useEffect(() => {
-        const openweathermapUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${long}&appid=6e58d95096d95702f9701b3503f746d6&units=metric&mode=JSON`
+        const openweathermapUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=6e58d95096d95702f9701b3503f746d6&units=metric&mode=JSON`
         Axios.get(openweathermapUrl)
             .then(function (response) {
                 // handle success
@@ -37,12 +39,11 @@ export default function Weather() {
                 setWeatherData("error")
                 console.log(error)
             })
-    }, [])
+    }, [lat, lon])
 
     return (
         <div className="weather" onClick={() => getUserCoordinates()} title="Click mig for at se dit område">
             <h3>{weatherData}</h3>
-            <i class="fa-solid fa-cloud fa-2x"></i>
         </div>
     )
 }
