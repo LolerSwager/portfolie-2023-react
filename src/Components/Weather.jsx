@@ -25,7 +25,6 @@ export default function Weather() {
     }
 
     useEffect(() => {
-        getUserCoordinates()
         const openweathermapUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${long}&appid=6e58d95096d95702f9701b3503f746d6&units=metric&mode=JSON`
         Axios.get(openweathermapUrl)
             .then(function (response) {
@@ -40,5 +39,5 @@ export default function Weather() {
             })
     }, [])
 
-    return weatherData
+    return <h3 onClick={() => getUserCoordinates()}>{weatherData}</h3>
 }

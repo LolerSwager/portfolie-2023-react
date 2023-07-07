@@ -10,9 +10,7 @@ export default function Footer() {
             <section>
                 <section>
                     <h4>Weather</h4>
-                    <h3>
-                        <Weather />
-                    </h3>
+                    <Weather />
                 </section>
                 <section>
                     <h4>Sosiale Medier</h4>
