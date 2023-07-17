@@ -2,50 +2,10 @@ import { styled } from "styled-components"
 import { FaGithubSquare, FaLinkedin } from "react-icons/fa"
 
 export default function Home() {
-    const StyledHome = styled.main`
-        margin: auto;
-        h1 {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin: 4rem;
-        }
-        h2 {
-            text-align: center;
-            margin: 2rem;
-        }
-        article {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 1rem;
-            justify-content: center;
-            margin: 2rem;
-            a {
-                text-decoration: none;
-                section {
-                    max-width: 400px;
-                    img {
-                        width: 100%;
-                        aspect-ratio: 5/3;
-                    }
-                    span {
-                        display: flex;
-                        gap: 0.5rem;
-                        align-items: center;
-                        font-size: 1.5rem;
-                        margin: 0.3rem 0;
-                        h3 {
-                            font-size: 1.3rem;
-                        }
-                    }
-                }
-            }
-        }
-    `
 
     return (
         <StyledHome>
-            <h1>Hej med dig</h1>
+            <h1>Velkommen til mit portfolie</h1>
             <h2>Tjek min Github samt min Linkind</h2>
             <article>
                 <a href="https://github.com/LolerSwager" target="_blank" rel="noreferrer">
@@ -76,3 +36,44 @@ export default function Home() {
         </StyledHome>
     )
 }
+
+const StyledHome = styled.main`
+    margin: auto;
+    h1 {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 4rem;
+    }
+    h2 {
+        text-align: center;
+        margin: 2rem;
+    }
+    article {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 1rem;
+        justify-content: center;
+        margin: 2rem;
+        a {
+            text-decoration: none;
+            section {
+                max-width: 400px;
+                img {
+                    width: 100%;
+                    aspect-ratio: 5/3;
+                }
+                span {
+                    display: flex;
+                    gap: 0.5rem;
+                    align-items: center;
+                    font-size: 1.5rem;
+                    margin: 0.3rem 0;
+                    h3 {
+                        font-size: 1.3rem;
+                    }
+                }
+            }
+        }
+    }
+`

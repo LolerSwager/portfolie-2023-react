@@ -1,17 +1,16 @@
 import Axios from "axios"
-import { useEffect, useState } from "react"
+import { useEffect, useState, useCallback } from "react"
+import WeatherIcons from "./WeatherIcons"
 
 export default function Weather() {
     const [weatherData, setWeatherData] = useState("Loading...")
     const [lat, setLat] = useState(57.442711)
     const [lon, setLon] = useState(10.521006)
 
-    console.log(lat, lon)
-
-    const geolocationAPI = navigator.geolocation
-    const getUserCoordinates = () => {
+    const getUserCoordinates = useCallback(() => {
+        const geolocationAPI = navigator.geolocation
         if (!geolocationAPI) {
-            console.log("Geolocation API is not available in your browser!")
+            console.error("Geolocation API is not available in your browser!")
         } else {
             geolocationAPI.getCurrentPosition(
                 (position) => {
@@ -20,24 +19,27 @@ export default function Weather() {
                     setLon(coords.longitude)
                 },
                 (error) => {
-                    console.log("Something went wrong getting your position!")
+                    console.error("Something went wrong getting your position!")
                 }
             )
         }
-    }
+    }, [])
 
     useEffect(() => {
-        const openweathermapUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=6e58d95096d95702f9701b3503f746d6&units=metric&mode=JSON`
+        getUserCoordinates()
+    }, [getUserCoordinates])
+
+    useEffect(() => {
+        const openweathermapUrl = `2https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=6e58d95096d95702f9701b3503f746d6&units=metric&mode=JSON`
         Axios.get(openweathermapUrl)
             .then(function (response) {
-                // handle success
                 setWeatherData(response.data.name + " " + Math.round(response.data.main.temp) + " °C")
-                console.log(response.data.main.temp)
+                WeatherIcons(response.data.weather[0].main)
             })
             .catch(function (error) {
                 // handle error
-                setWeatherData("error")
-                console.log(error)
+                setWeatherData("Error")
+                console.error(error)
             })
     }, [lat, lon])
 

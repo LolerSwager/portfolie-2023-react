@@ -32,7 +32,7 @@ const ErrorPage = styled.main`
         margin: 1rem;
     }
     button {
-        background-color: #8400db;
+        background-color: var(--activeColor);
         color: #1a1a1a;
         border: 1px solid transparent;
         border-radius: 8px;
@@ -44,9 +44,9 @@ const ErrorPage = styled.main`
         text-decoration: none;
         cursor: pointer;
         &:hover {
-            border-color: #8400db;
+            border-color: var(--activeColor);
             background-color: #1a1a1a;
-            color: #8400db;
+            color: var(--activeColor);
         }
         &:disabled {
             background-color: #1a1a1a;

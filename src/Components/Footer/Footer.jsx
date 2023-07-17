@@ -2,7 +2,7 @@ import { styled } from "styled-components"
 import { FaGithubSquare, FaLinkedin, FaDiscord, FaPhone, FaEnvelope } from "react-icons/fa"
 import ContactForm from "../ContactForm"
 import { Link } from "react-router-dom"
-import Weather from "../Weather"
+import Weather from "../Weather/Weather"
 
 export default function Footer() {
     return (
@@ -10,6 +10,7 @@ export default function Footer() {
             <section>
                 <section>
                     <h4>Weather</h4>
+                    
                     <Weather />
                 </section>
                 <section>
@@ -89,9 +90,6 @@ export default function Footer() {
 
 const StyledFooter = styled.footer`
     background-color: #000000;
-    /*  display: flex;
-    justify-content: space-evenly;
-    flex-wrap: wrap; */
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(330px, 1fr));
     position: relative;
@@ -102,7 +100,7 @@ const StyledFooter = styled.footer`
         position: absolute;
         bottom: 100%;
         right: 0;
-        background: linear-gradient(90deg, #8400db 0%, #000000 100%);
+        background: linear-gradient(90deg, var(--activeColor) 0%, #000000 100%);
         transition: 0.2s, background-position 0s;
     }
     section {
@@ -123,7 +121,7 @@ const StyledFooter = styled.footer`
     .Social-icons {
         font-size: 2.5rem;
         & *:hover {
-            fill: #8400db;
+            fill: var(--activeColor);
         }
         a {
             margin: 0 0.4rem;
@@ -134,7 +132,7 @@ const StyledFooter = styled.footer`
             text-decoration: none;
             margin: 0 0.5rem 0 0;
             &:hover {
-                color: #8400db;
+                color: var(--activeColor);
             }
         }
     }
@@ -145,7 +143,7 @@ const StyledFooter = styled.footer`
                 color: #eeeeee;
                 text-decoration: none;
                 &:hover {
-                    color: #8400db;
+                    color: var(--activeColor);
                 }
             }
         }
@@ -158,7 +156,7 @@ const StyledFooter = styled.footer`
             p {
                 cursor: pointer;
                 &:hover {
-                    color: #8400db;
+                    color: var(--activeColor);
                 }
             }
         }
@@ -171,7 +169,7 @@ const StyledFooter = styled.footer`
         align-items: center;
         gap: 1rem;
         &:hover {
-            border: 1px solid #8400db;
+            border: 1px solid var(--activeColor);
         }
         h3 {
             font-size: 1.5rem;

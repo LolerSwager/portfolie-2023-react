@@ -14,7 +14,7 @@ export default function Cv() {
                                     <h4>Montører</h4>
                                     <h5>DUELCO A/S</h5>
                                 </span>
-                                <h5>2021 - 2022</h5>
+                                <h5>2021-2022</h5>
                             </div>
 
                             <p>
@@ -75,7 +75,7 @@ export default function Cv() {
                         <li>
                             <div>
                                 <span>
-                                    <h4>20 Klasse</h4>
+                                    <h4>10 Klasse</h4>
                                     <h5>LØVVANGSKOLEN</h5>
                                 </span>
                                 <h5>2014-2015</h5>
@@ -96,7 +96,7 @@ const StyledMain = styled.main`
 const StyledList = styled.article`
     max-width: 1200px;
     h1 {
-        background-color: #8400db;
+        background-color: var(--activeColor);
         display: block;
         font-size: 40px;
         padding: 0.3em;
@@ -110,15 +110,11 @@ const StyledList = styled.article`
         ul {
             margin: 1rem 1.3rem 1rem 2.7rem;
             li {
-                div {
-                    display: flex;
-                    justify-content: space-between;
-                }
                 margin: 0 0 2.2rem 0;
                 list-style: none;
                 position: relative;
                 &::before {
-                    background: #8400db;
+                    background-color: var(--activeColor);
                     content: "";
                     height: 17px;
                     width: 17px;
@@ -139,15 +135,8 @@ const StyledList = styled.article`
                     }
                 }
                 h4 {
-                    color: #8400db;
+                    color: var(--activeColor);
                     font-size: 24px;
-                }
-                h5 {
-                    min-width: 100px;
-                    display: inherit;
-                    align-items: center;
-                    font-size: 18px;
-                    font-weight: 500;
                 }
 
                 p {
@@ -155,6 +144,17 @@ const StyledList = styled.article`
                     align-items: center;
                     font-size: 18px;
                     font-weight: 500;
+                }
+                div {
+                    display: flex;
+                    justify-content: space-between;
+                    h5 {
+                        min-width: 100px;
+                        display: inherit;
+                        align-items: center;
+                        font-size: 18px;
+                        font-weight: 500;
+                    }
                 }
             }
         }

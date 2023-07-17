@@ -17,7 +17,7 @@ const StyledContactForm = styled.div`
     input,
     textarea,
     button {
-        color: black;
+        color: #000000;
         padding: 0.2rem;
         font-size: 1.2rem;
         justify-items: start;
@@ -26,7 +26,7 @@ const StyledContactForm = styled.div`
     button {
         padding: 0.3rem;
         &:hover {
-            background-color: #8400db;
+            background-color: var(--activeColor);
         }
     }
 `
