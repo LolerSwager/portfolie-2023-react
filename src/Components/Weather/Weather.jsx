@@ -30,7 +30,7 @@ export default function Weather() {
     }, [getUserCoordinates])
 
     useEffect(() => {
-        const openweathermapUrl = `2https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=6e58d95096d95702f9701b3503f746d6&units=metric&mode=JSON`
+        const openweathermapUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=6e58d95096d95702f9701b3503f746d6&units=metric&mode=JSON`
         Axios.get(openweathermapUrl)
             .then(function (response) {
                 setWeatherData(response.data.name + " " + Math.round(response.data.main.temp) + " °C")
