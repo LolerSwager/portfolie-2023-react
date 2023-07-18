@@ -5,6 +5,12 @@ export default function Settings() {
     return (
         <StyledSettings>
             <h1>Settings</h1>
+            {/* <menu>
+                <ul>
+                    <li>Appearance</li>
+                    <li>Appearance</li>
+                </ul>
+            </menu> */}
             <article>
                 <Theme />
             </article>
@@ -17,16 +23,24 @@ const StyledSettings = styled.main`
     justify-items: center;
     article {
         max-width: 1200px;
-        section {
+        article {
             display: flex;
             flex-direction: column;
             align-items: start;
-            
-
+            section {
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                gap: 0.5rem;
+                margin: 1rem 0;
+            }
             button {
                 color: black;
                 border: none;
                 padding: 0.3rem;
+                &:hover {
+                    background-color: var(--activeColor);
+                }
             }
         }
     }

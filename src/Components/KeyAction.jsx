@@ -38,6 +38,19 @@ export default function KeyAction() {
             })
             return navigate("/settings")
         }
+        if (event.key === "½") {
+            toast(`Console`, {
+                closeOnClick: false,
+                icon: <FaKey />,
+            })
+        }
+        if (event.key === "a") {
+            toast(`Kosmetiker kort app`, {
+                closeOnClick: false,
+                icon: <FaKey />,
+            })
+            window.open("https://cardapp-dmqrjuc8r-lolerswager.vercel.app/", "about:blank", "width=400,height=600")
+        }
         if (event.key === "ø") {
             toast(`You have pressed 'ø' key`, {
                 closeOnClick: false,

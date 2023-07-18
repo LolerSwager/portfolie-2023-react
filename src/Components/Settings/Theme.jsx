@@ -12,25 +12,30 @@ export default function Theme() {
 
     return (
         <>
-            <h2>Theme</h2>
-            <section>
-                <ColorPicker>
-                    <input
-                        type="color"
-                        onChange={(event) => setThemeColor(event.target.value)}
-                        value={themeColor}
-                    ></input>
-                    <input type="text" onChange={(event) => setThemeColor(event.target.value)} value={themeColor} />
-                </ColorPicker>
+           
+            <h2>Appearance</h2>
+            <article>
+                <section>
+                    <label>Customize primary color</label>
+                    <ColorPicker>
+                        <input
+                            type="color"
+                            onChange={(event) => setThemeColor(event.target.value)}
+                            value={themeColor}
+                        ></input>
+                        <input type="text" onChange={(event) => setThemeColor(event.target.value)} value={themeColor} />
+                    </ColorPicker>
+                </section>
+
                 <button onClick={() => window.location.reload()}>Reload</button>
-            </section>
+            </article>
         </>
     )
 }
 
 const ColorPicker = styled.span`
     display: flex;
-    margin: 1rem 0;
+
     background-color: var(--wrapperColor);
     padding: 0.3rem 0.5rem;
     gap: 0.3rem;
