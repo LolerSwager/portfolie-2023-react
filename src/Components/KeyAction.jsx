@@ -1,9 +1,10 @@
 import { useEffect } from "react"
 import { toast } from "react-toastify"
-import { FaKey, FaSwatchbook, FaWrench } from "react-icons/fa6"
+import { FaKey, FaSwatchbook, FaWrench, FaRoute, FaCode } from "react-icons/fa6"
+import { GiIsland } from "react-icons/gi"
 import Weather from "./Weather/Weather"
-import { RemoveLS } from "../Hooks/useToLocalStorage"
 import WeatherIcons from "./Weather/WeatherIcons"
+import { RemoveLS } from "../Hooks/useToLocalStorage"
 import { useNavigate } from "react-router-dom"
 
 export default function KeyAction() {
@@ -26,7 +27,6 @@ export default function KeyAction() {
             RemoveLS("color")
             toast("Custom Theme Removed", {
                 closeOnClick: false,
-                autoClose: 5000,
                 icon: <FaSwatchbook />,
             })
         }
@@ -38,23 +38,39 @@ export default function KeyAction() {
             })
             return navigate("/settings")
         }
-        if (event.key === "½") {
-            toast(`Console`, {
+        if (event.key === "q" && event.altKey) {
+            toast("Navigating back", {
                 closeOnClick: false,
-                icon: <FaKey />,
+                autoClose: 1000,
+                icon: <FaRoute />,
             })
+            return navigate(-1)
         }
-        if (event.key === "a") {
+        if (event.key === "e" && event.altKey) {
+            toast("Navigating forward", {
+                closeOnClick: false,
+                autoClose: 1000,
+                icon: <FaRoute />,
+            })
+            return navigate(+1)
+        }
+        if (event.key === "a" && event.altKey) {
             toast(`Kosmetiker kort app`, {
                 closeOnClick: false,
                 icon: <FaKey />,
             })
             window.open("https://cardapp-dmqrjuc8r-lolerswager.vercel.app/", "about:blank", "width=400,height=600")
         }
+        if (event.key === "½") {
+            toast(`Console`, {
+                closeOnClick: false,
+                icon: <FaCode />,
+            })
+        }
         if (event.key === "ø") {
             toast(`You have pressed 'ø' key`, {
                 closeOnClick: false,
-                icon: <FaKey />,
+                icon: <GiIsland />,
             })
         }
     }

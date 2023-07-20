@@ -11,7 +11,7 @@ export const useGetList = (endpoint) => {
             try {
                 if (response.data) {
                     console.log(response.data)
-                    setState(response.data.items)
+                    setState(response.data)
                 }
             } catch (error) {
                 console.error(error)

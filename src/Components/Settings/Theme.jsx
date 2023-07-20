@@ -12,7 +12,6 @@ export default function Theme() {
 
     return (
         <>
-           
             <h2>Appearance</h2>
             <article>
                 <section>
@@ -35,10 +34,10 @@ export default function Theme() {
 
 const ColorPicker = styled.span`
     display: flex;
-
     background-color: var(--wrapperColor);
     padding: 0.3rem 0.5rem;
     gap: 0.3rem;
+    border-radius: 5px; 
     input[type="color"] {
         width: 25px;
     }

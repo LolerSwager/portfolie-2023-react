@@ -2,7 +2,7 @@ import { styled } from "styled-components"
 import { FaGithubSquare, FaLinkedin } from "react-icons/fa"
 
 export default function Home() {
-
+    document.title = "Jannick Nielsen | Portfolie"
     return (
         <StyledHome>
             <h1>Velkommen til mit portfolie</h1>

@@ -2,6 +2,7 @@ import { styled } from "styled-components"
 import Theme from "../Components/Settings/Theme"
 
 export default function Settings() {
+    document.title = "Settings"
     return (
         <StyledSettings>
             <h1>Settings</h1>
@@ -37,7 +38,7 @@ const StyledSettings = styled.main`
             button {
                 color: black;
                 border: none;
-                padding: 0.3rem;
+                padding: 0.4rem;
                 &:hover {
                     background-color: var(--activeColor);
                 }

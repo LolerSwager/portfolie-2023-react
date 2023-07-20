@@ -5,6 +5,8 @@ export default function NotFound() {
     const wlp = window.location.pathname
     const navigate = useNavigate()
 
+    document.title = `404 Page -> ${wlp.replaceAll('%20', ' ')}`
+
     return (
         <ErrorPage>
             <div>
