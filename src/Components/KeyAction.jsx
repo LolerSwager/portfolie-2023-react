@@ -16,6 +16,8 @@ export default function KeyAction() {
 
     function detectKeyDown(event) {
         console.log("Clicked key: ", event.key)
+        
+        event.preventDefault()
 
         if (event.key === "w" && event.altKey) {
             toast(<Weather />, {
@@ -47,6 +49,7 @@ export default function KeyAction() {
             return navigate(-1)
         }
         if (event.key === "e" && event.altKey) {
+            
             toast("Navigating forward", {
                 closeOnClick: false,
                 autoClose: 1000,

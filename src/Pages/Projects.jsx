@@ -11,9 +11,9 @@ export default function Projects() {
 
         return (
             <LanTags>
-                {languages.map((language, index) => (
-                    <li key={index}>{language}</li>
-                ))}
+                {window.document.body.scrollWidth > 600
+                    ? languages.map((language, index) => <li key={index}>{language}</li>)
+                    : languages.slice(0, 3).map((language, index) => <li key={index}>{language}</li>)}
             </LanTags>
         )
     }
@@ -55,12 +55,11 @@ const StyledArticle = styled.article`
         border: 1px solid var(--wrapperColor);
         position: relative;
         &:hover {
+            transition: all 0.5s ease;
             &::before {
                 background-color: var(--activeColor);
             }
-            &::after {
-                background-color: var(--activeColor);
-            }
+            border-bottom: 1px solid var(--activeColor);
         }
         span {
             display: flex;
@@ -77,6 +76,7 @@ const StyledArticle = styled.article`
             width: 40px;
             height: 40px;
             background-color: var(--backGroundColor);
+            border: 2px solid var(--backGroundColor);
             border-radius: 50%;
             position: absolute;
             top: 50%;
@@ -92,7 +92,7 @@ const StyledArticle = styled.article`
                 background-color: var(--backGroundColor);
                 position: absolute;
                 top: 60%;
-                left: 25px;
+                left: 27px;
                 z-index: 2;
             }
         }
@@ -102,6 +102,14 @@ const StyledArticle = styled.article`
 const LanTags = styled.ul`
     display: flex;
     gap: 1rem;
-    padding: 1rem;
+    padding: 1rem 0 1rem 1rem;
     list-style: none;
+    li {
+        font-weight: 700;
+        cursor: pointer;
+        transition: all 0.2s ease;
+        &:hover {
+            color: var(--activeColor);
+        }
+    }
 `
