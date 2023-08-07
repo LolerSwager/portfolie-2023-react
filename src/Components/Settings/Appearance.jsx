@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react"
 import { styled } from "styled-components"
 
-export default function Theme() {
+export default function Appearance() {
     const [themeColor, setThemeColor] = useState(
         localStorage.getItem("color") ? localStorage.getItem("color") : "#8400db"
     )
@@ -12,8 +12,7 @@ export default function Theme() {
 
     return (
         <>
-            <h2>Appearance</h2>
-            <article>
+            <h2 id="anchor-1">Appearance</h2>
                 <section>
                     <label>Customize primary color</label>
                     <ColorPicker>
@@ -25,9 +24,6 @@ export default function Theme() {
                         <input type="text" onChange={(event) => setThemeColor(event.target.value)} value={themeColor} />
                     </ColorPicker>
                 </section>
-
-                <button onClick={() => window.location.reload()}>Reload</button>
-            </article>
         </>
     )
 }
@@ -37,7 +33,7 @@ const ColorPicker = styled.span`
     background-color: var(--wrapperColor);
     padding: 0.3rem 0.5rem;
     gap: 0.3rem;
-    border-radius: 5px; 
+    border-radius: calc(var(--borderRadius)/2); 
     input[type="color"] {
         width: 25px;
     }

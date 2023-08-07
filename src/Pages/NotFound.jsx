@@ -37,7 +37,7 @@ const ErrorPage = styled.main`
         background-color: var(--activeColor);
         color: #1a1a1a;
         border: 1px solid transparent;
-        border-radius: 8px;
+        border-radius: calc(var(--borderRadius)/2);
         transition: border-color 0.25s;
         padding: 0.6em 1em;
         margin: 0 0 0 1rem;
