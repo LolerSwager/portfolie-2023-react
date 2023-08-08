@@ -13,12 +13,12 @@ export default function SessionStorage(){
         setSessionStorageKeys(keys);
     }, []);
 
-    function RemoveLS(item) {
+    function RemoveSS(item) {
         sessionStorage.removeItem(item)
         setSessionStorageKeys(prevKeys => prevKeys.filter(key => key !== item));
     }
 
-    function ClearAllCache(){
+    function ClearAllStorage(){
         sessionStorage.clear()
         setSessionStorageKeys([])
     }
@@ -29,10 +29,10 @@ export default function SessionStorage(){
             {sessionStorageKeys.map((item, index) => (
                 <section key={index}>
                     <h4>{item}</h4>
-                    <button onClick={() => RemoveLS(item)}>Clear </button>
+                    <button onClick={() => RemoveSS(item)}>Clear </button>
                 </section>
             ))}
-           {sessionStorageKeys.length !== 0 ? <button onClick={ClearAllCache}>Clear All Session Storage</button> : <p>There is no Session Storage</p>} 
+           {sessionStorageKeys.length !== 0 ? <button onClick={ClearAllStorage}>Clear All Session Storage</button> : <p>There is no Session Storage</p>} 
         </StyledArticle>
     )
 }
@@ -41,7 +41,10 @@ const StyledArticle = styled.article`
     padding: 1rem;
     background-color: var(--wrapperColor);
     border-radius: var(--borderRadius);
-    max-width: 350px;
+    max-width: 400px;
+    @media only screen and (max-width: 600px){
+        max-width: 100%;
+    }
     section{
         display: grid;
         align-content: space-between;

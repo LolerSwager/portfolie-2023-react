@@ -58,6 +58,10 @@ const SpacingGrid = styled.span`
     justify-items: center;
     gap: 1rem;
     position: relative;
+
+    @media only screen and (max-width: 600px){
+        grid-template-columns: 1fr;
+    }
 `
 
 const StyledAside = styled.span`
@@ -67,6 +71,9 @@ const StyledAside = styled.span`
     position: sticky;
     top: 0;
     max-height: calc(100vh / 2);
+    @media only screen and (max-width: 600px){
+        width: 100%;
+    }
     menu{
         border: 1px solid var(--wrapperColor);
         border-radius: var(--borderRadius);
@@ -98,6 +105,11 @@ const StyledAside = styled.span`
                 }
             }
         }
+    }
+
+    @media only screen and (max-width: 600px){
+        position: relative;
+        right: 0;
     }
    
 `

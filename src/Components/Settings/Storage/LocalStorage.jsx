@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { styled } from 'styled-components';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faTriangleExclamation } from '@fortawesome/free-solid-svg-icons';
+import { faTriangleExclamation, faCircleInfo } from '@fortawesome/free-solid-svg-icons';
 
 export default function LocalStorage(){
     const [localStorageKeys, setLocalStorageKeys] = useState(Object.keys(localStorage));
@@ -20,7 +20,7 @@ export default function LocalStorage(){
         setLocalStorageKeys(prevKeys => prevKeys.filter(key => key !== item));
     }
 
-    function ClearAllCache(){
+    function ClearAllStorage(){
         localStorage.clear()
         setLocalStorageKeys([])
     }
@@ -32,12 +32,12 @@ export default function LocalStorage(){
                 <section key={index}>
                     <SpanRow>
                         <h4>{item}</h4>
-                        {item === "color" ? <FontAwesomeIcon icon={faTriangleExclamation} title="This is the theme color of the site, It will be coming back as default value if you Clear it."/> : ""}
+                        {item === "color" ? <FontAwesomeIcon icon={faCircleInfo} title="This is the theme color of the site, It will be coming back as default value if you Clear it."/> : ""}
                     </SpanRow>
                     <button onClick={() => RemoveLS(item)}>Clear </button>
                 </section>
             ))}
-           {localStorageKeys.length !== 0 ? <button onClick={ClearAllCache}>Clear All Local Storage</button> : <p>There is no Local Storage</p>} 
+           {localStorageKeys.length !== 0 ? <button onClick={ClearAllStorage}>Clear All Local Storage</button> : <p>There is no Local Storage</p>} 
         </StyledArticle>
     )
 }
@@ -46,7 +46,10 @@ const StyledArticle = styled.article`
     padding: 1rem;
     background-color: var(--wrapperColor);
     border-radius: var(--borderRadius);
-    max-width: 350px;
+    max-width: 400px;
+    @media only screen and (max-width: 600px){
+        max-width: 100%;
+    }
     section{
         display: grid;
         align-content: space-between;
