@@ -10,7 +10,6 @@ export default function Footer() {
             <section>
                 <section>
                     <h4>Weather</h4>
-                    
                     <Weather />
                 </section>
                 <section>
@@ -46,6 +45,9 @@ export default function Footer() {
                         <li>
                             <Link to="cv">Curriculum Vitae</Link>
                         </li>
+                        <li>
+                            <Link to="settings">Settings</Link>
+                        </li>
                     </ul>
                 </section>
                 <section>
@@ -56,7 +58,7 @@ export default function Footer() {
                             target="_blank"
                             rel="noreferrer"
                             title="en hjemmeside til game tools"
-                        >
+                            >
                             LolerSwager.com
                         </a>
                     </div>
@@ -91,7 +93,7 @@ export default function Footer() {
 const StyledFooter = styled.footer`
     background-color: #000000;
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(330px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
     position: relative;
     &::before {
         content: "";
@@ -106,7 +108,7 @@ const StyledFooter = styled.footer`
     section {
         padding: 1.5rem;
         margin: 0.5rem;
-
+       // background-color: red;
         h4 {
             font-size: 1.3rem;
             margin: 0 0 0.8em 0;

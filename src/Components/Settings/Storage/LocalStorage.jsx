@@ -46,10 +46,6 @@ const StyledArticle = styled.article`
     padding: 1rem;
     background-color: var(--wrapperColor);
     border-radius: var(--borderRadius);
-    max-width: 400px;
-    @media only screen and (max-width: 600px){
-        max-width: 100%;
-    }
     section{
         display: grid;
         align-content: space-between;

@@ -12,7 +12,7 @@ export default function Appearance() {
 
     return (
         <>
-            <h2 id="anchor-1">Appearance</h2>
+            <h2 id="Appearance">Appearance</h2>
                 <section>
                     <label>Customize primary color</label>
                     <ColorPicker>

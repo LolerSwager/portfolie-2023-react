@@ -12,17 +12,17 @@ export default function Settings() {
                     <h1>Settings</h1>
                     <menu>
                         <ul>
-                            <li><a href="#anchor-1">Appearance</a></li>
-                            <li><a href="#anchor-2">Permissions</a></li>
-                            <li><a href="#anchor-3">Storage</a></li>
+                            <li><a href="#Appearance">Appearance</a></li>
+                            <li><a href="#Permissions">Permissions</a></li>
+                            <li><a href="#Storage">Storage</a></li>
                         </ul>
                     </menu> 
                     <button onClick={() => window.location.reload()}>Reload Page</button>
                 </StyledAside>
                 <article>
                     <Appearance/>
-                    <Permissions id="anchor-2"/>
-                    <Storage id="anchor-3"/>
+                    <Permissions/>
+                    <Storage/>
                 </article>
             </SpacingGrid>
         </StyledSettings>
@@ -81,10 +81,11 @@ const StyledAside = styled.span`
         ul{
             list-style: none;
             li{
-                
+                border: 1px solid var(--backGroundColor);
                 &:hover{
                     color: var(--activeColor);
                     background-color: var(--wrapperColor);
+                    border-right: 1px solid var(--wrapperColor);
                     border-left: 1px solid var(--activeColor);
                     &:first-child{
                        border-top-left-radius: var(--borderRadius);

@@ -10,9 +10,9 @@ import { useNavigate } from "react-router-dom"
 export default function KeyAction() {
     const navigate = useNavigate()
 
-    useEffect(() => {
+    /* useEffect(() => {
         document.addEventListener("keydown", detectKeyDown, true)
-    }, [])
+    }, []) */
 
     function detectKeyDown(event) {
         console.log("Clicked key: ", event.key)

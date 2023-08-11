@@ -2,15 +2,15 @@ import { useEffect, useState } from 'react';
 import { styled } from 'styled-components';
 
 export default function Cookies(){
-    const [cookies, setCookies] = useState([{}]);
+    const [cookies, setCookies] = useState([]);
 
-    document.cookie = "Cookie=Monster";
+    document.cookie = "This is not working=error";
 
     useEffect(() => {
         const cookieArray = document.cookie.split(';');
         const cookiesObject = cookieArray.reduce((obj, str) => {
-            const s = str.split('=');
-            obj[s[0].trim()] = s[1];
+            const [name, value] = str.split('=');
+            obj[name.trim()] = value;
             return obj;
         }, {});
 
@@ -18,23 +18,32 @@ export default function Cookies(){
     }, []);
 
     function ClearCookie(item) {
-        alert('Cookie name: ' + item)
-       /*  cookies(prevKeys => prevKeys.filter(key => key !== item));
+        setCookies([])
 
-        document.cookies.remove({
+        /* document.cookies.remove({
             url: 'http://localhost:3000',
             name: item,
-          }) */
+          })  */
     }
+
+    function ClearAllCookie() {
+        const cookies = document.cookie.split(';');
+        for (const cookie of cookies) {
+          const [name, value] = cookie.split('=');
+          document.cookie = `${name}=${value}; expires=Thu, 01 Jan 1970 00:00:00 GMT; path=/;`;
+        }
+        setCookies([])
+    }
+    
     return(
         <StyledArticle>
-            {Object.keys(cookies).map((item, index) => (
+            {cookies && Object.keys(cookies).map((item, index) => (
                 <section key={index}>
                     <h4>{item}</h4>
-                    <button onClick={()=> ClearCookie(item)}>Clear </button>
+                    <button onClick={()=> ClearCookie(item)} disabled title="Working on fixing cookie">Clear </button>
                 </section>
             ))}
-            {Object.keys(cookies).length !== 0 ? <button onClick={() => alert('nom nom nom...')}>Eat all the Cookies</button> : <p>There is no Cookies</p>}
+            {Object.keys(cookies).length !== 0 ? <button onClick={() => ClearAllCookie()}>Eat all the Cookies</button> : <p>There is no Cookies</p>}
         </StyledArticle>
     )
 }
@@ -44,10 +53,6 @@ const StyledArticle = styled.article`
     padding: 1rem;
     background-color: var(--wrapperColor);
     border-radius: var(--borderRadius);
-    max-width: 400px;
-    @media only screen and (max-width: 600px){
-        max-width: 100%;
-    }
     section{
         display: grid;
         align-content: space-between;

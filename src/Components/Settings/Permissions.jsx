@@ -153,7 +153,7 @@ export default function Permissions(){
     sessionStorage.setItem('permissions', JSON.stringify([...allPermissions]))
   return(
         <>
-            <h2 id="anchor-2">Permissions</h2>
+            <h2 id="Permissions">Permissions</h2>
             {
               allPermissions.map((item)=>{
                     return(

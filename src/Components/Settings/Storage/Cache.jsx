@@ -1,6 +1,16 @@
 import { styled } from 'styled-components';
 
 export default function Cache(){
+
+    navigator.usb.getDevices().then((devices) => {
+        console.log(`Total devices: ${devices.length}`);
+        devices.forEach((device) => {
+          console.log(
+            `Product name: ${device.productName}, serial number ${device.serialNumber}`,
+          );
+        });
+      });
+
     return(
         <StyledArticle>
             <p>There is no cache</p>
@@ -13,10 +23,6 @@ const StyledArticle = styled.article`
     padding: 1rem;
     background-color: var(--wrapperColor);
     border-radius: var(--borderRadius);
-    max-width: 400px;
-    @media only screen and (max-width: 600px){
-        max-width: 100%;
-    }
     section{
         display: grid;
         align-content: space-between;
