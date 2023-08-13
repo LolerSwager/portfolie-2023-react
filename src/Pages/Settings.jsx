@@ -1,5 +1,6 @@
 import { styled } from "styled-components"
 import Appearance from "../Components/Settings/Appearance"
+import Notifications from "../Components/Settings/Notifications"
 import Permissions from "../Components/Settings/Permissions"
 import Storage from "../Components/Settings/Storage"
 
@@ -14,6 +15,10 @@ export default function Settings() {
                         <ul>
                             <li><a href="#Appearance">Appearance</a></li>
                             <li><a href="#Permissions">Permissions</a></li>
+                            <li>
+                                <a href="#Notifications">
+                                Notifications</a>
+                            </li>
                             <li><a href="#Storage">Storage</a></li>
                         </ul>
                     </menu> 
@@ -22,6 +27,7 @@ export default function Settings() {
                 <article>
                     <Appearance/>
                     <Permissions/>
+                    <Notifications/>
                     <Storage/>
                 </article>
             </SpacingGrid>

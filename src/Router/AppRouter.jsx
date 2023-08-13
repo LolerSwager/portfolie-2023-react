@@ -5,6 +5,7 @@ import Cv from "../Pages/cv"
 import Qr from "../Pages/Qr"
 import Settings from "../Pages/Settings"
 import Projects from "../Pages/Projects"
+import Test from "../Pages/test"
 
 export default function AppRouter() {
     return (
@@ -15,6 +16,7 @@ export default function AppRouter() {
             <Route path="*" element={<NotFound />} />
             <Route path="/qr/:themeColor" element={<Qr />} />
             <Route path="/settings" element={<Settings />} />
+            <Route path="/test" element={<Test/>} />
         </Routes>
     )
 }
