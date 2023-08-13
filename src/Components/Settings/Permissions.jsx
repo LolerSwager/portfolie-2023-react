@@ -3,6 +3,7 @@ import { faBell, faCamera, faClipboard, faCompass, faDatabase, faDesktop, faInfo
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { useEffect, useState } from "react";
 import { styled } from "styled-components";
+import ToggleSwitch from '../ToggleSwitch';
 
 const permissionsNames = [
     {
@@ -123,7 +124,6 @@ const permissionsNames = [
 
 export default function Permissions(){
     const [allPermissions, setAllPermissions] = useState([]);
-
     const getAllPermissions = async () => {
         const permissionsArray = await Promise.all(
             permissionsNames.map(async (permissionName) => {
@@ -158,13 +158,19 @@ export default function Permissions(){
               allPermissions.map((item)=>{
                     return(
                         <StyledSection key={item.id}>
-                            <StyledStatus title={item?.errorMessage}><p>{item.state}</p></StyledStatus>
-                            <VerticalLine />
                             <SpanCollom>
-                                <SpanRow>
-                                    <h4>{item.name}</h4>
-                                    <FontAwesomeIcon icon={item.icon} />
-                                </SpanRow>
+                                <SpanSpread>
+                                    <SpanRow>
+                                        <h4>{item.name}</h4>
+                                        <FontAwesomeIcon icon={item.icon} />
+                                    </SpanRow>
+                                    <SpanRow>
+                                        <small title={item?.errorMessage}>{item.state}</small>
+                                        <ToggleSwitch 
+                                            ToggleDisabled={item.state === 'error' ? true : false} 
+                                            isToggeld={item.state === 'granted' ? true : false}/>         
+                                    </SpanRow>               
+                                </SpanSpread>
                                 <p>{item.description}</p>
                             </SpanCollom>
                         </StyledSection>
@@ -183,13 +189,6 @@ const StyledSection = styled.section`
     display: flex;
     justify-items: center;
     align-items: center;
-    &:hover{
-        box-shadow: 4px 4px 0 black;
-        transform: translateX(-4px);
-        transform: translateY(-4px);
-        border-bottom: 1px solid var(--activeColor);
-        border-right: 1px solid var(--activeColor);
-    }
 `
 
 const SpanRow = styled.span`
@@ -199,26 +198,14 @@ const SpanRow = styled.span`
 `
 
 const SpanCollom = styled.span`
+    width: 100%;
     display: flex;
     flex-direction: column;
 `
 
-const StyledStatus = styled.div`
-    min-width: 100px;
-    min-height: 100px;
-    border: 1px solid;
-    border-radius: 50%;
+const SpanSpread = styled.span`
     display: flex;
     align-items: center;
-    justify-items: center;
-    p{
-        margin: auto;
-    }
-`
-
-const VerticalLine = styled.div`
-    border-right: 1px solid ;
-    height: 100%;
-    background-color: var(--fontColor);
-    margin: .8rem;
+    justify-content: space-between;
+    padding: 0 0 1rem 0;
 `

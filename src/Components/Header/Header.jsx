@@ -89,7 +89,7 @@ const StyledHeader = styled.header`
     @media only screen and (max-width: 700px){
         position: relative;
         nav{
-            height: ${(props) => (props.menuStateShow ? "100vh" : "unset")};
+            height: ${(props) => (props.menuStateShow ? "100dvh" : "unset")};
             flex-direction: ${(props) => (props.menuStateShow ? "column" : "unset")};
             justify-content: ${(props) => (props.menuStateShow ? "space-around" : "space-between")};
             width: 100%;
