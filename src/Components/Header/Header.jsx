@@ -14,16 +14,16 @@ export default function Header() {
                 </span>
                 <ul>
                     <li>
-                        <Link to="/">Home</Link>
+                        <Link to="/" onClick={() => setMenuState(!menuState)}>Home</Link>
                     </li>
                     <li>
-                        <Link to="projects">projects</Link>
+                        <Link to="projects" onClick={() => setMenuState(!menuState)}>projects</Link>
                     </li>
                     <li>
-                        <Link to="cv">Curriculum Vitae</Link>
+                        <Link to="cv" onClick={() => setMenuState(!menuState)}>Curriculum Vitae</Link>
                     </li>
                 </ul>
-                <Link to="settings" className="settingsIcon">
+                <Link to="settings" className="settingsIcon" onClick={() => setMenuState(!menuState)}>
                     <FontAwesomeIcon icon={faGear} />
                 </Link>
             </nav>
@@ -44,7 +44,7 @@ const StyledHeader = styled.header`
         .burgerMenu{
             display: none;
             padding: .5rem 1rem;
-            transition: ease-in-out 1s; //! idk if this works
+            transition: ease-in-out 1s;
             &:hover{
                 background-color: var(--wrapperColor);
                 border-radius: var(--borderRadius);
@@ -57,6 +57,7 @@ const StyledHeader = styled.header`
             padding: .5rem 1rem;
             color: #eeeeee;
             text-decoration: none;
+            transition: ease-in-out 1s;
             &:hover{
                 background-color: var(--wrapperColor);
                 fill: var(--activeColor);
