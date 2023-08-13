@@ -7,7 +7,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 export default function Header() {
     const [menuState, setMenuState] = useState(false)
     return (
-        <StyledHeader>
+        <StyledHeader menuStateShow={menuState}>
             <nav>
                 <span className="burgerMenu" onClick={() => setMenuState(!menuState)}>
                     {menuState ? <FontAwesomeIcon icon={faX} /> : <FontAwesomeIcon icon={faBars} />}
@@ -44,19 +44,29 @@ const StyledHeader = styled.header`
         .burgerMenu{
             display: none;
             padding: .5rem 1rem;
+            &:hover{
+                background-color: var(--wrapperColor);
+                border-radius: var(--borderRadius);
+            }
+            @media only screen and (max-width: 600px){
+                display: block;
+            }
         }
         .settingsIcon{
             padding: .5rem 1rem;
-            border-radius: var(--borderRadius);
             color: #eeeeee;
             text-decoration: none;
             &:hover{
                 background-color: var(--wrapperColor);
                 fill: var(--activeColor);
+                border-radius: var(--borderRadius);
             }
         }
         ul {
-            display: flex;
+            display: ${(props) => (props.menuStateShow ? "flex" : "none")};
+            @media only screen and (min-width: 600px){
+                display: flex;
+            }
             justify-content: center;
             align-items: center;
             li {
