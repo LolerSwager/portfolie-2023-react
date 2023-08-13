@@ -44,6 +44,7 @@ const StyledHeader = styled.header`
         .burgerMenu{
             display: none;
             padding: .5rem 1rem;
+            transition: ease-in-out 1s; //! idk if this works
             &:hover{
                 background-color: var(--wrapperColor);
                 border-radius: var(--borderRadius);
@@ -66,6 +67,13 @@ const StyledHeader = styled.header`
             display: ${(props) => (props.menuStateShow ? "flex" : "none")};
             @media only screen and (min-width: 600px){
                 display: flex;
+            }
+            @media only screen and (max-width: 600px){
+                justify-content: center;
+                align-items: center;
+                flex-direction: column;
+                gap: 1rem;
+                margin: 1rem;
             }
             justify-content: center;
             align-items: center;
