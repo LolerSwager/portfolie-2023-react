@@ -69,8 +69,6 @@ const StyledToggle = styled.div`
 
     input:disabled + .slider{
         cursor: not-allowed;
-        &:before{
-            opacity: 50%;
-        }
+        opacity: 50%;
     }
 `
