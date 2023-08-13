@@ -1,7 +1,7 @@
 import { styled } from "styled-components"
 import { FaGithubSquare, FaLinkedin, FaDiscord, FaPhone, FaEnvelope } from "react-icons/fa"
-import ContactForm from "../ContactForm"
 import { Link } from "react-router-dom"
+import ContactForm from "../ContactForm"
 import Weather from "../Weather/Weather"
 
 export default function Footer() {
@@ -93,7 +93,7 @@ export default function Footer() {
 const StyledFooter = styled.footer`
     background-color: #000000;
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
     position: relative;
     &::before {
         content: "";
@@ -106,18 +106,19 @@ const StyledFooter = styled.footer`
         transition: 0.2s, background-position 0s;
     }
     section {
-        padding: 1.5rem;
-        margin: 0.5rem;
-       // background-color: red;
+        padding: 1rem;
+        margin: .5rem;
+        // background-color: red;
         h4 {
             font-size: 1.3rem;
             margin: 0 0 0.8em 0;
         }
         section {
-            margin-top: 0;
-            padding-top: 0;
-            padding-left: 0;
-            padding-right: 0;
+            margin:0;
+            padding:0;
+            &:first-child{
+                margin: 0 0 2rem 0;
+            }
         }
     }
     .Social-icons {
@@ -141,6 +142,7 @@ const StyledFooter = styled.footer`
     .Navigation {
         li {
             margin: 0.5rem 1.5rem;
+            list-style: none;
             a {
                 color: #eeeeee;
                 text-decoration: none;
