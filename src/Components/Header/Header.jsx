@@ -23,7 +23,7 @@ export default function Header() {
                         <Link to="cv" onClick={() => setMenuState(!menuState)}>Curriculum Vitae</Link>
                     </li>
                 </ul>
-                <Link to="settings" className="settingsIcon" onClick={() => setMenuState(!menuState)}>
+                <Link to="settings" className="settingsIcon" onClick={() => setMenuState(false)}>
                     <FontAwesomeIcon icon={faGear} />
                 </Link>
             </nav>
@@ -94,7 +94,7 @@ const StyledHeader = styled.header`
             justify-content: ${(props) => (props.menuStateShow ? "space-around" : "space-between")};
             width: 100%;
             background-color: #0f0f0f;
-            z-index: 1;
+            z-index: 1000;
             position: ${(props) => (props.menuStateShow ? "fixed" : "unset")};
             top: 0;
             left: 0;
@@ -105,52 +105,3 @@ const StyledHeader = styled.header`
         }
     }
 `
-
-/* const StyledHeader = styled.header`
-    background-color: #0f0f0f;
-    position: relative;
-    span{
-        position: fixed;
-        top: 0;
-        right: 0;
-        z-index: 1;
-        font-size: 3rem;
-        margin: 2rem 2.5rem;
-        cursor: pointer;
-        &:hover{
-            color: var(--activeColor);
-        }
-    }
-    nav {
-        background-color: inherit;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        position: fixed;
-        height: 100vh;
-        width: 100vw;
-        z-index: 1;
-        overflow: hidden;
-        font-size: 2rem;
-        ul {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            flex-direction: column;
-            gap: 1rem;
-            margin: 1rem;
-            li {
-                list-style: none;
-                font-size: 1.5em;
-                font-weight: 400;
-                a {
-                    color: #eeeeee;
-                    text-decoration: none;
-                    &:hover {
-                        color: var(--activeColor);
-                    }
-                }
-            }
-        }
-    }
-` */
