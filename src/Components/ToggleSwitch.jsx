@@ -1,3 +1,4 @@
+import { faListSquares } from "@fortawesome/free-solid-svg-icons"
 import { styled } from "styled-components"
 
 export default function ToggleSwitch({ToggleDisabled = false, isToggeld, onToggle}){

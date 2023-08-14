@@ -1,24 +1,24 @@
-import { useState, useEffect } from "react"
-import axios from "axios"
+import { useState, useEffect } from "react";
+import axios from "axios";
 
 export const useGetList = (endpoint) => {
-    const [state, setState] = useState([])
+    const [state, setState] = useState([]);
 
     useEffect(() => {
         const fetchApiData = async () => {
-            const response = await axios.get(endpoint)
+            const response = await axios.get(endpoint);
 
             try {
                 if (response.data) {
-                    console.log(response.data)
-                    setState(response.data)
+                    console.log(response.data);
+                    setState(response.data);
                 }
             } catch (error) {
-                console.error(error)
+                console.error(error);
             }
-        }
-        fetchApiData()
-    }, [endpoint])
+        };
+        fetchApiData();
+    }, [endpoint]);
 
-    return { state }
-}
+    return { state };
+};

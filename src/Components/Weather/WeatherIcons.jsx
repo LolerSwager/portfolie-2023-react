@@ -1,16 +1,4 @@
-import {
-    WiCloud,
-    WiDaySunny,
-    WiDayThunderstorm,
-    WiDust,
-    WiFog,
-    WiMeteor,
-    WiRain,
-    WiSandstorm,
-    WiSmoke,
-    WiSnow,
-    WiTornado,
-} from "react-icons/wi"
+import { WiCloud, WiDaySunny, WiDayThunderstorm, WiDust, WiFog, WiMeteor, WiRain, WiSandstorm, WiSmoke, WiSnow, WiTornado } from "react-icons/wi";
 
 const weatherIconMap = {
     Clear: <WiDaySunny />,
@@ -29,11 +17,11 @@ const weatherIconMap = {
     Smoke: <WiSmoke />,
     Tornado: <WiTornado />,
     default: <WiMeteor />,
-}
+};
 
 export default function WeatherIcons(weatherCondition) {
-    console.log(weatherCondition)
+    console.log(weatherCondition);
 
-    const weatherIcon = weatherIconMap[weatherCondition] || weatherIconMap.default
-    return weatherIcon
+    const weatherIcon = weatherIconMap[weatherCondition] || weatherIconMap.default;
+    return weatherIcon;
 }

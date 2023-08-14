@@ -1,11 +1,11 @@
-import { useNavigate, Link } from "react-router-dom"
-import styled from "styled-components"
+import { useNavigate, Link } from "react-router-dom";
+import styled from "styled-components";
 
 export default function NotFound() {
-    const wlp = window.location.pathname
-    const navigate = useNavigate()
+    const wlp = window.location.pathname;
+    const navigate = useNavigate();
 
-    document.title = `404 Page -> ${wlp.replaceAll('%20', ' ')}`
+    document.title = `404 Page -> ${wlp.replaceAll("%20", " ")}`;
 
     return (
         <ErrorPage>
@@ -23,7 +23,7 @@ export default function NotFound() {
                 </div>
             </div>
         </ErrorPage>
-    )
+    );
 }
 
 const ErrorPage = styled.main`
@@ -37,7 +37,7 @@ const ErrorPage = styled.main`
         background-color: var(--activeColor);
         color: #1a1a1a;
         border: 1px solid transparent;
-        border-radius: calc(var(--borderRadius)/2);
+        border-radius: calc(var(--borderRadius) / 2);
         transition: border-color 0.25s;
         padding: 0.6em 1em;
         margin: 0 0 0 1rem;
@@ -61,4 +61,4 @@ const ErrorPage = styled.main`
             }
         }
     }
-`
+`;

@@ -1,26 +1,32 @@
-import { Link } from "react-router-dom"
-import { styled } from "styled-components"
-import { useState } from "react"
-import { faBars,faGear, faX } from '@fortawesome/free-solid-svg-icons';
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
+import { Link } from "react-router-dom";
+import { styled } from "styled-components";
+import { useState } from "react";
+import { faBars, faGear, faX } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 export default function Header() {
-    const [menuState, setMenuState] = useState(false)
+    const [menuState, setMenuState] = useState(false);
     return (
         <StyledHeader menuStateShow={menuState}>
             <nav>
-                <span className="burgerMenu" onClick={() => setMenuState(!menuState)}>
+                <span className="burgerMenu" onClick={() => setMenuState((prevState) => !prevState)}>
                     {menuState ? <FontAwesomeIcon icon={faX} /> : <FontAwesomeIcon icon={faBars} />}
                 </span>
                 <ul>
                     <li>
-                        <Link to="/" onClick={() => setMenuState(!menuState)}>Home</Link>
+                        <Link to="/" onClick={() => setMenuState((prevState) => !prevState)}>
+                            Home
+                        </Link>
                     </li>
                     <li>
-                        <Link to="projects" onClick={() => setMenuState(!menuState)}>projects</Link>
+                        <Link to="projects" onClick={() => setMenuState((prevState) => !prevState)}>
+                            projects
+                        </Link>
                     </li>
                     <li>
-                        <Link to="cv" onClick={() => setMenuState(!menuState)}>Curriculum Vitae</Link>
+                        <Link to="cv" onClick={() => setMenuState((prevState) => !prevState)}>
+                            Curriculum Vitae
+                        </Link>
                     </li>
                 </ul>
                 <Link to="settings" className="settingsIcon" onClick={() => setMenuState(false)}>
@@ -28,37 +34,37 @@ export default function Header() {
                 </Link>
             </nav>
         </StyledHeader>
-    )
+    );
 }
 
 const StyledHeader = styled.header`
     background-color: #0f0f0f;
     font-size: 1.5rem;
-    padding: .5rem;
+    padding: 0.5rem;
     nav {
         display: flex;
         justify-content: space-between;
         align-items: center;
         max-width: 100%;
         margin: auto;
-        .burgerMenu{
+        .burgerMenu {
             display: none;
-            padding: .5rem 1rem;
+            padding: 0.5rem 1rem;
             transition: ease-in-out 1s;
-            &:hover{
+            &:hover {
                 background-color: var(--wrapperColor);
                 border-radius: var(--borderRadius);
             }
-            @media only screen and (max-width: 700px){
+            @media only screen and (max-width: 700px) {
                 display: block;
             }
         }
-        .settingsIcon{
-            padding: .5rem 1rem;
+        .settingsIcon {
+            padding: 0.5rem 1rem;
             color: #eeeeee;
             text-decoration: none;
             transition: ease-in-out 1s;
-            &:hover{
+            &:hover {
                 background-color: var(--wrapperColor);
                 fill: var(--activeColor);
                 border-radius: var(--borderRadius);
@@ -66,7 +72,7 @@ const StyledHeader = styled.header`
         }
         ul {
             display: ${(props) => (props.menuStateShow ? "flex" : "none")};
-            @media only screen and (min-width: 701px){
+            @media only screen and (min-width: 701px) {
                 display: flex;
             }
             justify-content: center;
@@ -74,21 +80,21 @@ const StyledHeader = styled.header`
             li {
                 list-style: none;
                 font-weight: 500;
-                a{
-                    padding: .5rem 1rem;
+                a {
+                    padding: 0.5rem 1rem;
                     border-radius: var(--borderRadius);
                     color: #eeeeee;
                     text-decoration: none;
-                    &:hover{
+                    &:hover {
                         color: var(--activeColor);
                     }
                 }
             }
         }
     }
-    @media only screen and (max-width: 700px){
+    @media only screen and (max-width: 700px) {
         position: relative;
-        nav{
+        nav {
             height: ${(props) => (props.menuStateShow ? "100dvh" : "unset")};
             flex-direction: ${(props) => (props.menuStateShow ? "column" : "unset")};
             justify-content: ${(props) => (props.menuStateShow ? "space-around" : "space-between")};
@@ -99,9 +105,9 @@ const StyledHeader = styled.header`
             top: 0;
             left: 0;
         }
-        ul{
+        ul {
             flex-direction: column;
             gap: 1rem;
         }
     }
-`
+`;

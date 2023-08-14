@@ -1,8 +1,8 @@
-import { styled } from "styled-components"
-import { FaGithubSquare, FaLinkedin } from "react-icons/fa"
+import { styled } from "styled-components";
+import { FaGithubSquare, FaLinkedin } from "react-icons/fa";
 
 export default function Home() {
-    document.title = "Jannick Nielsen | Portfolie"
+    document.title = "Jannick Nielsen | Portfolie";
     return (
         <StyledHome>
             <h1>Velkommen til mit portfolie</h1>
@@ -10,10 +10,7 @@ export default function Home() {
             <article>
                 <a href="https://github.com/LolerSwager" target="_blank" rel="noreferrer">
                     <section>
-                        <img
-                            src="https://cdn.jsdelivr.net/gh/Justlovesmile/CDN/image/1584110986-u29974937523374358523fm26gp0.jpg"
-                            alt="cover img af github"
-                        />
+                        <img src="https://cdn.jsdelivr.net/gh/Justlovesmile/CDN/image/1584110986-u29974937523374358523fm26gp0.jpg" alt="cover img af github" />
                         <span>
                             <FaGithubSquare />
                             <h3>Github</h3>
@@ -34,7 +31,7 @@ export default function Home() {
                 </a>
             </article>
         </StyledHome>
-    )
+    );
 }
 
 const StyledHome = styled.main`
@@ -76,4 +73,4 @@ const StyledHome = styled.main`
             }
         }
     }
-`
+`;

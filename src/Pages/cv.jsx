@@ -1,7 +1,7 @@
-import { styled } from "styled-components"
+import { styled } from "styled-components";
 
 export default function Cv() {
-    document.title = "Curriculum Vitae"
+    document.title = "Curriculum Vitae";
     return (
         <StyledMain>
             <StyledList>
@@ -18,10 +18,7 @@ export default function Cv() {
                                 <h5>2021-2022</h5>
                             </div>
 
-                            <p>
-                                Opbygning samt installation af kritisk strøm fordeling elementer til ophæng i og på
-                                væggen med fokus af Hospitaler.
-                            </p>
+                            <p>Opbygning samt installation af kritisk strøm fordeling elementer til ophæng i og på væggen med fokus af Hospitaler.</p>
                         </li>
                     </ul>
                 </section>
@@ -86,13 +83,13 @@ export default function Cv() {
                 </section>
             </StyledList>
         </StyledMain>
-    )
+    );
 }
 
 const StyledMain = styled.main`
     display: flex;
     justify-content: center;
-`
+`;
 
 const StyledList = styled.article`
     max-width: 1200px;
@@ -160,4 +157,4 @@ const StyledList = styled.article`
             }
         }
     }
-`
+`;

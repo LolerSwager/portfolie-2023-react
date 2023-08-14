@@ -1,4 +1,4 @@
-import { styled } from "styled-components"
+import { styled } from "styled-components";
 
 export default function ContactForm() {
     return (
@@ -7,7 +7,7 @@ export default function ContactForm() {
             <textarea placeholder="skriv her..."></textarea>
             <button onClick={() => alert("virker ikke i nu kom tilbage senere")}>Send</button>
         </StyledContactForm>
-    )
+    );
 }
 
 const StyledContactForm = styled.div`
@@ -29,4 +29,4 @@ const StyledContactForm = styled.div`
             background-color: var(--activeColor);
         }
     }
-`
+`;

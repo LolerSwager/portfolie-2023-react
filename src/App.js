@@ -1,16 +1,16 @@
-import Header from "./Components/Header/Header"
-import Footer from "./Components/Footer/Footer"
-import AppRouter from "./Router/AppRouter"
-import { BrowserRouter } from "react-router-dom"
-import { ThemeProvider } from "styled-components"
-import GlobalStyle from "./Style/GlobalStyle"
-import { useEffect, useState } from "react"
-import { ToastContainer } from "react-toastify"
-import KeyAction from "./Components/KeyAction"
-import "react-toastify/dist/ReactToastify.css"
+import Header from "./Components/Header/Header";
+import Footer from "./Components/Footer/Footer";
+import AppRouter from "./Router/AppRouter";
+import { BrowserRouter } from "react-router-dom";
+import { ThemeProvider } from "styled-components";
+import GlobalStyle from "./Style/GlobalStyle";
+import { useEffect, useState } from "react";
+import { ToastContainer } from "react-toastify";
+import KeyAction from "./Components/KeyAction";
+import "react-toastify/dist/ReactToastify.css";
 
 export default function App() {
-    const themeColor = localStorage.getItem("color")
+    const themeColor = localStorage.getItem("color");
 
     const theme = {
         dark: {
@@ -19,13 +19,13 @@ export default function App() {
         light: {
             color: themeColor,
         },
-    }
+    };
 
-    const [selectedTheme, setSelectedTheme] = useState(theme)
+    const [selectedTheme, setSelectedTheme] = useState(theme);
 
     useEffect(() => {
-        setSelectedTheme()
-    }, [selectedTheme])
+        setSelectedTheme();
+    }, [selectedTheme]);
 
     return (
         <BrowserRouter>
@@ -40,5 +40,5 @@ export default function App() {
                 <KeyAction />
             </ThemeProvider>
         </BrowserRouter>
-    )
+    );
 }

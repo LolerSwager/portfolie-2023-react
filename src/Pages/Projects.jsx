@@ -1,13 +1,13 @@
-import { styled } from "styled-components"
-import { useGetList } from "../Hooks/useGetList"
+import { styled } from "styled-components";
+import { useGetList } from "../Hooks/useGetList";
 
 export default function Projects() {
-    const { state: GithubData } = useGetList("https://api.github.com/users/lolerswager/repos")
+    const { state: GithubData } = useGetList("https://api.github.com/users/lolerswager/repos");
 
     function LanguagesList({ languagesUrl }) {
-        const { state: Languages } = useGetList(languagesUrl)
+        const { state: Languages } = useGetList(languagesUrl);
 
-        const languages = Object.keys(Languages)
+        const languages = Object.keys(Languages);
 
         return (
             <LanTags>
@@ -15,7 +15,7 @@ export default function Projects() {
                     ? languages.map((language, index) => <li key={index}>{language}</li>)
                     : languages.slice(0, 3).map((language, index) => <li key={index}>{language}</li>)}
             </LanTags>
-        )
+        );
     }
 
     return (
@@ -39,12 +39,12 @@ export default function Projects() {
                 ))}
             </StyledArticle>
         </StyledMain>
-    )
+    );
 }
 
 const StyledMain = styled.main`
     margin: 2rem;
-`
+`;
 
 const StyledArticle = styled.article`
     section {
@@ -97,7 +97,7 @@ const StyledArticle = styled.article`
             }
         }
     }
-`
+`;
 
 const LanTags = styled.ul`
     display: flex;
@@ -112,4 +112,4 @@ const LanTags = styled.ul`
             color: var(--activeColor);
         }
     }
-`
+`;

@@ -1,8 +1,8 @@
-import { styled } from "styled-components"
-import { FaGithubSquare, FaLinkedin, FaDiscord, FaPhone, FaEnvelope } from "react-icons/fa"
-import { Link } from "react-router-dom"
-import ContactForm from "../ContactForm"
-import Weather from "../Weather/Weather"
+import { styled } from "styled-components";
+import { FaGithubSquare, FaLinkedin, FaDiscord, FaPhone, FaEnvelope } from "react-icons/fa";
+import { Link } from "react-router-dom";
+import ContactForm from "../ContactForm";
+import Weather from "../Weather/Weather";
 
 export default function Footer() {
     return (
@@ -18,12 +18,7 @@ export default function Footer() {
                         <a href="https://github.com/LolerSwager" target="_blank" rel="noreferrer" title="Github">
                             <FaGithubSquare />
                         </a>
-                        <a
-                            href="https://www.linkedin.com/in/jannick-nielsen-web/"
-                            target="_blank"
-                            rel="noreferrer"
-                            title="Linkedin"
-                        >
+                        <a href="https://www.linkedin.com/in/jannick-nielsen-web/" target="_blank" rel="noreferrer" title="Linkedin">
                             <FaLinkedin />
                         </a>
                         <a href="https://discord.gg/uaCRvZU" target="_blank" rel="noreferrer" title="Discord">
@@ -53,12 +48,7 @@ export default function Footer() {
                 <section>
                     <h4>Andre Sider</h4>
                     <div className="Outgoing-links">
-                        <a
-                            href="https://www.lolerswager.com/"
-                            target="_blank"
-                            rel="noreferrer"
-                            title="en hjemmeside til game tools"
-                            >
+                        <a href="https://www.lolerswager.com/" target="_blank" rel="noreferrer" title="en hjemmeside til game tools">
                             LolerSwager.com
                         </a>
                     </div>
@@ -69,10 +59,7 @@ export default function Footer() {
                 <ul className="Contact-info">
                     <li>
                         <FaEnvelope />
-                        <p
-                            onClick={() => (window.location = "mailto:JannickTrolleNielsen@hotmail.com")}
-                            title="Skriv mig en mail"
-                        >
+                        <p onClick={() => (window.location = "mailto:JannickTrolleNielsen@hotmail.com")} title="Skriv mig en mail">
                             JannickTrolleNielsen@hotmail.com
                         </p>
                     </li>
@@ -87,7 +74,7 @@ export default function Footer() {
                 <ContactForm />
             </section>
         </StyledFooter>
-    )
+    );
 }
 
 const StyledFooter = styled.footer`
@@ -107,16 +94,16 @@ const StyledFooter = styled.footer`
     }
     section {
         padding: 1rem;
-        margin: .5rem;
+        margin: 0.5rem;
         // background-color: red;
         h4 {
             font-size: 1.3rem;
             margin: 0 0 0.8em 0;
         }
         section {
-            margin:0;
-            padding:0;
-            &:first-child{
+            margin: 0;
+            padding: 0;
+            &:first-child {
                 margin: 0 0 2rem 0;
             }
         }
@@ -179,4 +166,4 @@ const StyledFooter = styled.footer`
             font-size: 1.5rem;
         }
     }
-`
+`;
