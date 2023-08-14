@@ -21,9 +21,9 @@ export default function Notifications() {
                 return;
             }
 
-            /* const notification = new Notification('First Notification',{
-                body: 'Thank you for Notification Permission'
-            }) */
+            const notification = new Notification("First Notification", {
+                body: "Thank you for Notification Permission",
+            });
         });
     }
 
