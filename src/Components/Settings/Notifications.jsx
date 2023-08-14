@@ -21,8 +21,10 @@ export default function Notifications() {
                 return;
             }
 
-            const notification = new Notification("First Notification", {
+            new Notification("First Notification", {
                 body: "Thank you for Notification Permission",
+                icon: "https://creazilla-store.fra1.digitaloceanspaces.com/emojis/51208/waving-hand-emoji-clipart-xl.png",
+                image: "https://creazilla-store.fra1.digitaloceanspaces.com/emojis/51208/waving-hand-emoji-clipart-xl.png",
             });
         });
     }
