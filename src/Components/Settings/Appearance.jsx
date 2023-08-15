@@ -24,7 +24,7 @@ export default function Appearance() {
                 <label>Theme</label>
                 <StyledArticle>
                     <section>
-                        <RadioButton RadioDisabled={true} RadioDcategory="theme" labelName="Light" isChecked={true} />
+                        <RadioButton RadioDisabled={true} RadioDcategory="theme" labelName="Light" isChecked={false} />
                     </section>
                     <section>
                         <RadioButton RadioDisabled={true} RadioDcategory="theme" labelName="Dark" isChecked={true} />
@@ -35,7 +35,7 @@ export default function Appearance() {
                 <label>Corners</label>
                 <StyledArticle>
                     <section>
-                        <RadioButton RadioDisabled={true} RadioDcategory="corners" labelName="Square" isChecked={true} />
+                        <RadioButton RadioDisabled={true} RadioDcategory="corners" labelName="Square" isChecked={false} />
                     </section>
                     <section>
                         <RadioButton RadioDisabled={true} RadioDcategory="corners" labelName="Rounded" isChecked={true} />
@@ -49,17 +49,17 @@ export default function Appearance() {
                 </SpanSpread>
                 <StyledArticle>
                     <section>
+                        <RadioButton RadioDisabled={true} RadioDcategory="Toastify" labelName="Left Top" isChecked={false} />
+                    </section>
+                    <section>
                         <RadioButton RadioDisabled={true} RadioDcategory="Toastify" labelName="Right Top" isChecked={true} />
                     </section>
                     <section>
-                        <RadioButton RadioDisabled={true} RadioDcategory="Toastify" labelName="Right TOP" isChecked={true} />
-                    </section>
-                    <section>
-                        <RadioButton RadioDisabled={true} RadioDcategory="Toastify" labelName="Left Bottom" isChecked={true} />
+                        <RadioButton RadioDisabled={true} RadioDcategory="Toastify" labelName="Left Bottom" isChecked={false} />
                     </section>
 
                     <section>
-                        <RadioButton RadioDisabled={true} RadioDcategory="Toastify" labelName="Left Bottom" isChecked={true} />
+                        <RadioButton RadioDisabled={true} RadioDcategory="Toastify" labelName="Right Bottom" isChecked={false} />
                     </section>
                 </StyledArticle>
             </section>
