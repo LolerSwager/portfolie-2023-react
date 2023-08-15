@@ -1,15 +1,14 @@
-import { useEffect, useState } from "react"
-import { styled } from "styled-components"
-import ToggleSwitch from "../ToggleSwitch"
+import { useEffect, useState } from "react";
+import { styled } from "styled-components";
+import RadioButton from "../buttons/RadioButton";
+import ToggleSwitch from "../buttons/ToggleSwitch";
 
 export default function Appearance() {
-    const [themeColor, setThemeColor] = useState(
-        localStorage.getItem("color") ? localStorage.getItem("color") : "#8400db"
-    )
+    const [themeColor, setThemeColor] = useState(localStorage.getItem("color") ? localStorage.getItem("color") : "#8400db");
 
     useEffect(() => {
-        localStorage.setItem("color", themeColor)
-    }, [themeColor])
+        localStorage.setItem("color", themeColor);
+    }, [themeColor]);
 
     return (
         <>
@@ -17,11 +16,7 @@ export default function Appearance() {
             <section>
                 <label>Customize primary color</label>
                 <ColorPicker>
-                    <input
-                        type="color"
-                        onChange={(event) => setThemeColor(event.target.value)}
-                        value={themeColor}
-                    ></input>
+                    <input type="color" onChange={(event) => setThemeColor(event.target.value)} value={themeColor}></input>
                     <input type="text" onChange={(event) => setThemeColor(event.target.value)} value={themeColor} />
                 </ColorPicker>
             </section>
@@ -29,12 +24,10 @@ export default function Appearance() {
                 <label>Theme</label>
                 <StyledArticle>
                     <section>
-                        <input type="radio" name="theme" checked={true} disabled />
-                        <label for="theme">Light</label>
+                        <RadioButton RadioDisabled={true} RadioDcategory="theme" labelName="Light" isChecked={true} />
                     </section>
                     <section>
-                        <input type="radio" name="theme" disabled />
-                        <label for="theme">Dark</label>
+                        <RadioButton RadioDisabled={true} RadioDcategory="theme" labelName="Dark" isChecked={true} />
                     </section>
                 </StyledArticle>
             </section>
@@ -42,12 +35,10 @@ export default function Appearance() {
                 <label>Corners</label>
                 <StyledArticle>
                     <section>
-                        <input type="radio" name="corners" disabled />
-                        <label for="corners">Square</label>
+                        <RadioButton RadioDisabled={true} RadioDcategory="corners" labelName="Square" isChecked={true} />
                     </section>
                     <section>
-                        <input type="radio" name="corners" checked={true} disabled />
-                        <label for="corners">Rounded</label>
+                        <RadioButton RadioDisabled={true} RadioDcategory="corners" labelName="Rounded" isChecked={true} />
                     </section>
                 </StyledArticle>
             </section>
@@ -58,26 +49,22 @@ export default function Appearance() {
                 </SpanSpread>
                 <StyledArticle>
                     <section>
-                        <input type="radio" name="Toastify" disabled />
-                        <label for="Toastify">Right Top</label>
+                        <RadioButton RadioDisabled={true} RadioDcategory="Toastify" labelName="Right Top" isChecked={true} />
                     </section>
                     <section>
-                        <input type="radio" name="Toastify" checked={true} disabled />
-                        <label for="Toastify">Left Top</label>
+                        <RadioButton RadioDisabled={true} RadioDcategory="Toastify" labelName="Right TOP" isChecked={true} />
                     </section>
                     <section>
-                        <input type="radio" name="Toastify" disabled />
-                        <label for="Toastify">Right Bottom</label>
+                        <RadioButton RadioDisabled={true} RadioDcategory="Toastify" labelName="Left Bottom" isChecked={true} />
                     </section>
 
                     <section>
-                        <input type="radio" name="Toastify" disabled />
-                        <label for="Toastify">Left Bottom</label>
+                        <RadioButton RadioDisabled={true} RadioDcategory="Toastify" labelName="Left Bottom" isChecked={true} />
                     </section>
                 </StyledArticle>
             </section>
         </>
-    )
+    );
 }
 
 const ColorPicker = styled.span`
@@ -94,7 +81,7 @@ const ColorPicker = styled.span`
         color: #eeeeee;
         background-color: transparent;
     }
-`
+`;
 
 const StyledArticle = styled.article`
     display: grid;
@@ -106,40 +93,12 @@ const StyledArticle = styled.article`
         background-color: var(--wrapperColor);
         border-radius: var(--borderRadius);
         padding: 1rem;
-        input[type="radio"]:after {
-            content: "";
-            width: 10px;
-            height: 10px;
-            border-radius: 15px;
-            top: 5px;
-            left: 0;
-            position: relative;
-            background-color: var(--wrapperColor);
-            display: inline-block;
-            border: 2px solid var(--fontColor);
-        }
-        input[type="radio"]:checked:after {
-            content: "";
-            width: 10px;
-            height: 10px;
-            border-radius: 15px;
-            top: 5px;
-            left: 0;
-            position: relative;
-            background-color: var(--activeColor);
-            display: inline-block;
-            border: 2px solid var(--fontColor);
-        }
-        input[type="radio"]:disabled {
-            cursor: not-allowed;
-            opacity: 40%;
-        }
     }
-`
+`;
 
 const SpanSpread = styled.span`
     display: flex;
     align-items: center;
     justify-content: space-between;
     padding: 0 0 1rem 0;
-`
+`;

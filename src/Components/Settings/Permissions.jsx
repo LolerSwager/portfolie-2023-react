@@ -20,7 +20,7 @@ import {
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useEffect, useState } from "react";
 import { styled } from "styled-components";
-import ToggleSwitch from "../ToggleSwitch";
+import ToggleSwitch from "../buttons/ToggleSwitch";
 
 const permissionsNames = [
     {
