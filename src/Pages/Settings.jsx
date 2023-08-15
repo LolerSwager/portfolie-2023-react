@@ -27,6 +27,7 @@ export default function Settings() {
                             </li>
                         </ul>
                     </menu>
+
                     <button onClick={() => window.location.reload()}>Reload Page</button>
                     <q>
                         I am actively working to make these settings work and in some cases I try something that you
