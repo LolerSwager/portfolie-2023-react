@@ -28,13 +28,17 @@ export default function Settings() {
                         </ul>
                     </menu>
                     <button onClick={() => window.location.reload()}>Reload Page</button>
+                    <q>
+                        I am actively working to make these settings work and in some cases I try something that you
+                        might not be able to do. If you Come back once a weak this site will have change
+                    </q>
                 </StyledAside>
-                <article>
+                <StyledWrapper>
                     <Appearance />
                     <Permissions />
                     <Notifications />
                     <Storage />
-                </article>
+                </StyledWrapper>
             </SpacingGrid>
         </StyledSettings>
     )
@@ -62,6 +66,10 @@ const StyledSettings = styled.main`
     }
 `
 
+const StyledWrapper = styled.article`
+    margin: 0 1rem 2rem 0;
+`
+
 const SpacingGrid = styled.span`
     display: grid;
     grid-template-columns:
@@ -83,7 +91,7 @@ const StyledAside = styled.span`
     gap: 1rem;
     position: sticky;
     top: 0;
-    max-height: calc(100dvh / 3);
+    max-height: calc(100dvh / 3 * 2);
     margin: 0 1rem;
     @media only screen and (max-width: 700px) {
         width: 100%;
@@ -91,7 +99,7 @@ const StyledAside = styled.span`
     menu {
         border: 1px solid var(--wrapperColor);
         border-radius: var(--borderRadius);
-        overflow: hidden;
+        //overflow: hidden;
         ul {
             list-style: none;
             li {
@@ -121,7 +129,6 @@ const StyledAside = styled.span`
             }
         }
     }
-
     @media only screen and (max-width: 700px) {
         position: relative;
         right: 0;
