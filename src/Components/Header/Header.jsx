@@ -1,11 +1,11 @@
-import { Link } from "react-router-dom";
-import { styled } from "styled-components";
-import { useState } from "react";
-import { faBars, faGear, faX } from "@fortawesome/free-solid-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { Link } from "react-router-dom"
+import { styled } from "styled-components"
+import { useState } from "react"
+import { faBars, faGear, faX } from "@fortawesome/free-solid-svg-icons"
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 
 export default function Header() {
-    const [menuState, setMenuState] = useState(false);
+    const [menuState, setMenuState] = useState(false)
     return (
         <StyledHeader menuStateShow={menuState}>
             <nav>
@@ -34,7 +34,7 @@ export default function Header() {
                 </Link>
             </nav>
         </StyledHeader>
-    );
+    )
 }
 
 const StyledHeader = styled.header`
@@ -45,7 +45,7 @@ const StyledHeader = styled.header`
         display: flex;
         justify-content: space-between;
         align-items: center;
-        max-width: 100%;
+        max-width: var(--pageMaxWidth);
         margin: auto;
         .burgerMenu {
             display: none;
@@ -110,4 +110,4 @@ const StyledHeader = styled.header`
             gap: 1rem;
         }
     }
-`;
+`

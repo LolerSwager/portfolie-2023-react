@@ -1,4 +1,4 @@
-import { createGlobalStyle } from "styled-components";
+import { createGlobalStyle } from "styled-components"
 
 const GlobalStyle = createGlobalStyle`
     * {   
@@ -36,6 +36,8 @@ const GlobalStyle = createGlobalStyle`
         --fontColor: var(--fontColorDark);
         --wrapperColor: var(--wrapperColorDark);
         --borderRadius: 10px;
+        --pageMaxWidth: 1200px;
+        --MobileWidth: 600px;
 
         //! react-toastify custom css
         --toastify-color-progress-dark: ${({ theme }) => (theme.dark.color ? theme.dark.color : "#8400db")};
@@ -63,6 +65,6 @@ const GlobalStyle = createGlobalStyle`
         some #0080ff
     */
 
-`;
+`
 
-export default GlobalStyle;
+export default GlobalStyle

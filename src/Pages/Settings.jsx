@@ -1,11 +1,11 @@
-import { styled } from "styled-components";
-import Appearance from "../Components/Settings/Appearance";
-import Notifications from "../Components/Settings/Notifications";
-import Permissions from "../Components/Settings/Permissions";
-import Storage from "../Components/Settings/Storage";
+import { styled } from "styled-components"
+import Appearance from "../Components/Settings/Appearance"
+import Notifications from "../Components/Settings/Notifications"
+import Permissions from "../Components/Settings/Permissions"
+import Storage from "../Components/Settings/Storage"
 
 export default function Settings() {
-    document.title = "Settings";
+    document.title = "Settings"
     return (
         <StyledSettings>
             <SpacingGrid>
@@ -37,11 +37,12 @@ export default function Settings() {
                 </article>
             </SpacingGrid>
         </StyledSettings>
-    );
+    )
 }
 
 const StyledSettings = styled.main`
-    margin: 1rem;
+    margin: auto;
+    max-width: var(--pageMaxWidth);
     article {
         display: grid;
         gap: 1rem;
@@ -59,21 +60,22 @@ const StyledSettings = styled.main`
             color: var(--fontColor);
         }
     }
-`;
+`
 
 const SpacingGrid = styled.span`
     display: grid;
     grid-template-columns:
-        minmax(220px, 1fr)
+        minmax(auto, 1fr)
         auto;
     justify-items: center;
     gap: 1rem;
-    position: relative;
 
-    @media only screen and (max-width: 600px) {
+    position: relative;
+    @media only screen and (max-width: 700px) {
         grid-template-columns: 1fr;
+        margin: 1rem;
     }
-`;
+`
 
 const StyledAside = styled.span`
     display: flex;
@@ -81,8 +83,9 @@ const StyledAside = styled.span`
     gap: 1rem;
     position: sticky;
     top: 0;
-    max-height: calc(100vh / 2);
-    @media only screen and (max-width: 600px) {
+    max-height: calc(100dvh / 3);
+    margin: 0 1rem;
+    @media only screen and (max-width: 700px) {
         width: 100%;
     }
     menu {
@@ -119,8 +122,8 @@ const StyledAside = styled.span`
         }
     }
 
-    @media only screen and (max-width: 600px) {
+    @media only screen and (max-width: 700px) {
         position: relative;
         right: 0;
     }
-`;
+`
