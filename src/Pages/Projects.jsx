@@ -60,9 +60,7 @@ const StyledMain = styled.main`
 
 const StyledArticle = styled.article`
     display: grid;
-
-    /*  grid-template-columns: repeat(auto-fill, minmax(330px, 1fr)); */
-    grid-template-columns: repeat(3, minmax(330px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(330px, 1fr));
     gap: 2rem;
     margin: 2rem;
 `
