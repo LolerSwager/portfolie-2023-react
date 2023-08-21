@@ -1,14 +1,14 @@
-import { styled } from "styled-components";
-import Card from "../Components/Card";
-import { useGetList } from "../Hooks/useGetList";
+import { styled } from "styled-components"
+import Card from "../Components/Card"
+import { useGetList } from "../Hooks/useGetList"
 
 export default function Projects() {
-    const { state: GithubData } = useGetList("https://api.github.com/users/lolerswager/repos");
+    const { state: GithubData } = useGetList("https://api.github.com/users/lolerswager/repos")
 
     function LanguagesList({ languagesUrl }) {
-        const { state: Languages } = useGetList(languagesUrl);
+        const { state: Languages } = useGetList(languagesUrl)
 
-        const languages = Object.keys(Languages);
+        const languages = Object.keys(Languages)
 
         return (
             <LanTags>
@@ -16,7 +16,7 @@ export default function Projects() {
                     ? languages.map((language, index) => <li key={index}>{language}</li>)
                     : languages.slice(0, 4).map((language, index) => <li key={index}>{language}</li>)}
             </LanTags>
-        );
+        )
     }
 
     return (
@@ -45,19 +45,27 @@ export default function Projects() {
                 ))}
             </StyledArticle>
         </StyledMain>
-    );
+    )
 }
 
 const StyledMain = styled.main`
-    margin: 2rem;
-`;
+    h1,
+    h2,
+    small {
+        margin: 0 2rem;
+    }
+    margin: auto;
+    max-width: var(--pageMaxWidth);
+`
 
 const StyledArticle = styled.article`
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(330px, 1fr));
+
+    /*  grid-template-columns: repeat(auto-fill, minmax(330px, 1fr)); */
+    grid-template-columns: repeat(3, minmax(330px, 1fr));
     gap: 2rem;
-    margin: 2rem 0;
-`;
+    margin: 2rem;
+`
 
 const StyledCard = styled.section`
     border-radius: var(--borderRadius);
@@ -68,11 +76,11 @@ const StyledCard = styled.section`
         justify-content: space-between;
         align-items: center;
     }
-`;
+`
 
 const Content = styled.div`
     padding: 1rem;
-`;
+`
 
 const Image = styled.div`
     aspect-ratio: 3 / 1;
@@ -84,10 +92,10 @@ const Image = styled.div`
     align-items: center;
     justify-content: center;
     h6 {
-        font-size: calc(1.5vw + 33px);
+        font-size: calc(2vmin + 1em);
         text-overflow: ellipsis;
     }
-`;
+`
 
 const LanTags = styled.ul`
     display: flex;
@@ -103,14 +111,13 @@ const LanTags = styled.ul`
             color: var(--activeColor);
         }
     }
-`;
+`
 
 const SpanSpread = styled.span`
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 0 0 1rem 0;
-`;
+`
 
 const Abutton = styled.a`
     color: black;
@@ -122,8 +129,9 @@ const Abutton = styled.a`
     cursor: pointer;
     background-color: var(--fontColor);
     text-decoration: none;
+    white-space: nowrap;
     &:hover {
         background-color: var(--activeColor);
         color: var(--fontColor);
     }
-`;
+`
