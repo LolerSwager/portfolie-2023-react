@@ -11,7 +11,6 @@ export default function Qr() {
 
     localStorage.setItem("color", themeColor);
     toast(`Custom Theme Applyed`, {
-        theme: "dark",
         closeOnClick: false,
         toastId: customId,
         icon: <FaSwatchbook />,

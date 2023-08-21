@@ -29,14 +29,14 @@ export default function App() {
 
     return (
         <BrowserRouter>
-            <ThemeProvider theme={theme}>
+            <ThemeProvider theme={theme} position="top-center">
                 <>
                     <Header />
                     <AppRouter />
                     <Footer />
                 </>
                 <GlobalStyle />
-                <ToastContainer theme="dark" />
+                <ToastContainer theme="dark" position="top-right" />
                 <KeyAction />
             </ThemeProvider>
         </BrowserRouter>

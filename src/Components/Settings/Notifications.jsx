@@ -50,6 +50,7 @@ export default function Notifications() {
                         </section>
                     </StyledArticle>
                 </SpanCollom>
+
                 <SpanCollom>
                     <h3>Notify me when a new Project has been added</h3>
                     <StyledArticle>

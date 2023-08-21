@@ -49,17 +49,17 @@ export default function Appearance() {
                 </SpanSpread>
                 <StyledArticle>
                     <section>
-                        <RadioButton RadioDisabled={true} RadioDcategory="Toastify" labelName="Left Top" isChecked={false} />
+                        <RadioButton RadioDisabled={false} RadioDcategory="Toastify" labelName="Left Top" />
                     </section>
                     <section>
-                        <RadioButton RadioDisabled={true} RadioDcategory="Toastify" labelName="Right Top" isChecked={true} />
+                        <RadioButton RadioDisabled={false} RadioDcategory="Toastify" labelName="Right Top" />
                     </section>
                     <section>
-                        <RadioButton RadioDisabled={true} RadioDcategory="Toastify" labelName="Left Bottom" isChecked={false} />
+                        <RadioButton RadioDisabled={false} RadioDcategory="Toastify" labelName="Left Bottom" />
                     </section>
 
                     <section>
-                        <RadioButton RadioDisabled={true} RadioDcategory="Toastify" labelName="Right Bottom" isChecked={false} />
+                        <RadioButton RadioDisabled={false} RadioDcategory="Toastify" labelName="Right Bottom" />
                     </section>
                 </StyledArticle>
             </section>
