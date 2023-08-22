@@ -34,6 +34,7 @@ const GlobalStyle = createGlobalStyle`
         
         --backGroundColor: var(--backGroundColorDark);
         --fontColor: var(--fontColorDark);
+        --contrastColor: #000000;
         --wrapperColor: var(--wrapperColorDark);
         --borderRadius: 10px;
         --pageMaxWidth: 1200px;

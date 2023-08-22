@@ -98,6 +98,7 @@ const StyledList = styled.article`
     max-width: var(--pageMaxWidth);
     h1 {
         background-color: var(--activeColor);
+        color: var(--contrastColor);
         display: block;
         font-size: 40px;
         padding: 0.3em;

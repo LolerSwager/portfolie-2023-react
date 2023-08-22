@@ -30,17 +30,14 @@ export default function Projects() {
                         <Image>
                             <h6>{item.name}</h6>
                         </Image>
-                        <Content>
+                        <span>
                             <h3>{item.name}</h3>
                             <p>{item.description}</p>
-                        </Content>
-                        <SpanSpread>
-                            <LanguagesList languagesUrl={item.languages_url} />
-
-                            <Abutton href={item.html_url} target="_blank" rel="noreferrer">
-                                Open in Github
-                            </Abutton>
-                        </SpanSpread>
+                        </span>
+                        <LanguagesList languagesUrl={item.languages_url} />
+                        <Abutton href={item.html_url} target="_blank" rel="noreferrer">
+                            Open in Github
+                        </Abutton>
                     </StyledCard>
                 ))}
             </StyledArticle>
@@ -54,30 +51,28 @@ const StyledMain = styled.main`
     small {
         margin: 0 2rem;
     }
-    margin: auto;
-    max-width: var(--pageMaxWidth);
+    /* margin: auto; */
 `
 
 const StyledArticle = styled.article`
+    /*    max-width: var(--pageMaxWidth); */
     display: grid;
+    width: 100%;
     grid-template-columns: repeat(auto-fill, minmax(330px, 1fr));
     gap: 2rem;
-    margin: 2rem;
+    padding: 2rem;
 `
 
 const StyledCard = styled.section`
     border-radius: var(--borderRadius);
-    overflow: hidden;
     background-color: var(--wrapperColor);
+    overflow: hidden;
+    display: grid;
+    grid-template-rows: 1fr auto auto auto;
+    justify-items: self-start;
     span {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
+        padding: 0 1rem;
     }
-`
-
-const Content = styled.div`
-    padding: 1rem;
 `
 
 const Image = styled.div`
@@ -99,7 +94,7 @@ const LanTags = styled.ul`
     display: flex;
     gap: 1rem;
     list-style: none;
-    padding: 1rem;
+    padding: 1rem 1rem 0 1rem;
     overflow: hidden;
     li {
         font-weight: 700;
@@ -109,12 +104,6 @@ const LanTags = styled.ul`
             color: var(--activeColor);
         }
     }
-`
-
-const SpanSpread = styled.span`
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
 `
 
 const Abutton = styled.a`
@@ -130,6 +119,6 @@ const Abutton = styled.a`
     white-space: nowrap;
     &:hover {
         background-color: var(--activeColor);
-        color: var(--fontColor);
+        color: var(--contrastColor);
     }
 `
