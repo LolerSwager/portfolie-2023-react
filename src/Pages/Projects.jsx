@@ -1,5 +1,4 @@
 import { styled } from "styled-components"
-import Card from "../Components/Card"
 import { useGetList } from "../Hooks/useGetList"
 
 export default function Projects() {
@@ -70,6 +69,7 @@ const StyledCard = styled.section`
     display: grid;
     grid-template-rows: 1fr auto auto auto;
     justify-items: self-start;
+    box-shadow: 0px 0px 10px 1px #000000ee;
     span {
         padding: 0 1rem;
     }
