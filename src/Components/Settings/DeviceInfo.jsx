@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { styled } from "styled-components";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faAndroid, faApple, faChrome, faEdge, faFirefoxBrowser, faLinux, faOpera, faSafari, faUbuntu, faWindows } from "@fortawesome/free-brands-svg-icons";
-import { faDesktop, faSatellite, faShieldHalved, faTriangleExclamation } from "@fortawesome/free-solid-svg-icons";
+import { faDesktop, faInfoCircle, faSatellite, faShieldHalved, faTriangleExclamation } from "@fortawesome/free-solid-svg-icons";
 import axios from "axios";
 
 export default function DeviceInfo() {
@@ -91,13 +91,15 @@ export default function DeviceInfo() {
         fetchData();
     }, []);
 
+    const [showUserAgentBox, setShowUserAgentBox] = useState(false);
+
     return (
         <>
             <h2 id="DeviceInfo">
                 Device Info <Beta>beta</Beta>
             </h2>
             <StyledArticle>
-                <SpanSpread>
+                <SpanSpread onClick={() => setShowUserAgentBox((prevState) => !prevState)}>
                     <SpanCollom>
                         <FontAwesomeIcon icon={faDesktop} size="3x" />
                         <h3>Desktop</h3>
@@ -127,6 +129,16 @@ export default function DeviceInfo() {
                         </SpanRow>
                     </SpanCollom>
                 </SpanSpread>
+                {showUserAgentBox === true ? (
+                    <SpanCenter>
+                        <FontAwesomeIcon icon={faInfoCircle} title="This is for the more advanced user" />
+                        <SpanRow>
+                            <h4>{window.navigator.userAgent}</h4>
+                        </SpanRow>
+                    </SpanCenter>
+                ) : (
+                    <></>
+                )}
             </StyledArticle>
         </>
     );
@@ -161,6 +173,13 @@ const SpanSpread = styled.span`
     display: flex;
     align-items: center;
     justify-content: space-around;
+`;
+
+const SpanCenter = styled.span`
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
 `;
 
 const Beta = styled.small`
