@@ -1,11 +1,12 @@
-import { styled } from "styled-components"
-import Appearance from "../Components/Settings/Appearance"
-import Notifications from "../Components/Settings/Notifications"
-import Permissions from "../Components/Settings/Permissions"
-import Storage from "../Components/Settings/Storage"
+import { styled } from "styled-components";
+import Appearance from "../Components/Settings/Appearance";
+import DeviceInfo from "../Components/Settings/DeviceInfo";
+import Notifications from "../Components/Settings/Notifications";
+import Permissions from "../Components/Settings/Permissions";
+import Storage from "../Components/Settings/Storage";
 
 export default function Settings() {
-    document.title = "Settings"
+    document.title = "Settings";
     return (
         <StyledSettings>
             <SpacingGrid>
@@ -25,24 +26,25 @@ export default function Settings() {
                             <li>
                                 <a href="#Storage">Storage</a>
                             </li>
+                            <li>
+                                <a href="#DeviceInfo">Device Info</a>
+                            </li>
                         </ul>
                     </menu>
 
                     <button onClick={() => window.location.reload()}>Reload Page</button>
-                    <q>
-                        I am actively working to make these settings work and in some cases I try something that you
-                        might not be able to do. If you Come back once a weak this site will have change
-                    </q>
+                    <q>I am actively working to make these settings work and in some cases I try something that you might not be able to do. If you Come back once a weak this site will have change</q>
                 </StyledAside>
                 <StyledWrapper>
                     <Appearance />
                     <Permissions />
                     <Notifications />
                     <Storage />
+                    <DeviceInfo />
                 </StyledWrapper>
             </SpacingGrid>
         </StyledSettings>
-    )
+    );
 }
 
 const StyledSettings = styled.main`
@@ -65,11 +67,11 @@ const StyledSettings = styled.main`
             color: var(--contrastColor);
         }
     }
-`
+`;
 
 const StyledWrapper = styled.article`
     margin: 0 1rem 2rem 0;
-`
+`;
 
 const SpacingGrid = styled.span`
     display: grid;
@@ -84,7 +86,7 @@ const SpacingGrid = styled.span`
         grid-template-columns: 1fr;
         margin: 1rem;
     }
-`
+`;
 
 const StyledAside = styled.span`
     display: flex;
@@ -134,4 +136,4 @@ const StyledAside = styled.span`
         position: relative;
         right: 0;
     }
-`
+`;
