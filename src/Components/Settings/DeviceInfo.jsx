@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { styled } from "styled-components";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faApple, faChrome, faEdge, faFirefoxBrowser, faLinux, faOpera, faSafari, faUbuntu, faWindows } from "@fortawesome/free-brands-svg-icons";
+import { faAndroid, faApple, faChrome, faEdge, faFirefoxBrowser, faLinux, faOpera, faSafari, faUbuntu, faWindows } from "@fortawesome/free-brands-svg-icons";
 import { faDesktop, faSatellite, faShieldHalved, faTriangleExclamation } from "@fortawesome/free-solid-svg-icons";
 import axios from "axios";
 
@@ -24,6 +24,9 @@ export default function DeviceInfo() {
         } else if (window.navigator.userAgent.indexOf("Linux x86_64") !== -1) {
             setOSName("Ubuntu");
             setOSIcon(faUbuntu);
+        } else if (window.navigator.userAgent.indexOf("android/i") !== -1) {
+            setOSName("Android");
+            setOSIcon(faAndroid);
         } else {
             setOSName("unknown");
             setOSIcon(faTriangleExclamation);
