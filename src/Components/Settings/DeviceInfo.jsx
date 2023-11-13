@@ -24,7 +24,7 @@ export default function DeviceInfo() {
         } else if (window.navigator.userAgent.indexOf("Linux x86_64") !== -1) {
             setOSName("Ubuntu");
             setOSIcon(faUbuntu);
-        } else if (window.navigator.userAgent.indexOf("android/i") !== -1) {
+        } else if (window.navigator.userAgent.indexOf("android") !== -1) {
             setOSName("Android");
             setOSIcon(faAndroid);
         } else {
