@@ -148,6 +148,7 @@ const StyledArticle = styled.article`
     padding: 1rem;
     background-color: var(--wrapperColor);
     border-radius: var(--borderRadius);
+    cursor: pointer;
     section {
         display: grid;
         align-content: space-between;
