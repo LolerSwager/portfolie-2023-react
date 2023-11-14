@@ -98,8 +98,8 @@ export default function DeviceInfo() {
             <h2 id="DeviceInfo">
                 Device Info <Beta>beta</Beta>
             </h2>
-            <StyledArticle>
-                <SpanSpread onClick={() => setShowUserAgentBox((prevState) => !prevState)}>
+            <StyledArticle onClick={() => setShowUserAgentBox((prevState) => !prevState)}>
+                <SpanSpread>
                     <SpanCollom>
                         <FontAwesomeIcon icon={faDesktop} size="3x" />
                         <h3>Desktop</h3>
