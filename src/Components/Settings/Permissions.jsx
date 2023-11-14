@@ -168,12 +168,26 @@ export default function Permissions() {
 
     localStorage.setItem("permissions", JSON.stringify([...allPermissions]));
     sessionStorage.setItem("permissions", JSON.stringify([...allPermissions]));
+
+    const [showDisabled, setShowDisabled] = useState(false);
     return (
         <>
-            <h2 id="Permissions">Permissions</h2>
+            <SpanSpread>
+                <h2
+                    id="Permissions"
+                    title="I am actively working to make these settings work and in some cases I try something that you might not be able to do. If you Come back once a weak this site will have change "
+                >
+                    Permissions
+                </h2>
+                <SpanRow>
+                    <FontAwesomeIcon icon={faInfoCircle} title="The type of Device and browser may change what will apear here" />
+                    <p>Show none compadall</p>
+                    <ToggleSwitch ToggleDisabled={false} isToggeld={showDisabled} onToggle={() => setShowDisabled((prevState) => !prevState)} />
+                </SpanRow>
+            </SpanSpread>
             {allPermissions.map((item) => {
                 return (
-                    <StyledSection key={item.id}>
+                    <StyledSection key={item.id} show={item.state === "error" && showDisabled === false ? true : false}>
                         <SpanCollom>
                             <SpanSpread>
                                 <SpanRow>
@@ -199,7 +213,7 @@ const StyledSection = styled.section`
     background-color: var(--wrapperColor);
     border-radius: var(--borderRadius);
     height: 100%;
-    display: flex;
+    display: ${({ show }) => (show ? "none" : "flex")};
     justify-items: center;
     align-items: center;
 `;
