@@ -181,7 +181,7 @@ export default function Permissions() {
                 </h2>
                 <SpanRow>
                     <FontAwesomeIcon icon={faInfoCircle} title="The type of Device and browser may change what will apear here" />
-                    <p>Show none compadall</p>
+                    <p>Show none compatible</p>
                     <ToggleSwitch ToggleDisabled={false} isToggeld={showDisabled} onToggle={() => setShowDisabled((prevState) => !prevState)} />
                 </SpanRow>
             </SpanSpread>
