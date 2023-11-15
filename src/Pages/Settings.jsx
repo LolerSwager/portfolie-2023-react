@@ -1,11 +1,15 @@
 import { styled } from "styled-components";
 import Appearance from "../Components/Settings/Appearance";
 import DeviceInfo from "../Components/Settings/DeviceInfo";
+import SomeMap from "../Components/Settings/SomeMap";
 import Notifications from "../Components/Settings/Notifications";
 import Permissions from "../Components/Settings/Permissions";
 import Storage from "../Components/Settings/Storage";
+import useWindowSize from "../Hooks/useWindowSize";
 
 export default function Settings() {
+    const { width } = useWindowSize();
+
     document.title = "Settings";
     return (
         <StyledSettings>
@@ -40,7 +44,7 @@ export default function Settings() {
                     <Permissions />
                     <Notifications />
                     <Storage />
-                    <DeviceInfo />
+                    {width < 1200 ? <DeviceInfo /> : <SomeMap />}
                 </StyledWrapper>
             </SpacingGrid>
         </StyledSettings>

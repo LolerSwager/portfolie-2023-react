@@ -1,3 +1,4 @@
+import { faLessThanEqual } from "@fortawesome/free-solid-svg-icons";
 import { useEffect, useState } from "react";
 import { styled } from "styled-components";
 import RadioButton from "../buttons/RadioButton";
@@ -5,10 +6,12 @@ import ToggleSwitch from "../buttons/ToggleSwitch";
 
 export default function Appearance() {
     const [themeColor, setThemeColor] = useState(localStorage.getItem("color") ? localStorage.getItem("color") : "#8400db");
+    const [pageWidth, setPageWidth] = useState("1200px");
 
     useEffect(() => {
         localStorage.setItem("color", themeColor);
-    }, [themeColor]);
+        localStorage.setItem("Width", pageWidth);
+    }, [themeColor, pageWidth]);
 
     return (
         <>
@@ -19,6 +22,13 @@ export default function Appearance() {
                     <input type="color" onChange={(event) => setThemeColor(event.target.value)} value={themeColor}></input>
                     <input type="text" onChange={(event) => setThemeColor(event.target.value)} value={themeColor} />
                 </ColorPicker>
+            </section>
+            <section>
+                <label>Page Width</label>
+                <PageWidth>
+                    <input type="text" onChange={(event) => setPageWidth(event.target.value)} value={pageWidth} disabled={true} />
+                    <ToggleSwitch ToggleDisabled={true} isToggeld={true} />
+                </PageWidth>
             </section>
             <section>
                 <label>Theme</label>
@@ -70,7 +80,7 @@ export default function Appearance() {
 const ColorPicker = styled.span`
     display: flex;
     background-color: var(--wrapperColor);
-    padding: 0.3rem 0.5rem;
+    padding: 0.7rem 0.5rem;
     gap: 0.3rem;
     border-radius: calc(var(--borderRadius) / 2);
     input[type="color"] {
@@ -80,6 +90,22 @@ const ColorPicker = styled.span`
         border: none;
         color: #eeeeee;
         background-color: transparent;
+        width: 100%;
+    }
+`;
+
+const PageWidth = styled.span`
+    display: flex;
+    justify-content: space-between;
+    background-color: var(--wrapperColor);
+    padding: 1rem;
+    gap: 0.3rem;
+    border-radius: calc(var(--borderRadius) / 2);
+    input {
+        border: none;
+        color: #eeeeee;
+        background-color: transparent;
+        width: 100%;
     }
 `;
 

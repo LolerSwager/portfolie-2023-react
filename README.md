@@ -7,13 +7,23 @@ To Doo List
 
 #Finish Appearance System
 
-#finish Contact form 
+#finish Contact form
 
 #Remake Footer
 
-#Remake Projects page
-
 #Remake Home page
 
+## Search Bar
 
-#Resume work on Cache and Cookies in Storage
+-   Search function
+-   add Tags
+
+# Filter by
+
+-   github
+-   vercel
+-   complete projects
+-   A - Z & Z - A
+-   0 - 9 & 9 - 0
+-   last updated & least updated
+-   oldest & newest
