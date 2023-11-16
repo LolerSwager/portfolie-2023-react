@@ -79,7 +79,7 @@ export default function DeviceInfo() {
     useEffect(() => {
         const fetchData = async () => {
             try {
-                const response = await axios.get("https://europe-west3-devrcc.cloudfunctions.net/whatismyip");
+                const response = await axios.get("https://nodejs-menu.vercel.app/info");
                 setIpAddress(response.data);
             } catch (error) {
                 console.error("Error fetching IP address:", error);
@@ -125,7 +125,10 @@ export default function DeviceInfo() {
                         </SpanRow>
                         <SpanRow>
                             <FontAwesomeIcon icon={faSatellite} />
-                            <SpanRow>{loading ? <p>Loading...</p> : <p>{ipAddress}</p>}</SpanRow>
+                            <SpanRow>
+                                <h4>IP </h4>
+                                {loading ? <p>Loading...</p> : <p>{ipAddress.ip}</p>}
+                            </SpanRow>
                         </SpanRow>
                     </SpanCollom>
                 </SpanSpread>

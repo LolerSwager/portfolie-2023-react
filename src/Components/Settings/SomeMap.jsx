@@ -4,8 +4,10 @@ import React, { useState, useEffect } from "react";
 import { styled } from "styled-components";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faAndroid, faApple, faChrome, faEdge, faFirefoxBrowser, faLinux, faOpera, faSafari, faUbuntu, faWindows } from "@fortawesome/free-brands-svg-icons";
-import { faDesktop, faInfoCircle, faSatellite, faShieldHalved, faTriangleExclamation } from "@fortawesome/free-solid-svg-icons";
+import { faDesktop, faInfoCircle, faMapLocation, cation, faSatellite, faShieldHalved, faTriangleExclamation } from "@fortawesome/free-solid-svg-icons";
 import axios from "axios";
+import useCoordinates from "../../Hooks/useCoordinates";
+import ToggleSwitch from "../buttons/ToggleSwitch";
 
 export default function SomeMap() {
     const [oSName, setOSName] = useState("Unknown");
@@ -81,7 +83,7 @@ export default function SomeMap() {
     useEffect(() => {
         const fetchData = async () => {
             try {
-                const response = await axios.get("https://europe-west3-devrcc.cloudfunctions.net/whatismyip");
+                const response = await axios.get("https://nodejs-menu.vercel.app/info");
                 setIpAddress(response.data);
             } catch (error) {
                 console.error("Error fetching IP address:", error);
@@ -94,14 +96,30 @@ export default function SomeMap() {
     }, []);
 
     const [showUserAgentBox, setShowUserAgentBox] = useState(false);
-    const position = [57.4449447, 10.5264969];
+
+    const { latitude, longitude } = useCoordinates();
+    const [position, setPosition] = useState([latitude, longitude]);
+    const [showMap, setShowMap] = useState(true);
+
+    useEffect(() => {
+        setPosition([latitude, longitude]);
+        setInterval(setShowMap(false), 5000);
+    }, [latitude, longitude]);
+
     return (
         <>
-            <h2 id="DeviceInfo">
-                Device Info <Beta>beta</Beta>
-            </h2>
+            <SpanSpread>
+                <h2 id="DeviceInfo">
+                    Device Info <Beta>beta</Beta>
+                </h2>
+                <SpanRow>
+                    <FontAwesomeIcon icon={faMapLocation} />
+                    <p>Hide Map</p>
+                    <ToggleSwitch ToggleDisabled={false} isToggeld={showMap} onToggle={() => setShowMap((prevState) => !prevState)} />
+                </SpanRow>
+            </SpanSpread>
             <StyledArticle onClick={() => setShowUserAgentBox((prevState) => !prevState)}>
-                <SpanSpread>
+                <SpanGrid>
                     <SpanCollom>
                         <FontAwesomeIcon icon={faDesktop} size="3x" />
                         <h3>Desktop</h3>
@@ -127,21 +145,40 @@ export default function SomeMap() {
                         </SpanRow>
                         <SpanRow>
                             <FontAwesomeIcon icon={faSatellite} />
-                            <SpanRow>{loading ? <p>Loading...</p> : <p>{ipAddress}</p>}</SpanRow>
+                            <SpanRow>
+                                <h4>IP </h4>
+                                {loading ? <p>Loading...</p> : <p>{ipAddress.ip}</p>}
+                            </SpanRow>
                         </SpanRow>
                     </SpanCollom>
-                    <StyledMap>
-                        <MapContainer zoomControl={false} attributionControl={false} center={position} zoom={14} scrollWheelZoom={false} doubleClickZoom={false} dragging={false} keyboard={false}>
-                            <TileLayer attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors' url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" />
-                            {/* <Marker position={position}>
+                    {showMap === false ? (
+                        <StyledMap>
+                            <MapContainer zoomControl={false} attributionControl={false} center={position} zoom={14} scrollWheelZoom={false} doubleClickZoom={false} dragging={false} keyboard={false}>
+                                <TileLayer
+                                    attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+                                    url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+                                />
+                                {/* <Marker position={position}>
                                 <Popup>Your Location ?</Popup>
                             </Marker> */}
-                        </MapContainer>
-                    </StyledMap>
-                </SpanSpread>
+                            </MapContainer>
+                        </StyledMap>
+                    ) : (
+                        <></>
+                    )}
+                </SpanGrid>
                 {showUserAgentBox === true ? (
                     <>
                         <br />
+                        <SpanCenter>
+                            <SpanRow>
+                                <h4>latitude: </h4>
+                                <p>{latitude}</p>
+                                <h4>longitude: </h4>
+                                <p>{longitude}</p>
+                                <p>{position}</p>
+                            </SpanRow>
+                        </SpanCenter>
                         <SpanCenter>
                             <FontAwesomeIcon icon={faInfoCircle} title="This is for the more advanced user" />
                             <SpanRow>
@@ -184,7 +221,7 @@ const SpanCollom = styled.span`
     flex-direction: column;
 `;
 
-const SpanSpread = styled.span`
+const SpanGrid = styled.span`
     display: grid;
     grid-template-columns: 1fr 1fr 35%;
     justify-items: center;
@@ -231,4 +268,10 @@ const StyledMap = styled.div`
         width: 0;
         z-index: 2;
     }
+`;
+
+const SpanSpread = styled.span`
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
 `;
