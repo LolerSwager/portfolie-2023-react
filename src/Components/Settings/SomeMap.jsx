@@ -79,7 +79,6 @@ export default function SomeMap() {
     }, []);
 
     const [ipAddress, setIpAddress] = useState("Connecting...");
-    const [loading, setLoading] = useState(true);
 
     useEffect(() => {
         const fetchData = async () => {
@@ -88,8 +87,6 @@ export default function SomeMap() {
                 setIpAddress(response.data);
             } catch (error) {
                 console.error("Error fetching IP address:", error);
-            } finally {
-                setLoading(false);
             }
         };
 
@@ -120,7 +117,7 @@ export default function SomeMap() {
                     Device Info <Beta>beta</Beta>
                 </h2>
                 <SpanRow>
-                    <FontAwesomeIcon icon={faMapLocation} />
+                    <FontAwesomeIcon icon={faMapLocation} title="this will hide the map & ip" />
                     <p>Hide Map</p>
                     <ToggleSwitch ToggleDisabled={false} isToggeld={showMap} onToggle={() => setShowMap((prevState) => !prevState)} />
                 </SpanRow>
@@ -154,7 +151,7 @@ export default function SomeMap() {
                             <FontAwesomeIcon icon={faSatellite} />
                             <SpanRow>
                                 <h4>IP </h4>
-                                {loading ? <p>Loading...</p> : <p>{ipAddress.ip}</p>}
+                                {showMap === true ? <p>privacy</p> : <p>{ipAddress.ip}</p>}
                             </SpanRow>
                         </SpanRow>
                     </SpanCollom>
