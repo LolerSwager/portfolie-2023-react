@@ -1,4 +1,5 @@
 import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
+import { Icon } from "leaflet";
 import "leaflet/dist/leaflet.css";
 import React, { useState, useEffect } from "react";
 import { styled } from "styled-components";
@@ -106,6 +107,12 @@ export default function SomeMap() {
         setInterval(setShowMap(false), 5000);
     }, [latitude, longitude]);
 
+    const customIcon = new Icon({
+        // iconUrl: "https://cdn-icons-png.flaticon.com/512/447/447031.png",
+        iconUrl: require("../../Assets/marker.png"),
+        iconSize: [30, 30], // size of the icon
+    });
+
     return (
         <>
             <SpanSpread>
@@ -158,9 +165,9 @@ export default function SomeMap() {
                                     attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
                                     url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
                                 />
-                                {/* <Marker position={position}>
-                                <Popup>Your Location ?</Popup>
-                            </Marker> */}
+                                <Marker position={position} icon={customIcon}>
+                                    <Popup>Your Location ?</Popup>
+                                </Marker>
                             </MapContainer>
                         </StyledMap>
                     ) : (
@@ -176,7 +183,6 @@ export default function SomeMap() {
                                 <p>{latitude}</p>
                                 <h4>longitude: </h4>
                                 <p>{longitude}</p>
-                                <p>{position}</p>
                             </SpanRow>
                         </SpanCenter>
                         <SpanCenter>
