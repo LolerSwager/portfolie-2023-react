@@ -1,11 +1,12 @@
-import { faLessThanEqual } from "@fortawesome/free-solid-svg-icons";
 import { useEffect, useState } from "react";
 import { styled } from "styled-components";
+import ColorPalettes from "../buttons/ColorPalettes";
 import RadioButton from "../buttons/RadioButton";
 import ToggleSwitch from "../buttons/ToggleSwitch";
 
 export default function Appearance() {
     const [themeColor, setThemeColor] = useState(localStorage.getItem("color") ? localStorage.getItem("color") : "#8400db");
+    const [colorArray, setColorArray] = useState(["#099268", "#228be6", "#7950f2", "#be4bdb", "#e64980"]);
     const [pageWidth, setPageWidth] = useState("1200px");
 
     useEffect(() => {
@@ -18,6 +19,7 @@ export default function Appearance() {
             <h2 id="Appearance">Appearance</h2>
             <section>
                 <label>Customize primary color</label>
+                <ColorPalettes colorArray={colorArray} themeColor={themeColor} setThemeColor={setThemeColor} />
                 <ColorPicker>
                     <input type="color" onChange={(event) => setThemeColor(event.target.value)} value={themeColor}></input>
                     <input type="text" onChange={(event) => setThemeColor(event.target.value)} value={themeColor} />
