@@ -54,6 +54,11 @@ const StyledColorPicker = styled.div`
             &:hover {
                 border: 1px solid var(--wrapperColor);
             }
+            &:focus {
+                outline: none !important;
+                border: 1px solid var(--activeColor);
+                box-shadow: 0 0 15px var(--activeColor);
+            }
         }
     }
 `;
