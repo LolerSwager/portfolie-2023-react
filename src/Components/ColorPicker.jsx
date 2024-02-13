@@ -50,6 +50,7 @@ const StyledColorPicker = styled.div`
             padding: 0.3rem 0.5rem;
             border-radius: calc(var(--borderRadius) / 2);
             font-size: 1.3rem;
+            width: 100%;
             &:hover {
                 border: 1px solid var(--wrapperColor);
             }
