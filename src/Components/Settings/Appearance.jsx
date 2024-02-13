@@ -1,13 +1,17 @@
 import { useEffect, useState } from "react";
 import { styled } from "styled-components";
-import ColorPalettes from "../buttons/ColorPalettes";
+import ColorPalettes from "../ColorPalettes";
 import RadioButton from "../buttons/RadioButton";
 import ToggleSwitch from "../buttons/ToggleSwitch";
+import ColorPicker from "../ColorPicker";
 
 export default function Appearance() {
+    const defultColorPalled = ["#099268", "#228be6", "#7950f2", "#be4bdb", "#e64980", "#f63f5f", "#f99268"];
     const [themeColor, setThemeColor] = useState(localStorage.getItem("color") ? localStorage.getItem("color") : "#8400db");
-    const [colorArray, setColorArray] = useState(["#099268", "#228be6", "#7950f2", "#be4bdb", "#e64980"]);
+    const [colorArray, setColorArray] = useState(defultColorPalled);
     const [pageWidth, setPageWidth] = useState("1200px");
+
+    const [showDisabled, setShowDisabled] = useState(false);
 
     useEffect(() => {
         localStorage.setItem("color", themeColor);
@@ -19,11 +23,12 @@ export default function Appearance() {
             <h2 id="Appearance">Appearance</h2>
             <section>
                 <label>Customize primary color</label>
-                <ColorPalettes colorArray={colorArray} themeColor={themeColor} setThemeColor={setThemeColor} />
-                <ColorPicker>
+                <ColorPalettes colorArray={colorArray} themeColor={themeColor} setThemeColor={setThemeColor} isToggeld={showDisabled} onToggle={() => setShowDisabled((prevState) => !prevState)} />
+                {showDisabled === true ? <ColorPicker themeColor={themeColor} setThemeColor={setThemeColor} /> : <></>}
+                {/* <OldColorPicker>
                     <input type="color" onChange={(event) => setThemeColor(event.target.value)} value={themeColor}></input>
                     <input type="text" onChange={(event) => setThemeColor(event.target.value)} value={themeColor} />
-                </ColorPicker>
+                </OldColorPicker> */}
             </section>
             <section>
                 <label>Page Width</label>
@@ -78,23 +83,6 @@ export default function Appearance() {
         </>
     );
 }
-
-const ColorPicker = styled.span`
-    display: flex;
-    background-color: var(--wrapperColor);
-    padding: 0.7rem 0.5rem;
-    gap: 0.3rem;
-    border-radius: calc(var(--borderRadius) / 2);
-    input[type="color"] {
-        width: 25px;
-    }
-    input {
-        border: none;
-        color: #eeeeee;
-        background-color: transparent;
-        width: 100%;
-    }
-`;
 
 const PageWidth = styled.span`
     display: flex;

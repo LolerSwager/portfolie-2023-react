@@ -1,11 +1,12 @@
 import { styled } from "styled-components";
 
-export default function ColorPalettes({ colorArray, themeColor, setThemeColor }) {
+export default function ColorPalettes({ colorArray, themeColor, setThemeColor, isToggeld, onToggle }) {
     return (
         <StyledColorWrapper>
-            <div className="palette" style={{ backgroundColor: `${themeColor}` }}>
+            <label className="palette" style={{ backgroundColor: `${themeColor}` }} title="Click to open color Picking tool">
+                <input type="checkbox" checked={isToggeld} onChange={onToggle} />
                 <p>{themeColor}</p>
-            </div>
+            </label>
             {colorArray.map((color) => {
                 return <div className="palette" key={color} onClick={() => setThemeColor(color)} style={{ backgroundColor: `${color}` }}></div>;
             })}
@@ -15,6 +16,7 @@ export default function ColorPalettes({ colorArray, themeColor, setThemeColor })
 
 const StyledColorWrapper = styled.div`
     display: flex;
+    flex-wrap: wrap;
     gap: 1rem;
     margin: 1rem 0;
     .palette {
@@ -32,11 +34,19 @@ const StyledColorWrapper = styled.div`
         &:first-child {
             &:hover {
                 transform: rotate(0);
+                /* &::after {
+                    content: "+";
+                    margin-right: 1rem;
+                    font-size: 2rem;
+                } */
             }
         }
         p {
             margin: 0 1rem;
             text-transform: uppercase;
+        }
+        input {
+            display: none;
         }
     }
 `;
