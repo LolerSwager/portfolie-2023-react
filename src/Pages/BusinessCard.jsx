@@ -35,16 +35,16 @@ export default function BusinessCard() {
                 <div className="about">
                     <h3>About</h3>
                     <p>
-                        Jeg er uddannet som <b>WebUdvikler</b> på TechCollege Aalborg og har gennem flere år haft erfaring med blant andet Javascript, Html, Css, React, Node.js, GitHub, Figma, Adobe
-                        XD, UI / UX, REST API, scrum.
+                        Jeg er uddannet som <b>WebUdvikler</b> på TechCollege Aalborg, og har gennem flere år haft erfaring med blant andet; Javascript, Html, Css, React, Node.js, GitHub, Figma, Adobe
+                        XD, UX/UI, REST API, scrum.
                     </p>
                     <p>
-                        Søger du eller en du kender en udvikler inden for hjemmesider eller apps så er jeg pt klar på nye eventyr og ledig til stillingen. Jeg søger også andre programerings opgaver ud
-                        over hjemmesider og frontend.
+                        Søger du, eller en du kender en udvikler inden for hjemmesider eller apps. Så er jeg pt klar på nye eventyr og ledig til stillingen. Jeg søger også andre programerings opgaver
+                        ud over hjemmesider og frontend.
                     </p>
                     <p>
-                        Jeg bor pt i Frederikshavn 9900 med min kærste men vi er meget klar til at flytte for det rigtige job. <span onClick={() => setSharingState(true)}>Del</span> gerne mit business
-                        card
+                        Jeg bor pt i Frederikshavn 9900 med min kærste, men vi er meget klar til at flytte for det rigtige job. <span onClick={() => setSharingState(true)}>Del</span> gerne mit
+                        business card
                     </p>
                 </div>
                 <div className="LinkList">
