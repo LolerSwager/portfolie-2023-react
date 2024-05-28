@@ -1,10 +1,12 @@
 import { styled } from "styled-components";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { useState } from "react";
 export default function BusinessCard() {
     document.title = "Jannick Nielsen | Business Card";
     const profileImage = "https://lh3.googleusercontent.com/pw/AP1GczOuZ3boWGWxlyiAxqT2HJE1fC-HbbDORRoM7YUUtRyKonRTkHjdmZZpBwNsn_KwqewIZtULQZXhenbzlOy7UkyU1hV9jh3SralFSsoJ6RhQ2CyvLlA=w2400";
-    const ndef = new NDEFReader();
-    ndef.write("hey you");
+
+    const [sharingState, setSharingState] = useState(false);
+
     return (
         <StyledHome>
             <section>
@@ -21,12 +23,8 @@ export default function BusinessCard() {
                         <p onClick={() => (window.location = "mailto:JannickTrolleNielsen@hotmail.com")} title="Kontakt mig på E-mail">
                             <FontAwesomeIcon icon="fa-solid fa-envelope" className="faicon" />
                         </p>
-                        <p
-                            onClick={() => {
-                                navigator.clipboard.writeText("https://jannick.ninja/businesscard");
-                            }}
-                        >
-                            <FontAwesomeIcon icon="fa-solid fa-link" className="faicon" title="Del mit portfolie" />
+                        <p onClick={() => setSharingState((prevState) => !prevState)}>
+                            <FontAwesomeIcon icon="fa-solid fa-share" className="faicon" />
                         </p>
                     </div>
                 </div>
@@ -55,7 +53,7 @@ export default function BusinessCard() {
                         </li>
                         <li>
                             <p onClick={() => (window.location = "mailto:JannickTrolleNielsen@hotmail.com")} title="Kontakt mig på E-mail">
-                                <FontAwesomeIcon icon="fa-solid fa-envelope" className="faicon" />
+                                <FontAwesomeIcon icon="fa-solid fa-envelope" />
                                 Jannicktrollenielsen@hotmail.com
                             </p>
                         </li>
@@ -67,6 +65,46 @@ export default function BusinessCard() {
                         </li>
                     </ul>
                 </div>
+                {sharingState === true ? (
+                    <div className="SochialSchare">
+                        <div className="SSHeader">
+                            <h3>Share on.</h3>
+                            <FontAwesomeIcon icon="fa-solid fa-xmark" className="faicon" onClick={() => setSharingState(false)} />
+                        </div>
+                        <ul>
+                            <li>
+                                <FontAwesomeIcon icon="fa-brands fa-facebook" /> FaceBook
+                            </li>
+                            <li>
+                                <FontAwesomeIcon icon="fa-brands fa-twitter" /> Twitter
+                            </li>
+                            <li>
+                                <FontAwesomeIcon icon="fa-brands fa-linkedin-in" /> Linkdin
+                            </li>
+                            <li>
+                                <FontAwesomeIcon icon="fa-brands fa-discord" /> Discord
+                            </li>
+                            <li>
+                                <FontAwesomeIcon icon="fa-brands fa-reddit-alien" /> Reddit
+                            </li>
+                            <li>
+                                <FontAwesomeIcon icon="fa-brands fa-facebook-messenger" /> Messenger
+                            </li>
+                            <li>
+                                <FontAwesomeIcon icon="fa-solid fa-qrcode" /> QR code
+                            </li>
+                            <li
+                                onClick={() => {
+                                    navigator.clipboard.writeText("https://jannick.ninja/businesscard");
+                                }}
+                            >
+                                <FontAwesomeIcon icon="fa-solid fa-link" /> Coppy link <span>jannick.ninja/BusinessCard</span>
+                            </li>
+                        </ul>
+                    </div>
+                ) : (
+                    <></>
+                )}
             </section>
         </StyledHome>
     );
@@ -82,6 +120,7 @@ const StyledHome = styled.main`
         max-width: 500px;
         padding: 1rem;
         // background-color: var(--wrapperColor);
+        position: relative;
     }
     .profile {
         width: 100%;
@@ -135,10 +174,6 @@ const StyledHome = styled.main`
             &:hover {
                 background-color: var(--activeColor);
             }
-            &:active {
-                background-color: blue;
-                transition-duration: 0.5s;
-            }
         }
     }
     .LinkList {
@@ -163,6 +198,50 @@ const StyledHome = styled.main`
                     &:hover {
                         background-color: var(--activeColor);
                     }
+                }
+            }
+        }
+    }
+    .SochialSchare {
+        width: 100%;
+        background-color: var(--wrapperColor);
+        border-top-left-radius: var(--borderRadius);
+        border-top-right-radius: var(--borderRadius);
+        // border: 1px solid var(--activeColor);
+        position: fixed;
+        bottom: 0%;
+        z-index: 1000;
+        ul {
+            padding: 0 1.5rem 1.5rem 1.5rem;
+            width: 100%;
+            list-style: none;
+            li {
+                color: var(--textColor);
+                text-decoration: none;
+                display: flex;
+                align-items: center;
+                gap: 1.2rem;
+                width: 100%;
+                padding: 0.8rem;
+                margin: 0.8rem 0;
+                border-radius: var(--borderRadius);
+                background-color: var(--backGroundColor);
+                cursor: pointer;
+                &:hover {
+                    background-color: var(--activeColor);
+                }
+            }
+        }
+        .SSHeader {
+            padding: 1.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            .faicon {
+                height: 1.6rem;
+                width: 1.6rem;
+                &:hover {
+                    fill: var(--activeColor);
                 }
             }
         }
