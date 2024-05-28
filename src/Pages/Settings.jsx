@@ -37,7 +37,6 @@ export default function Settings() {
                     </menu>
 
                     <button onClick={() => window.location.reload()}>Reload Page</button>
-                    {/* <q>I am actively working to make these settings work and in some cases I try something that you might not be able to do. If you Come back once a weak this site will have change</q> */}
                 </StyledAside>
                 <StyledWrapper>
                     <Appearance />

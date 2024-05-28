@@ -151,7 +151,7 @@ export default function SomeMap() {
                             <FontAwesomeIcon icon={faSatellite} />
                             <SpanRow>
                                 <h4>IP </h4>
-                                {showMap === true ? <p>privacy</p> : <p>{ipAddress.ip}</p>}
+                                {showMap === true ? <p>privacy</p> : <CopyMe onClick={() => navigator.clipboard.writeText(ipAddress.ip)}>{ipAddress.ip}</CopyMe>}
                             </SpanRow>
                         </SpanRow>
                     </SpanCollom>
@@ -277,4 +277,11 @@ const SpanSpread = styled.span`
     display: flex;
     align-items: center;
     justify-content: space-between;
+`;
+
+const CopyMe = styled.p`
+    cursor: context-menu;
+    &:hover {
+        color: var(--activeColor);
+    }
 `;

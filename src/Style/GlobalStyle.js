@@ -1,4 +1,4 @@
-import { createGlobalStyle } from "styled-components"
+import { createGlobalStyle } from "styled-components";
 
 const GlobalStyle = createGlobalStyle`
     * {   
@@ -7,6 +7,11 @@ const GlobalStyle = createGlobalStyle`
         box-sizing: border-box;
         font-family: "Poppins", sans-serif;
         color: var(--fontColor);
+       /*  &:focus { // this is the border when tapping throw the page
+            outline: none !important;
+            border: 1px solid var(--activeColor);
+            box-shadow: 0 0 15px var(--activeColor);
+        } */
     }
 
     #root{
@@ -17,6 +22,7 @@ const GlobalStyle = createGlobalStyle`
         min-height: 100dvh;
         background-color: var(--backGroundColor);
     }
+
 
     :root{
         // dark
@@ -65,7 +71,6 @@ const GlobalStyle = createGlobalStyle`
 
         some #0080ff
     */
+`;
 
-`
-
-export default GlobalStyle
+export default GlobalStyle;

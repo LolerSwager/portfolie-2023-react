@@ -30,9 +30,9 @@ const Gradiant = styled.div`
 `;
 
 const StyledColorPicker = styled.div`
-    background-color: black;
+    background-color: #00000050;
     padding: 1rem;
-    border-radius: calc(var(--borderRadius) / 2);
+    border-radius: var(--borderRadius);
 
     div {
         display: flex;

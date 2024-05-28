@@ -223,6 +223,9 @@ const StyledHome = styled.main`
         position: fixed;
         bottom: 0%;
         z-index: 1000;
+        @media only screen and (min-width: 900px) {
+            right: 0;
+        }
         ul {
             padding: 0 1.5rem 0.5rem 1.5rem;
             width: 100%;

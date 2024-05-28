@@ -1,13 +1,15 @@
-import { styled } from "styled-components"
-import { useGetList } from "../Hooks/useGetList"
+import { faFilter, faList } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { styled } from "styled-components";
+import { useGetList } from "../Hooks/useGetList";
 
 export default function Projects() {
-    const { state: GithubData } = useGetList("https://api.github.com/users/lolerswager/repos")
+    const { state: GithubData } = useGetList("https://api.github.com/users/lolerswager/repos");
 
     function LanguagesList({ languagesUrl }) {
-        const { state: Languages } = useGetList(languagesUrl)
+        const { state: Languages } = useGetList(languagesUrl);
 
-        const languages = Object.keys(Languages)
+        const languages = Object.keys(Languages);
 
         return (
             <LanTags>
@@ -15,7 +17,7 @@ export default function Projects() {
                     ? languages.map((language, index) => <li key={index}>{language}</li>)
                     : languages.slice(0, 4).map((language, index) => <li key={index}>{language}</li>)}
             </LanTags>
-        )
+        );
     }
 
     return (
@@ -23,6 +25,15 @@ export default function Projects() {
             <h1>Projects</h1>
             <h2>Liste over Github</h2>
             <small>min github skal lige rydes op og dukumenters</small>
+            <SearchHeader>
+                <input type="search" name="" id="" placeholder="Search.." />
+                <button>
+                    <FontAwesomeIcon icon={faFilter} />
+                </button>
+                <button>
+                    <FontAwesomeIcon icon={faList} />
+                </button>
+            </SearchHeader>
             <StyledArticle>
                 {GithubData?.map((item) => (
                     <StyledCard key={item.id}>
@@ -41,7 +52,7 @@ export default function Projects() {
                 ))}
             </StyledArticle>
         </StyledMain>
-    )
+    );
 }
 
 const StyledMain = styled.main`
@@ -51,7 +62,8 @@ const StyledMain = styled.main`
         margin: 0 2rem;
     }
     /* margin: auto; */
-`
+    /* margin: 0 2rem; */
+`;
 
 const StyledArticle = styled.article`
     /*    max-width: var(--pageMaxWidth); */
@@ -60,7 +72,7 @@ const StyledArticle = styled.article`
     grid-template-columns: repeat(auto-fill, minmax(330px, 1fr));
     gap: 2rem;
     padding: 2rem;
-`
+`;
 
 const StyledCard = styled.section`
     border-radius: var(--borderRadius);
@@ -73,7 +85,7 @@ const StyledCard = styled.section`
     span {
         padding: 0 1rem;
     }
-`
+`;
 
 const Image = styled.div`
     aspect-ratio: 3 / 1;
@@ -88,7 +100,7 @@ const Image = styled.div`
         font-size: calc(2vmin + 1em);
         text-overflow: ellipsis;
     }
-`
+`;
 
 const LanTags = styled.ul`
     display: flex;
@@ -104,7 +116,7 @@ const LanTags = styled.ul`
             color: var(--activeColor);
         }
     }
-`
+`;
 
 const Abutton = styled.a`
     color: black;
@@ -121,4 +133,81 @@ const Abutton = styled.a`
         background-color: var(--activeColor);
         color: var(--contrastColor);
     }
-`
+`;
+const SearchHeader = styled.div`
+    width: 100%;
+    border-bottom: 2px solid var(--wrapperColor);
+    display: grid;
+    grid-template-columns: 1fr auto auto;
+    gap: 1rem;
+    padding: 1rem 2rem;
+    max-width: var(--pageMaxWidth);
+    margin: auto;
+    transition: all 0.5s;
+    position: relative;
+
+    &:hover {
+        &:before {
+            content: " ";
+            position: absolute;
+            bottom: -2px;
+            height: 2px;
+            background: var(--activeColor);
+            animation: fill 5000ms infinite linear;
+        }
+    }
+    input {
+        color: var(--fontcolor);
+        background-color: var(--wrapperColor);
+        border: 1px solid var(--contrastColor);
+        padding: 0.3rem 0.5rem;
+        border-radius: calc(var(--borderRadius) / 2);
+        &:hover {
+            border: 1px solid var(--wrapperColor);
+        }
+
+        &:focus {
+            outline: none !important;
+            border: 1px solid var(--activeColor);
+            box-shadow: 0 0 15px var(--activeColor);
+        }
+    }
+    button {
+        color: var(--contrastColor);
+        background-color: transparent;
+        border: none;
+        cursor: pointer;
+        font-size: 1.3rem;
+    }
+    @-webkit-keyframes run {
+        0% {
+            left: 0;
+        }
+
+        100% {
+            left: 100%;
+        }
+    }
+    @-webkit-keyframes fill {
+        0% {
+            width: 0%;
+            left: 0;
+        }
+        25% {
+            width: 100%;
+            left: 0;
+        }
+        50% {
+            width: 0%;
+            left: 100%;
+        }
+        75% {
+            width: 100%;
+            left: 0%;
+        }
+        100% {
+            width: 0%;
+            left: 0;
+        }
+    }
+`;

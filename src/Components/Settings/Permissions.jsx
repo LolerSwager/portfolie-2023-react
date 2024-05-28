@@ -1,4 +1,8 @@
 import { faBluetooth, faNfcSymbol } from "@fortawesome/free-brands-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { useEffect, useState } from "react";
+import { styled } from "styled-components";
+import ToggleSwitch from "../buttons/ToggleSwitch";
 import {
     faBell,
     faCamera,
@@ -17,10 +21,6 @@ import {
     faTachometerAlt,
     faVolumeUp,
 } from "@fortawesome/free-solid-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { useEffect, useState } from "react";
-import { styled } from "styled-components";
-import ToggleSwitch from "../buttons/ToggleSwitch";
 
 const permissionsNames = [
     {
