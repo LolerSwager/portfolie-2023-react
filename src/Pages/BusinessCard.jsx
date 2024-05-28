@@ -84,7 +84,7 @@ export default function BusinessCard() {
                                 </a>
                             </li>
                             <li>
-                                <a href={`fb-messenger://share/?link= ${shareringlink}`} target="_blank">
+                                <a href={`fb-messenger://share?link=${shareringlink}&app_id=439963215433050`} target="_blank">
                                     <FontAwesomeIcon icon="fa-brands fa-facebook-messenger" /> Messenger
                                 </a>
                             </li>
