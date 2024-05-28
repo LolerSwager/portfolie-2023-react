@@ -100,7 +100,7 @@ export default function BusinessCard() {
                                 <span onClick={() => setQrCodeState((prevState) => !prevState)}>
                                     <FontAwesomeIcon icon="fa-solid fa-qrcode" /> QR code
                                 </span>
-                                {qrCodeState === true ? <img src={qrimg} alt="qr link" /> : <></>}
+                                {qrCodeState === true ? <img src={qrimg} alt="qr link" onClick={() => setQrCodeState(false)} /> : <></>}
                             </li>
                             <li>
                                 <span
@@ -224,14 +224,14 @@ const StyledHome = styled.main`
         bottom: 0%;
         z-index: 1000;
         ul {
-            padding: 0 1.5rem 1.5rem 1.5rem;
+            padding: 0 1.5rem 0.5rem 1.5rem;
             width: 100%;
             list-style: none;
             li {
                 background-color: var(--backGroundColor);
                 border-radius: var(--borderRadius);
                 cursor: pointer;
-
+                margin: 1rem 0;
                 &:hover {
                     background-color: var(--activeColor);
                 }
@@ -244,18 +244,16 @@ const StyledHome = styled.main`
                     gap: 1.2rem;
                     width: 100%;
                     padding: 0.8rem;
-                    margin: 0.8rem 0;
                 }
                 img {
                     width: 100%;
                     display: flex;
                     align-items: center;
-                    padding: 1rem;
                 }
             }
         }
         .SSHeader {
-            padding: 1.5rem;
+            padding: 1rem 1.5rem 0 1.5rem;
             display: flex;
             align-items: center;
             justify-content: space-between;
