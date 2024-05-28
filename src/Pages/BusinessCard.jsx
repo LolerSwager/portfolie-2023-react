@@ -1,11 +1,13 @@
 import { styled } from "styled-components";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useState } from "react";
+import qrimg from "../Assets/qrcode.svg";
 export default function BusinessCard() {
     document.title = "Jannick Nielsen | Business Card";
     const profileImage = "https://lh3.googleusercontent.com/pw/AP1GczOuZ3boWGWxlyiAxqT2HJE1fC-HbbDORRoM7YUUtRyKonRTkHjdmZZpBwNsn_KwqewIZtULQZXhenbzlOy7UkyU1hV9jh3SralFSsoJ6RhQ2CyvLlA=w2400";
 
     const [sharingState, setSharingState] = useState(false);
+    const [qrCodeState, setQrCodeState] = useState(false);
 
     const shareringlink = "https://jannick.ninja/businesscard";
 
@@ -95,9 +97,10 @@ export default function BusinessCard() {
                                 </span>
                             </li>
                             <li>
-                                <span>
+                                <span onClick={() => setQrCodeState((prevState) => !prevState)}>
                                     <FontAwesomeIcon icon="fa-solid fa-qrcode" /> QR code
                                 </span>
+                                {qrCodeState === true ? <img src={qrimg} alt="qr link" /> : <></>}
                             </li>
                             <li>
                                 <span
@@ -212,6 +215,7 @@ const StyledHome = styled.main`
     }
     .SochialSchare {
         width: 100%;
+        max-width: 500px;
         background-color: var(--wrapperColor);
         border-top-left-radius: var(--borderRadius);
         border-top-right-radius: var(--borderRadius);
@@ -224,6 +228,13 @@ const StyledHome = styled.main`
             width: 100%;
             list-style: none;
             li {
+                background-color: var(--backGroundColor);
+                border-radius: var(--borderRadius);
+                cursor: pointer;
+
+                &:hover {
+                    background-color: var(--activeColor);
+                }
                 a,
                 span {
                     color: var(--textColor);
@@ -234,12 +245,12 @@ const StyledHome = styled.main`
                     width: 100%;
                     padding: 0.8rem;
                     margin: 0.8rem 0;
-                    border-radius: var(--borderRadius);
-                    background-color: var(--backGroundColor);
-                    cursor: pointer;
-                    &:hover {
-                        background-color: var(--activeColor);
-                    }
+                }
+                img {
+                    width: 100%;
+                    display: flex;
+                    align-items: center;
+                    padding: 1rem;
                 }
             }
         }
