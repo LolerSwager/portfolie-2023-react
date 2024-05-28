@@ -86,6 +86,11 @@ export default function BusinessCard() {
                                 </a>
                             </li>
                             <li>
+                                <a href={`https://t.me/share/url?url=${shareringlink}&text=Check out this page`} target="_blank">
+                                    <FontAwesomeIcon icon="fa-brands fa-telegram" /> Telegram
+                                </a>
+                            </li>
+                            <li>
                                 <a href={`fb-messenger://share?link=${shareringlink}&app_id=439963215433050`} target="_blank">
                                     <FontAwesomeIcon icon="fa-brands fa-facebook-messenger" /> Messenger
                                 </a>
@@ -225,12 +230,7 @@ const StyledHome = styled.main`
         bottom: 0%;
         z-index: 1000;
         animation: popup 500ms linear;
-        @media only screen and (min-width: 900px) {
-            right: 0;
-            height: 100dvh;
-            border-radius: 0;
-            border: none;
-        }
+
         ul {
             padding: 0 1.5rem 0.5rem 1.5rem;
             width: 100%;
@@ -240,6 +240,7 @@ const StyledHome = styled.main`
                 border-radius: var(--borderRadius);
                 cursor: pointer;
                 margin: 1rem 0;
+
                 &:hover {
                     background-color: var(--activeColor);
                 }
