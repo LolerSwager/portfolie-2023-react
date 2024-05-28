@@ -7,6 +7,8 @@ export default function BusinessCard() {
 
     const [sharingState, setSharingState] = useState(false);
 
+    const shareringlink = "https://jannick.ninja/businesscard";
+
     return (
         <StyledHome>
             <section>
@@ -77,12 +79,12 @@ export default function BusinessCard() {
                                 </a>
                             </li>
                             <li>
-                                <a href=" https://www.linkedin.com/sharing/share-offsite/?url=https://jannick.ninja/businesscard" target="_blank">
+                                <a href="https://www.linkedin.com/sharing/share-offsite/?url=https://jannick.ninja/businesscard" target="_blank">
                                     <FontAwesomeIcon icon="fa-brands fa-linkedin-in" /> Linkdin
                                 </a>
                             </li>
                             <li>
-                                <a href="https://www.messenger.com/new" target="_blank">
+                                <a href={`fb-messenger://share/?link= ${shareringlink}`} target="_blank">
                                     <FontAwesomeIcon icon="fa-brands fa-facebook-messenger" /> Messenger
                                 </a>
                             </li>
