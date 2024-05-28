@@ -20,7 +20,7 @@ export default function BusinessCard() {
                         <a href="https://github.com/LolerSwager" title="Tjæk min Github">
                             <FontAwesomeIcon icon="fa-brands fa-github" className="faicon" />
                         </a>
-                        <p onClick={() => (window.location = "mailto:JannickTrolleNielsen@hotmail.com")} title="Kontakt mig på E-mail">
+                        <p onClick={() => (window.location = "mailto:JannickTrolleNielsen@hotmail.com ?subject=I have a job for you")} title="Kontakt mig på E-mail">
                             <FontAwesomeIcon icon="fa-solid fa-envelope" className="faicon" />
                         </p>
                         <p onClick={() => setSharingState((prevState) => !prevState)}>
@@ -52,12 +52,6 @@ export default function BusinessCard() {
                             </a>
                         </li>
                         <li>
-                            <p onClick={() => (window.location = "mailto:JannickTrolleNielsen@hotmail.com")} title="Kontakt mig på E-mail">
-                                <FontAwesomeIcon icon="fa-solid fa-envelope" />
-                                Jannicktrollenielsen@hotmail.com
-                            </p>
-                        </li>
-                        <li>
                             <p onClick={() => window.open("tel:+4520665586")} title="Ring til mig :D">
                                 <FontAwesomeIcon icon="fa-solid fa-phone" />
                                 +45 20 66 55 86
@@ -73,32 +67,44 @@ export default function BusinessCard() {
                         </div>
                         <ul>
                             <li>
-                                <FontAwesomeIcon icon="fa-brands fa-facebook" /> FaceBook
+                                <a href="https://www.facebook.com/sharer.php?u=https://jannick.ninja/businesscard" target="_blank">
+                                    <FontAwesomeIcon icon="fa-brands fa-facebook" /> FaceBook
+                                </a>
                             </li>
                             <li>
-                                <FontAwesomeIcon icon="fa-brands fa-twitter" /> Twitter
+                                <a href="https://x.com/intent/tweet?text=Check%20out%20this%Portfolie!%20-%20https://jannick.ninja/businesscard" target="_blank">
+                                    <FontAwesomeIcon icon="fa-brands fa-twitter" /> Twitter
+                                </a>
                             </li>
                             <li>
-                                <FontAwesomeIcon icon="fa-brands fa-linkedin-in" /> Linkdin
+                                <a href=" https://www.linkedin.com/sharing/share-offsite/?url=https://jannick.ninja/businesscard" target="_blank">
+                                    <FontAwesomeIcon icon="fa-brands fa-linkedin-in" /> Linkdin
+                                </a>
                             </li>
                             <li>
-                                <FontAwesomeIcon icon="fa-brands fa-discord" /> Discord
+                                <a href="https://www.messenger.com/new" target="_blank">
+                                    <FontAwesomeIcon icon="fa-brands fa-facebook-messenger" /> Messenger
+                                </a>
                             </li>
                             <li>
-                                <FontAwesomeIcon icon="fa-brands fa-reddit-alien" /> Reddit
+                                <span onClick={() => (window.location = "mailto:?subject=Awesom site &body=look at this https://jannick.ninja/businesscard")}>
+                                    <FontAwesomeIcon icon="fa-solid fa-envelope" />
+                                    shaire via Email
+                                </span>
                             </li>
                             <li>
-                                <FontAwesomeIcon icon="fa-brands fa-facebook-messenger" /> Messenger
+                                <span>
+                                    <FontAwesomeIcon icon="fa-solid fa-qrcode" /> QR code
+                                </span>
                             </li>
                             <li>
-                                <FontAwesomeIcon icon="fa-solid fa-qrcode" /> QR code
-                            </li>
-                            <li
-                                onClick={() => {
-                                    navigator.clipboard.writeText("https://jannick.ninja/businesscard");
-                                }}
-                            >
-                                <FontAwesomeIcon icon="fa-solid fa-link" /> Coppy link <span>jannick.ninja/BusinessCard</span>
+                                <span
+                                    onClick={() => {
+                                        navigator.clipboard.writeText("https://jannick.ninja/businesscard");
+                                    }}
+                                >
+                                    <FontAwesomeIcon icon="fa-solid fa-link" /> Coppy link
+                                </span>
                             </li>
                         </ul>
                     </div>
@@ -207,7 +213,7 @@ const StyledHome = styled.main`
         background-color: var(--wrapperColor);
         border-top-left-radius: var(--borderRadius);
         border-top-right-radius: var(--borderRadius);
-        // border: 1px solid var(--activeColor);
+        border-top: 1px solid black;
         position: fixed;
         bottom: 0%;
         z-index: 1000;
@@ -216,19 +222,22 @@ const StyledHome = styled.main`
             width: 100%;
             list-style: none;
             li {
-                color: var(--textColor);
-                text-decoration: none;
-                display: flex;
-                align-items: center;
-                gap: 1.2rem;
-                width: 100%;
-                padding: 0.8rem;
-                margin: 0.8rem 0;
-                border-radius: var(--borderRadius);
-                background-color: var(--backGroundColor);
-                cursor: pointer;
-                &:hover {
-                    background-color: var(--activeColor);
+                a,
+                span {
+                    color: var(--textColor);
+                    text-decoration: none;
+                    display: flex;
+                    align-items: center;
+                    gap: 1.2rem;
+                    width: 100%;
+                    padding: 0.8rem;
+                    margin: 0.8rem 0;
+                    border-radius: var(--borderRadius);
+                    background-color: var(--backGroundColor);
+                    cursor: pointer;
+                    &:hover {
+                        background-color: var(--activeColor);
+                    }
                 }
             }
         }
