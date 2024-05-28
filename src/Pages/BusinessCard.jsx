@@ -38,7 +38,10 @@ export default function BusinessCard() {
                         Jeg er uddannet som <b>WebUdvikler</b> på TechCollege Aalborg og har gennem flere år haft erfaring med blant andet Javascript, Html, Css, React, Node.js, GitHub, Figma, Adobe
                         XD, UI / UX, REST API, scrum.
                     </p>
-                    <p>Jeg er pt søgene efter et arbejde indefor udwikling af Hjemmesider samt app's. hvis du står og mangler en som mig eller kender en så tjæk og del gerne min side :D</p>
+                    <p>
+                        Søger du eller en du kender en udvikler inden for hjemmesider eller apps så er jeg pt klar på nye eventyr og ledig til stillingen. Jeg søger også andre programerings opgaver ud
+                        over hjemmesider og frontend.
+                    </p>
                 </div>
                 <div className="LinkList">
                     <h3>Links</h3>
