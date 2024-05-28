@@ -66,7 +66,7 @@ export default function BusinessCard() {
                 {sharingState === true ? (
                     <div className="SochialSchare">
                         <div className="SSHeader">
-                            <h3>Share on.</h3>
+                            <h3>Share my business card on.</h3>
                             <FontAwesomeIcon icon="fa-solid fa-xmark" className="faicon" onClick={() => setSharingState(false)} />
                         </div>
                         <ul>
