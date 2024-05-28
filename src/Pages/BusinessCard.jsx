@@ -42,6 +42,10 @@ export default function BusinessCard() {
                         Søger du eller en du kender en udvikler inden for hjemmesider eller apps så er jeg pt klar på nye eventyr og ledig til stillingen. Jeg søger også andre programerings opgaver ud
                         over hjemmesider og frontend.
                     </p>
+                    <p>
+                        Jeg bor pt i Frederikshavn 9900 med min kærste men vi er meget klar til at flytte for det rigtige job. <span onClick={() => setSharingState(true)}>Del</span> gerne mit business
+                        card
+                    </p>
                 </div>
                 <div className="LinkList">
                     <h3>Links</h3>
@@ -172,10 +176,15 @@ const StyledHome = styled.main`
         width: 100%;
         p {
             margin: 0 0 1rem 0;
+            &:hover {
+                span {
+                    color: var(--activeColor);
+                    cursor: pointer;
+                }
+            }
         }
         &:hover {
-            b,
-            span {
+            b {
                 color: var(--activeColor);
             }
         }
