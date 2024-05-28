@@ -3,6 +3,8 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 export default function BusinessCard() {
     document.title = "Jannick Nielsen | Business Card";
     const profileImage = "https://lh3.googleusercontent.com/pw/AP1GczOuZ3boWGWxlyiAxqT2HJE1fC-HbbDORRoM7YUUtRyKonRTkHjdmZZpBwNsn_KwqewIZtULQZXhenbzlOy7UkyU1hV9jh3SralFSsoJ6RhQ2CyvLlA=w2400";
+    const ndef = new NDEFReader();
+    ndef.write("hey you");
     return (
         <StyledHome>
             <section>
@@ -19,7 +21,13 @@ export default function BusinessCard() {
                         <p onClick={() => (window.location = "mailto:JannickTrolleNielsen@hotmail.com")} title="Kontakt mig på E-mail">
                             <FontAwesomeIcon icon="fa-solid fa-envelope" className="faicon" />
                         </p>
-                        <FontAwesomeIcon icon="fa-solid fa-link" className="faicon" title="Del mit portfolie" />
+                        <p
+                            onClick={() => {
+                                navigator.clipboard.writeText("https://jannick.ninja/businesscard");
+                            }}
+                        >
+                            <FontAwesomeIcon icon="fa-solid fa-link" className="faicon" title="Del mit portfolie" />
+                        </p>
                     </div>
                 </div>
                 <div className="about">
@@ -126,6 +134,10 @@ const StyledHome = styled.main`
             width: 1.6rem;
             &:hover {
                 background-color: var(--activeColor);
+            }
+            &:active {
+                background-color: blue;
+                transition-duration: 0.5s;
             }
         }
     }
