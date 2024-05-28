@@ -23,6 +23,7 @@ export default function BusinessCard() {
                     </div>
                 </div>
                 <div className="about">
+                    <h3>About</h3>
                     <p>
                         Jeg er uddannet som <b>WebUdvikler</b> på TechCollege Aalborg og har gennem flere år haft erfaring med blant andet Javascript, Html, Css, React, Node.js, GitHub, Figma, Adobe
                         XD, UI / UX, REST API, scrum.
