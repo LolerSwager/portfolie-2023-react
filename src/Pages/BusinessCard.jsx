@@ -66,22 +66,22 @@ export default function BusinessCard() {
                 {sharingState === true ? (
                     <div className="SochialSchare">
                         <div className="SSHeader">
-                            <h3>Share my business card on.</h3>
+                            <h3>Share business card on.</h3>
                             <FontAwesomeIcon icon="fa-solid fa-xmark" className="faicon" onClick={() => setSharingState(false)} />
                         </div>
                         <ul>
                             <li>
-                                <a href="https://www.facebook.com/sharer.php?u=https://jannick.ninja/businesscard" target="_blank">
+                                <a href={`https://www.facebook.com/sharer.php?u=${shareringlink}`} target="_blank">
                                     <FontAwesomeIcon icon="fa-brands fa-facebook" /> FaceBook
                                 </a>
                             </li>
                             <li>
-                                <a href="https://x.com/intent/tweet?text=Check%20out%20this%Portfolie!%20-%20https://jannick.ninja/businesscard" target="_blank">
+                                <a href={`https://twitter.com/intent/tweet?text=${shareringlink}`} target="_blank">
                                     <FontAwesomeIcon icon="fa-brands fa-twitter" /> Twitter
                                 </a>
                             </li>
                             <li>
-                                <a href="https://www.linkedin.com/sharing/share-offsite/?url=https://jannick.ninja/businesscard" target="_blank">
+                                <a href={`https://www.linkedin.com/sharing/share-offsite/?url=${shareringlink}`} target="_blank">
                                     <FontAwesomeIcon icon="fa-brands fa-linkedin-in" /> Linkdin
                                 </a>
                             </li>
@@ -91,9 +91,9 @@ export default function BusinessCard() {
                                 </a>
                             </li>
                             <li>
-                                <span onClick={() => (window.location = "mailto:?subject=Awesom site &body=look at this https://jannick.ninja/businesscard")}>
+                                <span onClick={() => (window.location = `mailto:?subject=Awesom site &body=look at this ${shareringlink}`)}>
                                     <FontAwesomeIcon icon="fa-solid fa-envelope" />
-                                    shaire via Email
+                                    Shaire via Email
                                 </span>
                             </li>
                             <li>
@@ -105,7 +105,7 @@ export default function BusinessCard() {
                             <li>
                                 <span
                                     onClick={() => {
-                                        navigator.clipboard.writeText("https://jannick.ninja/businesscard");
+                                        navigator.clipboard.writeText(shareringlink);
                                     }}
                                 >
                                     <FontAwesomeIcon icon="fa-solid fa-link" /> Coppy link
@@ -220,11 +220,16 @@ const StyledHome = styled.main`
         border-top-left-radius: var(--borderRadius);
         border-top-right-radius: var(--borderRadius);
         border-top: 1px solid black;
+        // position: absolute;
         position: fixed;
         bottom: 0%;
         z-index: 1000;
+        animation: popup 500ms linear;
         @media only screen and (min-width: 900px) {
             right: 0;
+            height: 100dvh;
+            border-radius: 0;
+            border: none;
         }
         ul {
             padding: 0 1.5rem 0.5rem 1.5rem;
@@ -263,10 +268,19 @@ const StyledHome = styled.main`
             .faicon {
                 height: 1.6rem;
                 width: 1.6rem;
+                cursor: pointer;
                 &:hover {
                     fill: var(--activeColor);
                 }
             }
+        }
+    }
+    @-webkit-keyframes popup {
+        0% {
+            bottom: -100%;
+        }
+        100% {
+            bottom: 0%;
         }
     }
 `;
