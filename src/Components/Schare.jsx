@@ -120,7 +120,7 @@ const StyledSchare = styled.div`
             height: 1.6rem;
             width: 1.6rem;
             cursor: pointer;
-            &:hover {
+            & *:hover {
                 fill: var(--activeColor);
             }
         }

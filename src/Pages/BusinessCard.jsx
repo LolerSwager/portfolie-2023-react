@@ -50,22 +50,22 @@ export default function BusinessCard() {
                     <h3>Links</h3>
                     <ul>
                         <li>
-                            <a href="https://vanderhoef.dk">
-                                <FontAwesomeIcon icon={faPersonDigging} />
-                                vanderhoef.dk
-                            </a>
-                        </li>
-                        <li>
-                            <a href="https://jannick.ninja">
-                                <FontAwesomeIcon icon={faUserNinja} />
-                                Jannick.ninja
-                            </a>
-                        </li>
-                        <li>
                             <p onClick={() => window.open("tel:+4520665586")} title="Ring til mig :D">
                                 <FontAwesomeIcon icon={faPhone} />
-                                +45 20 66 55 86
+                                Ring til mig på: +45 20 66 55 86
                             </p>
+                        </li>
+                        <li>
+                            <a href="https://jannick.ninja/cv">
+                                <FontAwesomeIcon icon={faUserNinja} />
+                                Jannick Vanderhoef Trolle Nielsen CV
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://vanderhoef.dk">
+                                <FontAwesomeIcon icon={faPersonDigging} />
+                                Mit procheckt pt: Vanderhoef.dk
+                            </a>
                         </li>
                     </ul>
                 </div>
