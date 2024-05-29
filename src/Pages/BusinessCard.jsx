@@ -64,7 +64,7 @@ export default function BusinessCard() {
                         <li>
                             <a href="https://vanderhoef.dk">
                                 <FontAwesomeIcon icon={faPersonDigging} />
-                                Mit procheckt pt: Vanderhoef.dk
+                                Mit nuværende projekt: Vanderhoef.dk
                             </a>
                         </li>
                     </ul>
