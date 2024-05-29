@@ -1,11 +1,11 @@
-import { Link } from "react-router-dom"
-import { styled } from "styled-components"
-import { useState } from "react"
-import { faBars, faGear, faX } from "@fortawesome/free-solid-svg-icons"
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
+import { Link } from "react-router-dom";
+import { styled } from "styled-components";
+import { useState } from "react";
+import { faBars, faGear, faX } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 export default function Header() {
-    const [menuState, setMenuState] = useState(false)
+    const [menuState, setMenuState] = useState(false);
     return (
         <StyledHeader menuStateShow={menuState}>
             <nav>
@@ -20,12 +20,17 @@ export default function Header() {
                     </li>
                     <li>
                         <Link to="projects" onClick={() => setMenuState((prevState) => !prevState)}>
-                            projects
+                            Projects
                         </Link>
                     </li>
                     <li>
                         <Link to="cv" onClick={() => setMenuState((prevState) => !prevState)}>
                             Curriculum Vitae
+                        </Link>
+                    </li>
+                    <li>
+                        <Link to="businessCard" onClick={() => setMenuState((prevState) => !prevState)}>
+                            Business Card
                         </Link>
                     </li>
                 </ul>
@@ -34,7 +39,7 @@ export default function Header() {
                 </Link>
             </nav>
         </StyledHeader>
-    )
+    );
 }
 
 const StyledHeader = styled.header`
@@ -55,7 +60,7 @@ const StyledHeader = styled.header`
                 background-color: var(--wrapperColor);
                 border-radius: var(--borderRadius);
             }
-            @media only screen and (max-width: 700px) {
+            @media only screen and (max-width: 900px) {
                 display: block;
             }
         }
@@ -72,7 +77,7 @@ const StyledHeader = styled.header`
         }
         ul {
             display: ${(props) => (props.menuStateShow ? "flex" : "none")};
-            @media only screen and (min-width: 701px) {
+            @media only screen and (min-width: 901px) {
                 display: flex;
             }
             justify-content: center;
@@ -92,7 +97,7 @@ const StyledHeader = styled.header`
             }
         }
     }
-    @media only screen and (max-width: 700px) {
+    @media only screen and (max-width: 900px) {
         position: relative;
         nav {
             height: ${(props) => (props.menuStateShow ? "100dvh" : "unset")};
@@ -110,4 +115,4 @@ const StyledHeader = styled.header`
             gap: 1rem;
         }
     }
-`
+`;

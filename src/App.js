@@ -1,12 +1,14 @@
+import { BrowserRouter } from "react-router-dom";
+import { styled, ThemeProvider } from "styled-components";
+import { useEffect, useState } from "react";
+import { ToastContainer } from "react-toastify";
 import Header from "./Components/Header/Header";
 import Footer from "./Components/Footer/Footer";
 import AppRouter from "./Router/AppRouter";
-import { BrowserRouter } from "react-router-dom";
-import { ThemeProvider } from "styled-components";
 import GlobalStyle from "./Style/GlobalStyle";
-import { useEffect, useState } from "react";
-import { ToastContainer } from "react-toastify";
 import KeyAction from "./Components/KeyAction";
+import FloatingTool from "../src/Components/FloatingTool";
+import Schare from "../src/Components/Schare";
 import "react-toastify/dist/ReactToastify.css";
 
 export default function App() {
@@ -38,6 +40,7 @@ export default function App() {
                 <GlobalStyle />
                 <ToastContainer theme="dark" position="top-right" />
                 <KeyAction />
+                <FloatingTool />
             </ThemeProvider>
         </BrowserRouter>
     );

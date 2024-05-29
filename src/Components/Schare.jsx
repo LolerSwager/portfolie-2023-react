@@ -80,7 +80,9 @@ const StyledSchare = styled.div`
     bottom: 0%;
     z-index: 1000;
     animation: popup 500ms linear;
-
+    left: 50%;
+    right: 50%;
+    transform: translate(-50%);
     ul {
         padding: 0 1.5rem 0.5rem 1.5rem;
         width: 100%;
@@ -120,9 +122,9 @@ const StyledSchare = styled.div`
             height: 1.6rem;
             width: 1.6rem;
             cursor: pointer;
-            & *:hover {
-                fill: var(--activeColor);
-            }
+        }
+        & *:hover {
+            fill: var(--activeColor);
         }
     }
 
