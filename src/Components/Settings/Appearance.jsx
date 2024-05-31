@@ -4,6 +4,7 @@ import ColorPalettes from "../ColorPalettes";
 import RadioButton from "../buttons/RadioButton";
 import ToggleSwitch from "../buttons/ToggleSwitch";
 import ColorPicker from "../ColorPicker";
+import { faArrowTrendUp } from "@fortawesome/free-solid-svg-icons";
 
 export default function Appearance() {
     const defultColorPalled = ["#099268", "#228be6", "#7950f2", "#be4bdb", "#e64980", "#f63f5f", "#f99268"];
@@ -66,17 +67,30 @@ export default function Appearance() {
                 </SpanSpread>
                 <StyledArticle>
                     <section>
-                        <RadioButton RadioDisabled={false} RadioDcategory="Toastify" labelName="Left Top" />
+                        <RadioButton RadioDisabled={true} RadioDcategory="Toastify" labelName="Left Top" isChecked={false} />
                     </section>
                     <section>
-                        <RadioButton RadioDisabled={false} RadioDcategory="Toastify" labelName="Right Top" />
+                        <RadioButton RadioDisabled={true} RadioDcategory="Toastify" labelName="Right Top" isChecked={true} />
                     </section>
                     <section>
-                        <RadioButton RadioDisabled={false} RadioDcategory="Toastify" labelName="Left Bottom" />
+                        <RadioButton RadioDisabled={true} RadioDcategory="Toastify" labelName="Left Bottom" isChecked={false} />
                     </section>
-
                     <section>
-                        <RadioButton RadioDisabled={false} RadioDcategory="Toastify" labelName="Right Bottom" />
+                        <RadioButton RadioDisabled={true} RadioDcategory="Toastify" labelName="Right Bottom" isChecked={false} />
+                    </section>
+                </StyledArticle>
+            </section>
+            <section>
+                <SpanSpread>
+                    <label>FloatingTool</label>
+                    <ToggleSwitch ToggleDisabled={true} isToggeld={true} />
+                </SpanSpread>
+                <StyledArticle>
+                    <section>
+                        <RadioButton RadioDisabled={true} RadioDcategory="FloatingTool" labelName="Left Side" isChecked={false} />
+                    </section>
+                    <section>
+                        <RadioButton RadioDisabled={true} RadioDcategory="FloatingTool" labelName="Right Side" isChecked={true} />
                     </section>
                 </StyledArticle>
             </section>

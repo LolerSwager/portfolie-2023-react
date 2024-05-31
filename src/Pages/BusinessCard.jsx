@@ -69,7 +69,7 @@ export default function BusinessCard() {
                         </li>
                     </ul>
                 </div>
-                {sharingState === true ? <Schare url="https://jannick.ninja/businesscard" msg="Tjæk lige ham her ud :O" setSharingState={setSharingState} /> : <></>}
+                {sharingState === true ? <Schare url="https://jannick.ninja/businesscard" msg="Tjæk lige ham her ud :O" ssht="business card" setSharingState={setSharingState} /> : <></>}
             </section>
         </StyledHome>
     );

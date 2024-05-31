@@ -5,7 +5,7 @@ import qrimg from "../Assets/qrcode.svg";
 import { faEnvelope, faLink, faQrcode, faXmark } from "@fortawesome/free-solid-svg-icons";
 import { faFacebookF, faFacebookMessenger, faLinkedin, faTelegram, faTwitter } from "@fortawesome/free-brands-svg-icons";
 
-export default function Schare({ url, msg, setSharingState }) {
+export default function Schare({ url, msg, ssht, setSharingState }) {
     document.title = "Jannick Nielsen | Business Card";
 
     const [qrCodeState, setQrCodeState] = useState(false);
@@ -13,7 +13,7 @@ export default function Schare({ url, msg, setSharingState }) {
     return (
         <StyledSchare>
             <div className="SSHeader">
-                <h3>Share business card on.</h3>
+                <h3>Share {ssht} on.</h3>
                 <FontAwesomeIcon icon={faXmark} className="faicon" onClick={() => setSharingState(false)} />
             </div>
             <ul>
@@ -58,6 +58,7 @@ export default function Schare({ url, msg, setSharingState }) {
                     <span
                         onClick={() => {
                             navigator.clipboard.writeText(url);
+                            setSharingState(false);
                         }}
                     >
                         <FontAwesomeIcon icon={faLink} /> Coppy link

@@ -24,13 +24,13 @@ export default function Header() {
                         </Link>
                     </li>
                     <li>
-                        <Link to="cv" onClick={() => setMenuState((prevState) => !prevState)}>
-                            Curriculum Vitae
+                        <Link to="businessCard" onClick={() => setMenuState((prevState) => !prevState)}>
+                            Business Card
                         </Link>
                     </li>
                     <li>
-                        <Link to="businessCard" onClick={() => setMenuState((prevState) => !prevState)}>
-                            Business Card
+                        <Link to="cv" onClick={() => setMenuState((prevState) => !prevState)}>
+                            Curriculum Vitae
                         </Link>
                     </li>
                 </ul>

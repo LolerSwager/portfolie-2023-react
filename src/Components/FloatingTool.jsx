@@ -7,13 +7,14 @@ import Schare from "../Components/Schare";
 
 export default function FloatingTool() {
     const [sharingState, setSharingState] = useState(false);
-    const [scrollPosition, setScrollPosition] = useState(0);
-    const [totalScrollSize, setTotalScrollSize] = useState(0);
+    const [scrollPosition, setScrollPosition] = useState(1);
+    const [totalScrollSize, setTotalScrollSize] = useState(1);
 
     const handleScroll = () => {
         setScrollPosition(document.documentElement.scrollTop);
         setTotalScrollSize(document.documentElement.scrollHeight - window.innerHeight);
     };
+
     useEffect(() => {
         window.addEventListener("scroll", handleScroll);
         return () => {
@@ -33,24 +34,25 @@ export default function FloatingTool() {
                         <FontAwesomeIcon icon={faDownLong} />
                     </li>
                 )}
-                <li>
-                    <Link to="/settings">
+                <Link to="/settings">
+                    <li>
                         <FontAwesomeIcon icon={faCog} />
-                    </Link>
-                </li>
+                    </li>
+                </Link>
                 <li onClick={() => setSharingState((prevState) => !prevState)}>
                     <FontAwesomeIcon icon={faShare} />
                 </li>
                 {/* <li>{scrollPosition}</li>
                 <li>{totalScrollSize}</li> */}
             </StyledFloatingTool>
-            {sharingState === true ? <Schare url="https://jannick.ninja/businesscard" msg="Tjæk lige ham her ud :O" setSharingState={setSharingState} /> : <></>}
+            {sharingState === true ? <Schare url={`https://jannick.ninja/${window.location.pathname}`} msg="Tjæk lige ham her ud :O" setSharingState={setSharingState} /> : <></>}
         </>
     );
 }
 
 const StyledFloatingTool = styled.div`
-    background-color: var(--wrapperColor);
+    // background-color: var(--wrapperColor);
+    background-color: transparent;
     border-radius: 1rem;
     border: 1px solid black;
     // position: absolute;
@@ -65,7 +67,6 @@ const StyledFloatingTool = styled.div`
     flex-direction: column;
     margin: 0.5rem;
     padding: 0.5rem;
-
     li {
         height: 3rem;
         width: 3rem;
@@ -77,14 +78,18 @@ const StyledFloatingTool = styled.div`
         cursor: pointer;
         &:hover {
             background-color: black;
+            box-shadow: 0px 0px 10px 1px var(--activeColor);
         }
     }
-    @-webkit-keyframes popup {
+    &:hover {
+        animation: getcolor 1000ms linear both;
+    }
+    @-webkit-keyframes getcolor {
         0% {
-            bottom: -100%;
+            background-color: transparent;
         }
         100% {
-            bottom: 0%;
+            background-color: black;
         }
     }
 `;
