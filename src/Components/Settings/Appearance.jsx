@@ -8,6 +8,7 @@ import { faArrowTrendUp } from "@fortawesome/free-solid-svg-icons";
 
 export default function Appearance() {
     const defultColorPalled = ["#099268", "#228be6", "#7950f2", "#be4bdb", "#e64980", "#f63f5f", "#f99268"];
+
     const [themeColor, setThemeColor] = useState(localStorage.getItem("color") ? localStorage.getItem("color") : "#8400db");
     const [colorArray, setColorArray] = useState(defultColorPalled);
     const [pageWidth, setPageWidth] = useState("1200px");

@@ -7,7 +7,7 @@ import Schare from "../Components/Schare";
 
 export default function FloatingTool() {
     const [sharingState, setSharingState] = useState(false);
-    const [scrollPosition, setScrollPosition] = useState(1);
+    const [scrollPosition, setScrollPosition] = useState(0);
     const [totalScrollSize, setTotalScrollSize] = useState(1);
 
     const handleScroll = () => {

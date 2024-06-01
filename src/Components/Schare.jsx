@@ -75,7 +75,7 @@ const StyledSchare = styled.div`
     background-color: var(--wrapperColor);
     border-top-left-radius: var(--borderRadius);
     border-top-right-radius: var(--borderRadius);
-    border-top: 1px solid black;
+    border: 1px solid black;
     // position: absolute;
     position: fixed;
     bottom: 0%;
