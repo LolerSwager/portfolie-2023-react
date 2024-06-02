@@ -1,3 +1,31 @@
-# https://www.robotstxt.org/robotstxt.html
+User-agent: Googlebot
+    Disallow: /nogooglebot/
+    
+    User-agent: *
+    Allow: /
+    
+    Sitemap: http://www.jannick.ninja/sitemap.xml
+
+
+User-agent: Googlebot
+Disallow: /nogooglebot/
+# Optional: Add other directories you don't want Googlebot to crawl
+# Disallow: /private/
+# Disallow: /temp/
+
+User-agent: Bingbot
+Disallow: /nobingbot/
+# Optional: Add other directories you don't want Bingbot to crawl
+# Disallow: /private/
+# Disallow: /temp/
+
 User-agent: *
-Disallow:
+Allow: /
+# Optional: Add directories you don't want other bots to crawl
+# Disallow: /private/
+# Disallow: /temp/
+
+# Optional: Set crawl delay if needed
+# Crawl-Delay: 10
+
+Sitemap: https://jannick.ninja/sitemap.xml

@@ -19,18 +19,23 @@ export default function Header() {
                         </Link>
                     </li>
                     <li>
-                        <Link to="projects" onClick={() => setMenuState((prevState) => !prevState)}>
-                            Projects
-                        </Link>
-                    </li>
-                    <li>
                         <Link to="businessCard" onClick={() => setMenuState((prevState) => !prevState)}>
                             Business Card
                         </Link>
                     </li>
+                    {/* <li>
+                        <Link to="GithubSearch" onClick={() => setMenuState((prevState) => !prevState)}>
+                            Github Search
+                        </Link>
+                    </li> */}
+                    <li>
+                        <Link to="Projects" onClick={() => setMenuState((prevState) => !prevState)}>
+                            Projects
+                        </Link>
+                    </li>
                     <li>
                         <Link to="cv" onClick={() => setMenuState((prevState) => !prevState)}>
-                            Curriculum Vitae
+                            CV
                         </Link>
                     </li>
                 </ul>
@@ -60,7 +65,7 @@ const StyledHeader = styled.header`
                 background-color: var(--wrapperColor);
                 border-radius: var(--borderRadius);
             }
-            @media only screen and (max-width: 900px) {
+            @media only screen and (max-width: 800px) {
                 display: block;
             }
         }
@@ -77,7 +82,7 @@ const StyledHeader = styled.header`
         }
         ul {
             display: ${(props) => (props.menuStateShow ? "flex" : "none")};
-            @media only screen and (min-width: 901px) {
+            @media only screen and (min-width: 801px) {
                 display: flex;
             }
             justify-content: center;
@@ -85,6 +90,7 @@ const StyledHeader = styled.header`
             li {
                 list-style: none;
                 font-weight: 500;
+                cursor: pointer;
                 a {
                     padding: 0.5rem 1rem;
                     border-radius: var(--borderRadius);
@@ -97,7 +103,7 @@ const StyledHeader = styled.header`
             }
         }
     }
-    @media only screen and (max-width: 900px) {
+    @media only screen and (max-width: 800px) {
         position: relative;
         nav {
             height: ${(props) => (props.menuStateShow ? "100dvh" : "unset")};
