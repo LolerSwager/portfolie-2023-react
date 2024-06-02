@@ -8,19 +8,22 @@ import GithubSearch from "../Pages/GithubSearch";
 import Test from "../Pages/test";
 import BusinessCard from "../Pages/BusinessCard";
 import Projects from "../Pages/Projects";
+import SiteMap from "../Pages/SiteMap";
 
 export default function AppRouter() {
     return (
         <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="GithubSearch" element={<GithubSearch />} />
+            {/* <Route path="/" element={<Home />} /> */}
+            <Route path="/" element={<BusinessCard />} />
             <Route path="/cv" element={<Cv />} />
-            <Route path="*" element={<NotFound />} />
-            <Route path="/qr/:themeColor" element={<Qr />} />
+            <Route path="/projects" element={<Projects />} />
+            <Route path="githubSearch" element={<GithubSearch />} />
+            <Route path="/businessCard" element={<BusinessCard />} />
             <Route path="/settings" element={<Settings />} />
             <Route path="/test" element={<Test />} />
-            <Route path="/BusinessCard" element={<BusinessCard />} />
-            <Route path="/Projects" element={<Projects />} />
+            <Route path="/qr/:themeColor" element={<Qr />} />
+            <Route path="*" element={<NotFound />} />
+            <Route path="/sitemap" element={<SiteMap />} />
             <Route path="/sitemap.xml" />
             <Route path="/robots.txt " />
         </Routes>
