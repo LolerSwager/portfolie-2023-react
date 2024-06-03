@@ -7,7 +7,9 @@ export default function Footer() {
     return (
         <StyledFooter>
             <section>
-                <h4>Jannick Vanderhoef Trolle Nielsen</h4>
+                <h4>
+                    Jannick Vanderhoef <br /> Trolle Nielsen
+                </h4>
                 <div className="Social-icons">
                     <a href="https://github.com/LolerSwager" target="_blank" rel="noreferrer" title="Github">
                         <FontAwesomeIcon icon={faGithubSquare} />
@@ -49,7 +51,7 @@ const StyledFooter = styled.footer`
     display: flex;
     justify-content: space-around;
     position: relative;
-    @media only screen and (max-width: 800px) {
+    @media only screen and (max-width: 750px) {
         flex-direction: column;
     }
     &::before {
@@ -65,7 +67,7 @@ const StyledFooter = styled.footer`
     section {
         padding: 1rem;
 
-        @media only screen and (max-width: 800px) {
+        @media only screen and (max-width: 750px) {
             width: 100%;
         }
         //background-color: red;
