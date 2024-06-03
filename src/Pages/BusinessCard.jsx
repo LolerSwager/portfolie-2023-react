@@ -12,6 +12,7 @@ export default function BusinessCard() {
 
     return (
         <StyledHome>
+            <h1>Business Card</h1>
             <section>
                 <div className="profile">
                     <img src={profileImage} alt="Image of Jannick Nielsen" />
