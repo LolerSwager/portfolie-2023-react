@@ -13,14 +13,14 @@ export default function Header() {
                     {menuState ? <FontAwesomeIcon icon={faX} /> : <FontAwesomeIcon icon={faBars} />}
                 </span>
                 <ul>
-                    <li>
+                    {/* <li>
                         <Link to="/" onClick={() => setMenuState((prevState) => !prevState)}>
                             Home
                         </Link>
-                    </li>
+                    </li> */}
                     <li>
                         <Link to="businessCard" onClick={() => setMenuState((prevState) => !prevState)}>
-                            Business Card
+                            Visitkort
                         </Link>
                     </li>
                     {/* <li>
@@ -30,7 +30,7 @@ export default function Header() {
                     </li> */}
                     <li>
                         <Link to="Projects" onClick={() => setMenuState((prevState) => !prevState)}>
-                            Projects
+                            Projektor
                         </Link>
                     </li>
                     <li>
@@ -65,7 +65,7 @@ const StyledHeader = styled.header`
                 background-color: var(--wrapperColor);
                 border-radius: var(--borderRadius);
             }
-            @media only screen and (max-width: 800px) {
+            @media only screen and (max-width: 500px) {
                 display: block;
             }
         }
@@ -82,7 +82,7 @@ const StyledHeader = styled.header`
         }
         ul {
             display: ${(props) => (props.menuStateShow ? "flex" : "none")};
-            @media only screen and (min-width: 801px) {
+            @media only screen and (min-width: 501px) {
                 display: flex;
             }
             justify-content: center;
@@ -103,7 +103,7 @@ const StyledHeader = styled.header`
             }
         }
     }
-    @media only screen and (max-width: 800px) {
+    @media only screen and (max-width: 500px) {
         position: relative;
         nav {
             height: ${(props) => (props.menuStateShow ? "100dvh" : "unset")};
