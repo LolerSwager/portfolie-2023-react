@@ -1,19 +1,22 @@
 import { styled } from "styled-components";
 import Weather from "../Weather/Weather";
 import { faEnvelope, faPhone } from "@fortawesome/free-solid-svg-icons";
-import { faDiscord, faGithubSquare, faLinkedin } from "@fortawesome/free-brands-svg-icons";
+import { faDiscord, faGithubSquare, faLinkedin, faTwitterSquare } from "@fortawesome/free-brands-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 export default function Footer() {
     return (
         <StyledFooter>
             <section>
-                <h4>Sosiale Medier</h4>
+                <h4>Jannick Vanderhoef Trolle Nielsen</h4>
                 <div className="Social-icons">
                     <a href="https://github.com/LolerSwager" target="_blank" rel="noreferrer" title="Github">
                         <FontAwesomeIcon icon={faGithubSquare} />
                     </a>
                     <a href="https://www.linkedin.com/in/jannick-nielsen-web/" target="_blank" rel="noreferrer" title="Linkedin">
                         <FontAwesomeIcon icon={faLinkedin} />
+                    </a>
+                    <a href="https://www.twitter.com/lolerswager" target="_blank" rel="noreferrer" title="Twitter">
+                        <FontAwesomeIcon icon={faTwitterSquare} />
                     </a>
                     <a href="https://discord.gg/uaCRvZU" target="_blank" rel="noreferrer" title="Discord">
                         <FontAwesomeIcon icon={faDiscord} />
@@ -45,8 +48,10 @@ const StyledFooter = styled.footer`
     background-color: #000000;
     display: flex;
     justify-content: space-around;
-    flex-wrap: wrap;
     position: relative;
+    @media only screen and (max-width: 800px) {
+        flex-direction: column;
+    }
     &::before {
         content: "";
         height: 2px;
@@ -59,6 +64,10 @@ const StyledFooter = styled.footer`
     }
     section {
         padding: 1rem;
+
+        @media only screen and (max-width: 800px) {
+            width: 100%;
+        }
         //background-color: red;
         h4 {
             font-size: 1.3rem;
