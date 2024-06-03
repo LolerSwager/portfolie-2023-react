@@ -9,7 +9,7 @@ export default function Header() {
     return (
         <StyledHeader menuStateShow={menuState}>
             <nav>
-                <span className="burgerMenu" onClick={() => setMenuState((prevState) => !prevState)}>
+                <span className="burgerMenu" aria-label="Open burger menu" onClick={() => setMenuState((prevState) => !prevState)}>
                     {menuState ? <FontAwesomeIcon icon={faX} /> : <FontAwesomeIcon icon={faBars} />}
                 </span>
                 <ul>
@@ -39,7 +39,7 @@ export default function Header() {
                         </Link>
                     </li>
                 </ul>
-                <Link to="settings" className="settingsIcon" onClick={() => setMenuState(false)}>
+                <Link to="settings" aria-label="Go to settings" className="settingsIcon" onClick={() => setMenuState(false)}>
                     <FontAwesomeIcon icon={faGear} />
                 </Link>
             </nav>

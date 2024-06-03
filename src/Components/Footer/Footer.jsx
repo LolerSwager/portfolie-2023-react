@@ -50,6 +50,7 @@ const StyledFooter = styled.footer`
     background-color: #000000;
     display: flex;
     justify-content: space-around;
+    wrap: wrap;
     position: relative;
     @media only screen and (max-width: 750px) {
         flex-direction: column;

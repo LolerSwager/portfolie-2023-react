@@ -34,7 +34,7 @@ export default function FloatingTool() {
                         <FontAwesomeIcon icon={faDownLong} />
                     </li>
                 )}
-                <Link to="/settings">
+                <Link to="/settings" aria-label="Go to settings">
                     <li>
                         <FontAwesomeIcon icon={faCog} />
                     </li>
@@ -50,7 +50,7 @@ export default function FloatingTool() {
     );
 }
 
-const StyledFloatingTool = styled.div`
+const StyledFloatingTool = styled.ul`
     // background-color: var(--wrapperColor);
     background-color: transparent;
     border-radius: 1rem;

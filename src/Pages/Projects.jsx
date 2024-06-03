@@ -7,6 +7,23 @@ export default function Projects() {
     return (
         <StyledProjects>
             <h1>Projects</h1>
+            <section>
+                <img src="" alt="et skærmbilled af vanderhoef.dk start skærm i det man kommer ind på siden" />
+                <div>
+                    <h2>Vanderhoef.dk</h2>
+                    <p>En side der handler om islanske fårhunde </p>
+                    <div>
+                        <h3>Skills used</h3>
+                        <ul>
+                            <li>Css</li>
+                            <li>Html</li>
+                            <li>Javascript</li>
+                            <li>React.js</li>
+                            <li>Styled-components</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
         </StyledProjects>
     );
 }
