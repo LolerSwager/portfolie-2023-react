@@ -1,11 +1,11 @@
 import { styled } from "styled-components";
+import Main from "../Components/Main";
 
 export default function Cv() {
     document.title = "Curriculum Vitae";
     return (
-        <StyledMain>
+        <Main PageHeader="Curriculum Vitae" PageTitle="CV af Jannick Vanderhoef Trolle Nielsen">
             <StyledList>
-                <h1>Curriculum Vitae</h1>
                 <section>
                     <h3>ERHVERVSERFARING</h3>
                     <ul>
@@ -17,7 +17,6 @@ export default function Cv() {
                                 </span>
                                 <h5>2021-2022</h5>
                             </div>
-
                             <p>Opbygning samt installation af kritisk strøm fordeling elementer til ophæng i og på væggen med fokus af Hospitaler.</p>
                         </li>
                     </ul>
@@ -82,7 +81,7 @@ export default function Cv() {
                     </ul>
                 </section>
             </StyledList>
-        </StyledMain>
+        </Main>
     );
 }
 

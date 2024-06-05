@@ -4,16 +4,15 @@ import { useState } from "react";
 import Schare from "../Components/Schare";
 import { faGithub, faLinkedin } from "@fortawesome/free-brands-svg-icons";
 import { faEnvelope, faPersonDigging, faPhone, faShare, faUserNinja } from "@fortawesome/free-solid-svg-icons";
+import Main from "../Components/Main";
 export default function BusinessCard() {
-    document.title = "Jannick Nielsen | Business Card";
     const profileImage = "https://lh3.googleusercontent.com/pw/AP1GczOuZ3boWGWxlyiAxqT2HJE1fC-HbbDORRoM7YUUtRyKonRTkHjdmZZpBwNsn_KwqewIZtULQZXhenbzlOy7UkyU1hV9jh3SralFSsoJ6RhQ2CyvLlA=w2400";
 
     const [sharingState, setSharingState] = useState(false);
 
     return (
-        <StyledHome>
-            <h1>Business Card</h1>
-            <section>
+        <Main PageHeader="Visitkort" PageTitle="Visitkort af Jannick Vanderhoef Trolle Nielsen">
+            <StyledHome>
                 <div className="profile">
                     <img src={profileImage} alt="Image of Jannick Nielsen" />
                     <h2>Jannick VanderHoef Trolle Nielsen</h2>
@@ -71,23 +70,20 @@ export default function BusinessCard() {
                     </ul>
                 </div>
                 {sharingState === true ? <Schare url="https://jannick.ninja/businesscard" msg="Tjæk lige ham her ud :O" ssht="business card" setSharingState={setSharingState} /> : <></>}
-            </section>
-        </StyledHome>
+            </StyledHome>
+        </Main>
     );
 }
 
-const StyledHome = styled.main`
+const StyledHome = styled.section`
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    max-width: 500px;
+    padding: 1rem;
+    position: relative;
     margin: auto;
-    section {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        gap: 1rem;
-        max-width: 500px;
-        padding: 1rem;
-        // background-color: var(--wrapperColor);
-        position: relative;
-    }
     .profile {
         width: 100%;
         display: flex;

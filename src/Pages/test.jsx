@@ -1,10 +1,16 @@
 import { styled } from "styled-components";
+import Main from "../Components/Main";
 import Table from "../Components/Table";
 
 export default function Test() {
     return (
-        <StyledMain>
-            {/* <WrapperArticle>
+        <Main PageHeader="Test page" PageTitle="Test">
+            <Table />
+        </Main>
+    );
+
+    {
+        /* <WrapperArticle>
                 <ScrollSection>
                     <HeadSection>
                         <p>Name</p>
@@ -62,15 +68,9 @@ export default function Test() {
                         <button>Clean</button>
                     </BodySection>
                 </ScrollSection>
-            </WrapperArticle> */}
-            <Table />
-        </StyledMain>
-    );
+            </WrapperArticle> */
+    }
 }
-
-const StyledMain = styled.main`
-    margin: 1rem;
-`;
 
 const WrapperArticle = styled.article`
     height: 100%;

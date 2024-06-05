@@ -6,53 +6,52 @@ import Notifications from "../Components/Settings/Notifications";
 import Permissions from "../Components/Settings/Permissions";
 import Storage from "../Components/Settings/Storage";
 import useWindowSize from "../Hooks/useWindowSize";
+import Main from "../Components/Main";
 
 export default function Settings() {
     const { width } = useWindowSize();
 
-    document.title = "Settings";
     return (
-        <StyledSettings>
-            <SpacingGrid>
-                <StyledAside>
-                    <h1>Settings</h1>
-                    <menu>
-                        <ul>
-                            <li>
-                                <a href="#Appearance">Appearance</a>
-                            </li>
-                            <li>
-                                <a href="#Permissions">Permissions</a>
-                            </li>
-                            <li>
-                                <a href="#Notifications">Notifications</a>
-                            </li>
-                            <li>
-                                <a href="#Storage">Storage</a>
-                            </li>
-                            <li>
-                                <a href="#DeviceInfo">Device Info</a>
-                            </li>
-                        </ul>
-                    </menu>
+        <Main PageHeader="Settings" PageTitle="Settings make it like you want it">
+            <StyledSettings>
+                <SpacingGrid>
+                    <StyledAside>
+                        <menu>
+                            <ul>
+                                <li>
+                                    <a href="#Appearance">Appearance</a>
+                                </li>
+                                <li>
+                                    <a href="#Permissions">Permissions</a>
+                                </li>
+                                <li>
+                                    <a href="#Notifications">Notifications</a>
+                                </li>
+                                <li>
+                                    <a href="#Storage">Storage</a>
+                                </li>
+                                <li>
+                                    <a href="#DeviceInfo">Device Info</a>
+                                </li>
+                            </ul>
+                        </menu>
 
-                    <button onClick={() => window.location.reload()}>Reload Page</button>
-                </StyledAside>
-                <StyledWrapper>
-                    <Appearance />
-                    <Permissions />
-                    <Notifications />
-                    <Storage />
-                    {width < 1200 ? <DeviceInfo /> : <SomeMap />}
-                </StyledWrapper>
-            </SpacingGrid>
-        </StyledSettings>
+                        <button onClick={() => window.location.reload()}>Reload Page</button>
+                    </StyledAside>
+                    <StyledWrapper>
+                        <Appearance />
+                        <Permissions />
+                        <Notifications />
+                        <Storage />
+                        {width < 1200 ? <DeviceInfo /> : <SomeMap />}
+                    </StyledWrapper>
+                </SpacingGrid>
+            </StyledSettings>
+        </Main>
     );
 }
 
 const StyledSettings = styled.main`
-    margin: auto;
-    max-width: var(--pageMaxWidth);
     article {
         display: grid;
         gap: 1rem;
