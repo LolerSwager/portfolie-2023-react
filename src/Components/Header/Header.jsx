@@ -12,6 +12,7 @@ export default function Header() {
                 <span className="burgerMenu" aria-label="Open burger menu" onClick={() => setMenuState((prevState) => !prevState)}>
                     {menuState ? <FontAwesomeIcon icon={faX} /> : <FontAwesomeIcon icon={faBars} />}
                 </span>
+                {/* <div>Jannick V.T.N</div> */}
                 <ul>
                     {/* <li>
                         <Link to="/" onClick={() => setMenuState((prevState) => !prevState)}>

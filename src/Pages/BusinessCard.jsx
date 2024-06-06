@@ -14,7 +14,7 @@ export default function BusinessCard() {
         <Main PageHeader="Visitkort" PageTitle="Visitkort af Jannick Vanderhoef Trolle Nielsen">
             <StyledHome>
                 <div className="profile">
-                    <img src={profileImage} alt="Image of Jannick Nielsen" />
+                    <img src={profileImage} alt="Image of Jannick Nielsen" loading="lazy" />
                     <h2>Jannick VanderHoef Trolle Nielsen</h2>
                     <div className="Media">
                         <a href="https://www.linkedin.com/in/jannick-nielsen-web/" title="Kontakt mig på Linkedin">

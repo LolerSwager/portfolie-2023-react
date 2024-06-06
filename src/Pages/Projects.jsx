@@ -13,7 +13,7 @@ export default function Projects() {
                     <h2>Vanderhoef.dk</h2>
                 </section>
                 <section className="projekt-left">
-                    <img src={VScreenshot} alt="et skærmbilled af vanderhoef.dk start skærm i det man kommer ind på siden" />
+                    <img src={VScreenshot} alt="et skærmbilled af vanderhoef.dk start skærm i det man kommer ind på siden" loading="lazy" />
                     <div className="skill-tags">
                         <h3>Tags</h3>
                         <ul>
