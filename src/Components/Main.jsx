@@ -1,5 +1,6 @@
 import { useEffect } from "react";
 import { styled } from "styled-components";
+import Breadcrumb from "./Breadcrumb";
 
 export default function Main({ PageHeader, PageTitle, children }) {
     useEffect(() => {
@@ -9,6 +10,7 @@ export default function Main({ PageHeader, PageTitle, children }) {
         <StyledMain>
             <h1>{PageHeader}</h1>
             {children}
+            <Breadcrumb />
         </StyledMain>
     );
 }
@@ -16,7 +18,7 @@ export default function Main({ PageHeader, PageTitle, children }) {
 const StyledMain = styled.main`
     max-width: var(--pageMaxWidth);
     width: 100%;
-    padding: 1rem;
+    padding: 0 1rem;
     margin: 0 auto;
     h1 {
         background-color: var(--activeColor);
@@ -28,6 +30,6 @@ const StyledMain = styled.main`
         width: max-content;
     }
     @media only screen and (max-width: 700px) {
-        padding: 1rem 0;
+        padding: 0;
     }
 `;

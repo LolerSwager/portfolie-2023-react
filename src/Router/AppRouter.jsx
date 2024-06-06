@@ -14,6 +14,7 @@ export default function AppRouter() {
     return (
         <Routes>
             {/* <Route path="/" element={<Home />} /> */}
+
             <Route path="/" element={<BusinessCard />} />
             <Route path="/cv" element={<Cv />} />
             <Route path="/projects" element={<Projects />} />
