@@ -89,7 +89,7 @@ const StyledHeader = styled.header`
             align-items: center;
             li {
                 list-style: none;
-                font-weight: 500;
+                font-weight: 600;
                 cursor: pointer;
                 a {
                     padding: 0.5rem 1rem;
