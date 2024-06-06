@@ -19,7 +19,7 @@ export default function Header() {
                         </Link>
                     </li> */}
                     <li>
-                        <Link to="businessCard" onClick={() => setMenuState((prevState) => !prevState)}>
+                        <Link to="Visitkort" onClick={() => setMenuState((prevState) => !prevState)}>
                             Visitkort
                         </Link>
                     </li>

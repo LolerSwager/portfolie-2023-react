@@ -6,11 +6,12 @@ import { Link, useLocation } from "react-router-dom";
 export default function Breadcrumb() {
     const location = useLocation();
     const pathnames = location.pathname.split("/").filter((x) => x);
-
     return (
         <StyledBreadcrumbs>
             <li>
-                <Link to="/">Home</Link>
+                <Link to="/">
+                    <FontAwesomeIcon icon={faHome} />
+                </Link>
             </li>
             {pathnames.map((value, index) => {
                 const to = `/${pathnames.slice(0, index + 1).join("/")}`;
@@ -42,6 +43,9 @@ const StyledBreadcrumbs = styled.ul`
             &:hover {
                 font-weight: 600;
                 color: var(--activeColor);
+            }
+            & *:hover {
+                fill: var(--activeColor);
             }
         }
     }

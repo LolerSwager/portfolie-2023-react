@@ -8,9 +8,9 @@ export default function Main({ PageHeader, PageTitle, children }) {
     }, [PageTitle, PageHeader]);
     return (
         <StyledMain>
+            <Breadcrumb />
             <h1>{PageHeader}</h1>
             {children}
-            <Breadcrumb />
         </StyledMain>
     );
 }

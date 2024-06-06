@@ -13,13 +13,13 @@ import SiteMap from "../Pages/SiteMap";
 export default function AppRouter() {
     return (
         <Routes>
-            {/* <Route path="/" element={<Home />} /> */}
-
-            <Route path="/" element={<BusinessCard />} />
+            <Route path="/" element={<Home />} />
+            <Route path="/home" element={<Home />} />
             <Route path="/cv" element={<Cv />} />
             <Route path="/projects" element={<Projects />} />
             <Route path="githubSearch" element={<GithubSearch />} />
             <Route path="/businessCard" element={<BusinessCard />} />
+            <Route path="/Visitkort" element={<BusinessCard />} />
             <Route path="/settings" element={<Settings />} />
             <Route path="/test" element={<Test />} />
             <Route path="/qr/:themeColor" element={<Qr />} />
