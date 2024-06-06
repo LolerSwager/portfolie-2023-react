@@ -1,40 +1,42 @@
 import { styled } from "styled-components";
 import { FaGithubSquare, FaLinkedin } from "react-icons/fa";
+import Main from "../Components/Main";
 
 export default function Home() {
-    document.title = "Jannick Nielsen | Portfolie";
     return (
-        <StyledHome>
-            <h1>Velkommen til mit portfolie</h1>
-            <h2>Tjek min Github samt min Linkind</h2>
-            <article>
-                <a href="https://github.com/LolerSwager" target="_blank" rel="noreferrer">
-                    <section>
-                        <img src="https://cdn.jsdelivr.net/gh/Justlovesmile/CDN/image/1584110986-u29974937523374358523fm26gp0.jpg" alt="cover img af github" />
-                        <span>
-                            <FaGithubSquare />
-                            <h3>Github</h3>
-                        </span>
-                    </section>
-                </a>
-                <a href="https://www.linkedin.com/in/jannick-nielsen-web/" target="_blank" rel="noreferrer">
-                    <section>
-                        <img
-                            src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fdonaldpiccione.com%2Fwp-content%2Fuploads%2F2018%2F12%2FLinkedin-network.jpg&f=1&nofb=1&ipt=a5f4039b2640a0ae1c2dda5072cb2cf6db1aa91aa4d50d07848d2064f4f14548&ipo=images"
-                            alt="cover img af github"
-                        />
-                        <span>
-                            <FaLinkedin />
-                            <h3>Linkind</h3>
-                        </span>
-                    </section>
-                </a>
-            </article>
-        </StyledHome>
+        <Main PageHeader="Velkommen til mit portfolie" PageTitle="portfolie af Jannick Vanderhoef Trolle Nielsen">
+            <StyledHome>
+                {/* <h1>Velkommen til mit portfolie</h1> */}
+                <h2>Tjek min Github samt min Linkind</h2>
+                <article>
+                    <a href="https://github.com/LolerSwager" target="_blank" rel="noreferrer">
+                        <section>
+                            <img src="https://cdn.jsdelivr.net/gh/Justlovesmile/CDN/image/1584110986-u29974937523374358523fm26gp0.jpg" alt="cover img af github" />
+                            <span>
+                                <FaGithubSquare />
+                                <h3>Github</h3>
+                            </span>
+                        </section>
+                    </a>
+                    <a href="https://www.linkedin.com/in/jannick-nielsen-web/" target="_blank" rel="noreferrer">
+                        <section>
+                            <img
+                                src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fdonaldpiccione.com%2Fwp-content%2Fuploads%2F2018%2F12%2FLinkedin-network.jpg&f=1&nofb=1&ipt=a5f4039b2640a0ae1c2dda5072cb2cf6db1aa91aa4d50d07848d2064f4f14548&ipo=images"
+                                alt="cover img af github"
+                            />
+                            <span>
+                                <FaLinkedin />
+                                <h3>Linkind</h3>
+                            </span>
+                        </section>
+                    </a>
+                </article>
+            </StyledHome>
+        </Main>
     );
 }
 
-const StyledHome = styled.main`
+const StyledHome = styled.section`
     margin: auto;
     h1 {
         display: flex;

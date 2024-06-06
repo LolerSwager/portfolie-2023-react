@@ -13,7 +13,7 @@ import SiteMap from "../Pages/SiteMap";
 export default function AppRouter() {
     return (
         <Routes>
-            <Route path="/" element={<Home />} />
+            <Route path="/" element={<BusinessCard />} />
             <Route path="/home" element={<Home />} />
             <Route path="/cv" element={<Cv />} />
             <Route path="/projects" element={<Projects />} />
@@ -23,10 +23,10 @@ export default function AppRouter() {
             <Route path="/settings" element={<Settings />} />
             <Route path="/test" element={<Test />} />
             <Route path="/qr/:themeColor" element={<Qr />} />
-            <Route path="*" element={<NotFound />} />
             <Route path="/sitemap" element={<SiteMap />} />
             <Route path="/sitemap.xml" />
             <Route path="/robots.txt " />
+            <Route path="*" element={<NotFound />} />
         </Routes>
     );
 }
