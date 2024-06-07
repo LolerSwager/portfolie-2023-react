@@ -30,7 +30,7 @@ export default function Header() {
                         </Link>
                     </li> */}
                     <li>
-                        <Link to="Projects" onClick={() => setMenuState((prevState) => !prevState)}>
+                        <Link to="Projektor" onClick={() => setMenuState((prevState) => !prevState)}>
                             Projektor
                         </Link>
                     </li>

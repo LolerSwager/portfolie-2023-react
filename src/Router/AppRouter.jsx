@@ -9,6 +9,7 @@ import Test from "../Pages/test";
 import BusinessCard from "../Pages/BusinessCard";
 import Projects from "../Pages/Projects";
 import SiteMap from "../Pages/SiteMap";
+import Project from "../Pages/Project";
 
 export default function AppRouter() {
     return (
@@ -16,7 +17,8 @@ export default function AppRouter() {
             <Route path="/" element={<BusinessCard />} />
             <Route path="/home" element={<Home />} />
             <Route path="/cv" element={<Cv />} />
-            <Route path="/projects" element={<Projects />} />
+            <Route path="/Projektor" element={<Projects />} />
+            <Route path="/Projektor/Vanderhoef" element={<Project />} />
             <Route path="githubSearch" element={<GithubSearch />} />
             <Route path="/businessCard" element={<BusinessCard />} />
             <Route path="/Visitkort" element={<BusinessCard />} />

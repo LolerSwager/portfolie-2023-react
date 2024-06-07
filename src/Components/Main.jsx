@@ -21,7 +21,7 @@ const StyledMain = styled.main`
     .ContainerMax {
         max-width: var(--pageMaxWidth);
         width: 100%;
-        padding: 0 1rem;
+        padding: 0 1rem 3rem 1rem;
         margin: 0 auto;
         h1 {
             background-color: var(--activeColor);
@@ -29,7 +29,7 @@ const StyledMain = styled.main`
             display: flex;
             padding: 0.2rem 1rem;
             font-size: 2.5rem;
-            margin-bottom: 1rem;
+            margin-bottom: 3rem;
             width: max-content;
         }
         @media only screen and (max-width: 700px) {
