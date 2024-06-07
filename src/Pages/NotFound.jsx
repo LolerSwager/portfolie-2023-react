@@ -8,7 +8,7 @@ export default function NotFound() {
     const wlp = window.location.pathname;
     const navigate = useNavigate();
     return (
-        <Main PageHeader="Page Not Found" PageTitle={`404 Page -> ${wlp.replaceAll("%20", " ")}`}>
+        <Main PageHeader="404 Page Not Found" PageTitle={`404 Page -> ${wlp.replaceAll("%20", " ")}`}>
             <StyledErrorPage>
                 <h2>
                     Siden "<span>{wlp}</span>" blev ikke fundet
@@ -69,14 +69,14 @@ const StyledErrorPage = styled.section`
                     cursor: default;
                 }
             }
-            .reversed {
-                background-color: #1a1a1a;
-                color: var(--activeColor);
-                border-color: var(--activeColor);
-                &:hover {
-                    background-color: var(--activeColor);
-                    color: #1a1a1a;
-                }
+        }
+        .reversed {
+            background-color: #1a1a1a;
+            color: var(--activeColor);
+            border-color: var(--activeColor);
+            &:hover {
+                background-color: var(--activeColor);
+                color: #1a1a1a;
             }
         }
     }

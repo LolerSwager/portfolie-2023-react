@@ -26,7 +26,7 @@ export default function Projects() {
                 </section>
                 <section className="projekt-link">
                     <div>
-                        <Link to="Vanderhoef">Check Project</Link>
+                        <Link to="Vanderhoef">Check Projektet</Link>
                     </div>
                 </section>
             </StyledProjects>
@@ -135,14 +135,14 @@ const StyledProjects = styled.article`
                         cursor: default;
                     }
                 }
-                .reversed {
-                    background-color: #1a1a1a;
-                    color: var(--activeColor);
-                    border-color: var(--activeColor);
-                    &:hover {
-                        background-color: var(--activeColor);
-                        color: #1a1a1a;
-                    }
+            }
+            .reversed {
+                background-color: #1a1a1a;
+                color: var(--activeColor);
+                border-color: var(--activeColor);
+                &:hover {
+                    background-color: var(--activeColor);
+                    color: #1a1a1a;
                 }
             }
         }
