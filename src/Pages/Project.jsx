@@ -120,10 +120,10 @@ const StyledProject = styled.article`
         div {
             display: flex;
             align-items: center;
+            flex-wrap: wrap;
             gap: 1rem;
             a {
                 display: flex;
-                flex-wrap: wrap;
                 align-items: center;
                 gap: 0.7rem;
                 width: max-content;
