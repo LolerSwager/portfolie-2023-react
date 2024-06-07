@@ -83,24 +83,6 @@ const StyledProjects = styled.article`
         h3 {
             margin: 0 0 0.5rem 0;
         }
-        ul {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 1rem;
-            list-style: none;
-            li {
-                font-weight: 600;
-                padding: 0.7rem 1rem;
-                background-color: var(--wrapperColor);
-                border-radius: calc(var(--borderRadius) / 2);
-                // border-radius: var(--borderRadius);
-                cursor: default;
-                /* 
-                &:hover {
-                    color: var(--activeColor);
-                } */
-            }
-        }
     }
     .projekt-text {
         grid-area: projekt-text;
@@ -151,6 +133,15 @@ const StyledProjects = styled.article`
                         background-color: #1a1a1a;
                         color: #6a6a6a;
                         cursor: default;
+                    }
+                }
+                .reversed {
+                    background-color: #1a1a1a;
+                    color: var(--activeColor);
+                    border-color: var(--activeColor);
+                    &:hover {
+                        background-color: var(--activeColor);
+                        color: #1a1a1a;
                     }
                 }
             }

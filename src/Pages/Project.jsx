@@ -98,7 +98,6 @@ const StyledProject = styled.article`
                 padding: 0.7rem 1rem;
                 background-color: var(--wrapperColor);
                 border-radius: calc(var(--borderRadius) / 2);
-                // border-radius: var(--borderRadius);
                 cursor: default;
                 /* 
                 &:hover {
@@ -124,6 +123,7 @@ const StyledProject = styled.article`
             gap: 1rem;
             a {
                 display: flex;
+                flex-wrap: wrap;
                 align-items: center;
                 gap: 0.7rem;
                 width: max-content;

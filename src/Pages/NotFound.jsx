@@ -17,7 +17,7 @@ export default function NotFound() {
                     <button onClick={() => navigate(-1)}>
                         <FontAwesomeIcon icon={faLeftLong} /> Gå tilbage til den sidste side
                     </button>
-                    <Link to="/">
+                    <Link to="/" className="reversed">
                         <FontAwesomeIcon icon={faHouseChimney} /> Gå til forsiden
                     </Link>
                 </div>
@@ -67,6 +67,15 @@ const StyledErrorPage = styled.section`
                     background-color: #1a1a1a;
                     color: #6a6a6a;
                     cursor: default;
+                }
+            }
+            .reversed {
+                background-color: #1a1a1a;
+                color: var(--activeColor);
+                border-color: var(--activeColor);
+                &:hover {
+                    background-color: var(--activeColor);
+                    color: #1a1a1a;
                 }
             }
         }
