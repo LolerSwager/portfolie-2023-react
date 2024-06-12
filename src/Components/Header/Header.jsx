@@ -3,6 +3,7 @@ import { styled } from "styled-components";
 import { useState } from "react";
 import { faBars, faGear, faX } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { RoutesArray } from "../../Router/RoutesArray";
 
 export default function Header() {
     const [menuState, setMenuState] = useState(false);
@@ -14,31 +15,17 @@ export default function Header() {
                 </span>
                 {/* <div>Jannick V.T.N</div> */}
                 <ul>
-                    {/* <li>
-                        <Link to="/" onClick={() => setMenuState((prevState) => !prevState)}>
-                            Home
-                        </Link>
-                    </li> */}
-                    <li>
-                        <Link to="Visitkort" onClick={() => setMenuState((prevState) => !prevState)}>
-                            Visitkort
-                        </Link>
-                    </li>
-                    {/* <li>
-                        <Link to="GithubSearch" onClick={() => setMenuState((prevState) => !prevState)}>
-                            Github Search
-                        </Link>
-                    </li> */}
-                    <li>
-                        <Link to="Projektor" onClick={() => setMenuState((prevState) => !prevState)}>
-                            Projektor
-                        </Link>
-                    </li>
-                    <li>
-                        <Link to="cv" onClick={() => setMenuState((prevState) => !prevState)}>
-                            CV
-                        </Link>
-                    </li>
+                    {RoutesArray.map((route) =>
+                        route.display === true ? (
+                            <li key={route.path}>
+                                <Link to={route.path} onClick={() => setMenuState((prevState) => !prevState)}>
+                                    {route.name}
+                                </Link>
+                            </li>
+                        ) : (
+                            <></>
+                        )
+                    )}
                 </ul>
                 <Link to="settings" aria-label="Go to settings" className="settingsIcon" onClick={() => setMenuState(false)}>
                     <FontAwesomeIcon icon={faGear} />
