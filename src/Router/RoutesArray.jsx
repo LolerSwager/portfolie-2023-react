@@ -25,7 +25,7 @@ export const RoutesArray = [
     { name: "Phone Number", path: "/Ph", element: <Number />, display: false },
     { name: "QR", path: "/Qr/:themeColor", element: <Qr />, display: false },
     { name: "Sitemap", path: "/Sitemap", element: <SiteMap />, display: false },
-    { name: "Sitemap XML", path: "/Sitemap.xml", element: null, display: false },
-    { name: "Robots TXT", path: "/Robots.txt", element: null, display: false },
+    { name: "Sitemap XML", path: "/sitemap.xml", element: null, display: false },
+    { name: "Robots TXT", path: "/robots.txt", element: null, display: false },
     { name: "404 Page Not Found", path: "*", element: <NotFound />, display: false },
 ];
