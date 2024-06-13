@@ -8,7 +8,7 @@ export default function NotFound() {
     const wlp = window.location.pathname;
     const navigate = useNavigate();
     return (
-        <Main PageHeader="404 Page Not Found" PageTitle={`404 Page -> ${wlp.replaceAll("%20", " ")}`}>
+        <Main PageHeader="404 Not Found" PageTitle={`404 Page -> ${wlp.replaceAll("%20", " ")}`}>
             <StyledErrorPage>
                 <h2>
                     Siden "<span>{wlp}</span>" blev ikke fundet
