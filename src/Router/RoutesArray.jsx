@@ -9,6 +9,11 @@ import BusinessCard from "../Pages/BusinessCard";
 import SiteMap from "../Pages/SiteMap";
 import Projects from "../Pages/Projects";
 import Project from "../Pages/Project";
+import Appearance from "../Components/Settings/Appearance";
+import Permissions from "../Components/Settings/Permissions";
+import Notifications from "../Components/Settings/Notifications";
+import Storage from "../Components/Settings/Storage";
+import DeviceInfo from "../Components/Settings/DeviceInfo";
 
 export const RoutesArray = [
     { name: "Home", path: "/", element: <Navigate to="/Visitkort" />, display: false },
@@ -19,9 +24,14 @@ export const RoutesArray = [
     { name: "Curriculum Vitae", path: "/Cv", element: <Cv />, display: true },
     { name: "GitHub Search", path: "/GithubSearch", element: <GithubSearch />, display: false },
     { name: "Settings", path: "/Settings", element: <Settings />, display: false },
+    { name: "Settings", path: "/Settings/Appearance", element: <Appearance />, display: false },
+    { name: "Settings", path: "/Settings/Permissions", element: <Permissions />, display: false },
+    { name: "Settings", path: "/Settings/Notifications", element: <Notifications />, display: false },
+    { name: "Settings", path: "/Settings/Storage", element: <Storage />, display: false },
+    { name: "Settings", path: "/Settings/DeviceInfo", element: <DeviceInfo />, display: false },
     { name: "QR", path: "/Qr/:themeColor", element: <Qr />, display: false },
     { name: "Sitemap", path: "/Sitemap", element: <SiteMap />, display: false },
     { name: "Sitemap XML", path: "/sitemap.xml", element: null, display: false },
     { name: "Robots TXT", path: "/robots.txt", element: null, display: false },
-    { name: "404 Page Not Found", path: "*", element: <NotFound />, display: false },
+    { name: "404 Not Found", path: "*", element: <NotFound />, display: false },
 ];
