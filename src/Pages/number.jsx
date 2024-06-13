@@ -1,12 +1,7 @@
-import { faHouseChimney, faLeftLong } from "@fortawesome/free-solid-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { useNavigate, Link } from "react-router-dom";
 import styled from "styled-components";
 import Main from "../Components/Main";
 
 export default function Number() {
-    const wlp = window.location.pathname;
-    const navigate = useNavigate();
     return (
         <Main PageHeader="phone number" PageTitle={`Phone Number`}>
             <StyledPhoneNumber>
