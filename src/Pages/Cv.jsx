@@ -84,11 +84,6 @@ export default function Cv() {
     );
 }
 
-const StyledMain = styled.main`
-    display: flex;
-    justify-content: center;
-`;
-
 const StyledList = styled.article`
     max-width: var(--pageMaxWidth);
     h1 {
