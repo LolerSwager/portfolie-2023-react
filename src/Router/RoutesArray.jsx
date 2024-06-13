@@ -6,7 +6,7 @@ import Qr from "../Pages/Qr";
 import Settings from "../Pages/Settings";
 import GithubSearch from "../Pages/GithubSearch";
 import Test from "../Pages/Test";
-import Number from "../Pages/number";
+import Number from "../Pages/Number";
 import BusinessCard from "../Pages/BusinessCard";
 import SiteMap from "../Pages/SiteMap";
 import Projects from "../Pages/Projects";
