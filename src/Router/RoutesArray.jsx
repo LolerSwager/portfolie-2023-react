@@ -18,7 +18,7 @@ export const RoutesArray = [
     { name: "Visitkort", path: "/Visitkort", element: <BusinessCard />, display: true },
     { name: "Projektor", path: "/Projektor", element: <Projects />, display: true },
     { name: "Vanderhoef", path: "/Projektor/Vanderhoef", element: <Project />, display: false },
-    { name: "CV", path: "/cv", element: <Cv />, display: true },
+    { name: "Curriculum Vitae", path: "/cv", element: <Cv />, display: true },
     { name: "GitHub Search", path: "/githubSearch", element: <GithubSearch />, display: false },
     { name: "Settings", path: "/settings", element: <Settings />, display: false },
     { name: "Test", path: "/test", element: <Test />, display: false },

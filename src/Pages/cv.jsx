@@ -2,7 +2,6 @@ import { styled } from "styled-components";
 import Main from "../Components/Main";
 
 export default function Cv() {
-    document.title = "Curriculum Vitae";
     return (
         <Main PageHeader="Curriculum Vitae" PageTitle="CV af Jannick Vanderhoef Trolle Nielsen">
             <StyledList>

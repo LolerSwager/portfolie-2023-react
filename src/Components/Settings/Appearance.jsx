@@ -4,7 +4,6 @@ import ColorPalettes from "../ColorPalettes";
 import RadioButton from "../buttons/RadioButton";
 import ToggleSwitch from "../buttons/ToggleSwitch";
 import ColorPicker from "../ColorPicker";
-import { faArrowTrendUp } from "@fortawesome/free-solid-svg-icons";
 
 export default function Appearance() {
     const defaultColorPalette = ["#099268", "#228be6", "#7950f2", "#be4bdb", "#e64980", "#f63f5f", "#f99268", "#F9DB68"];
@@ -14,7 +13,6 @@ export default function Appearance() {
     const [pageWidth, setPageWidth] = useState(localStorage.getItem("width") || "1200px");
 
     const [isToggled, setIsToggled] = useState(() => {
-        // Retrieve initial state from local storage or default to false
         const savedState = localStorage.getItem("toggleState");
         return savedState ? JSON.parse(savedState) : true;
     });
