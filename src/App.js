@@ -13,13 +13,16 @@ import "react-toastify/dist/ReactToastify.css";
 
 export default function App() {
     const themeColor = localStorage.getItem("color");
+    const pageWidth = localStorage.getItem("width");
 
     const theme = {
         dark: {
             color: themeColor,
+            width: pageWidth,
         },
         light: {
             color: themeColor,
+            width: pageWidth,
         },
     };
 

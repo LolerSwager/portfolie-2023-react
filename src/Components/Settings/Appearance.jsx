@@ -7,18 +7,29 @@ import ColorPicker from "../ColorPicker";
 import { faArrowTrendUp } from "@fortawesome/free-solid-svg-icons";
 
 export default function Appearance() {
-    const defultColorPalled = ["#099268", "#228be6", "#7950f2", "#be4bdb", "#e64980", "#f63f5f", "#f99268", "#F9DB68"];
+    const defaultColorPalette = ["#099268", "#228be6", "#7950f2", "#be4bdb", "#e64980", "#f63f5f", "#f99268", "#F9DB68"];
 
-    const [themeColor, setThemeColor] = useState(localStorage.getItem("color") ? localStorage.getItem("color") : "#8400db");
-    const [colorArray, setColorArray] = useState(defultColorPalled);
-    const [pageWidth, setPageWidth] = useState("1200px");
+    const [colorArray, setColorArray] = useState(defaultColorPalette);
+    const [themeColor, setThemeColor] = useState(localStorage.getItem("color") || "#8400db");
+    const [pageWidth, setPageWidth] = useState(localStorage.getItem("width") || "1200px");
+
+    const [isToggled, setIsToggled] = useState(() => {
+        // Retrieve initial state from local storage or default to false
+        const savedState = localStorage.getItem("toggleState");
+        return savedState ? JSON.parse(savedState) : true;
+    });
+
+    const handleToggle = () => {
+        setIsToggled((prevState) => !prevState);
+    };
 
     const [showDisabled, setShowDisabled] = useState(false);
 
     useEffect(() => {
         localStorage.setItem("color", themeColor);
-        localStorage.setItem("Width", pageWidth);
-    }, [themeColor, pageWidth]);
+        localStorage.setItem("width", isToggled ? pageWidth : "100%");
+        localStorage.setItem("toggleState", JSON.stringify(isToggled));
+    }, [themeColor, pageWidth, isToggled]);
 
     return (
         <>
@@ -27,16 +38,12 @@ export default function Appearance() {
                 <label>Customize primary color</label>
                 <ColorPalettes colorArray={colorArray} themeColor={themeColor} setThemeColor={setThemeColor} isToggeld={showDisabled} onToggle={() => setShowDisabled((prevState) => !prevState)} />
                 {showDisabled === true ? <ColorPicker themeColor={themeColor} setThemeColor={setThemeColor} /> : <></>}
-                {/* <OldColorPicker>
-                    <input type="color" onChange={(event) => setThemeColor(event.target.value)} value={themeColor}></input>
-                    <input type="text" onChange={(event) => setThemeColor(event.target.value)} value={themeColor} />
-                </OldColorPicker> */}
             </section>
             <section>
                 <label>Page Width</label>
                 <PageWidth>
-                    <input type="text" onChange={(event) => setPageWidth(event.target.value)} value={pageWidth} disabled={true} />
-                    <ToggleSwitch ToggleDisabled={true} isToggeld={true} />
+                    <input type="text" onChange={(event) => setPageWidth(event.target.value)} value={pageWidth} disabled={!isToggled} />
+                    <ToggleSwitch ToggleDisabled={false} isToggeld={isToggled} onToggle={handleToggle} />
                 </PageWidth>
             </section>
             <section>

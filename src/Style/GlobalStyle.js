@@ -43,7 +43,7 @@ const GlobalStyle = createGlobalStyle`
         --contrastColor: #000000;
         --wrapperColor: var(--wrapperColorDark);
         --borderRadius: 10px;
-        --pageMaxWidth: 1200px;
+        --pageMaxWidth: ${({ theme }) => (theme.dark.width ? theme.dark.width : "1200px")};
         --MobileWidth: 600px;
 
         //! react-toastify custom css
