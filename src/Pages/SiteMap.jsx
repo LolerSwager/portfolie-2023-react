@@ -1,22 +1,18 @@
 import { Link } from "react-router-dom";
 import { styled } from "styled-components";
 import Main from "../Components/Main";
-
+import { RoutesArray } from "../Router/RoutesArray";
 export default function SiteMap() {
     return (
         <Main PageHeader="Site map" PageTitle="en visualisering over sitemap">
             <StyledSiteMap>
-                {AllPages?.map((item) => (
+                {RoutesArray?.map((item) => (
                     <li key={item.page}>
-                        <Link to={item.path}>{item.page}</Link>
+                        <Link to={item.path}>
+                            {item.name} - [{item.path}]
+                        </Link>
                     </li>
                 ))}
-                <li>
-                    <a href="sitemap.xml">Sitemap</a>
-                </li>
-                <li>
-                    <a href="robots.txt">Robots</a>
-                </li>
             </StyledSiteMap>
         </Main>
     );
@@ -57,34 +53,3 @@ const StyledSiteMap = styled.ul`
         }
     }
 `;
-
-const AllPages = [
-    {
-        page: "home",
-        path: "/",
-    },
-    {
-        page: "businessCard",
-        path: "/businessCard",
-    },
-    {
-        page: "projects",
-        path: "/Projects",
-    },
-    {
-        page: "cv",
-        path: "/cv",
-    },
-    {
-        page: "githubSearch",
-        path: "/GithubSearch",
-    },
-    {
-        page: "settings",
-        path: "/settings",
-    },
-    {
-        page: "test",
-        path: "/test",
-    },
-];
