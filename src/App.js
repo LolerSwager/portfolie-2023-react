@@ -14,15 +14,18 @@ import "react-toastify/dist/ReactToastify.css";
 export default function App() {
     const themeColor = localStorage.getItem("color");
     const pageWidth = localStorage.getItem("width");
+    const Radius = localStorage.getItem("radius");
 
     const theme = {
         dark: {
             color: themeColor,
             width: pageWidth,
+            radius: Radius,
         },
         light: {
             color: themeColor,
             width: pageWidth,
+            radius: Radius,
         },
     };
 

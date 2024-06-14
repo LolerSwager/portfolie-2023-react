@@ -21,7 +21,7 @@ const StyledMain = styled.main`
     .ContainerMax {
         max-width: var(--pageMaxWidth);
         width: 100%;
-        padding: 0 1rem 3rem 1rem;
+        padding: 0 1rem 3rem 0;
         margin: 0 auto;
         h1 {
             background-color: var(--activeColor);

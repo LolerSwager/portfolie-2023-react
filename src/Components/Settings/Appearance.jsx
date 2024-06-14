@@ -11,6 +11,8 @@ export default function Appearance() {
     const [colorArray, setColorArray] = useState(defaultColorPalette);
     const [themeColor, setThemeColor] = useState(localStorage.getItem("color") || "#8400db");
     const [pageWidth, setPageWidth] = useState(localStorage.getItem("width") || "1200px");
+    const [borderRadius, setBorderRadius] = useState(localStorage.getItem("radius") || "10px");
+    const [showDisabled, setShowDisabled] = useState(false);
 
     const [isToggled, setIsToggled] = useState(() => {
         const savedState = localStorage.getItem("toggleState");
@@ -21,7 +23,11 @@ export default function Appearance() {
         setIsToggled((prevState) => !prevState);
     };
 
-    const [showDisabled, setShowDisabled] = useState(false);
+    const handleRadioChange = (event) => {
+        const newRadius = event.target.value;
+        setBorderRadius(newRadius);
+        localStorage.setItem("radius", newRadius);
+    };
 
     useEffect(() => {
         localStorage.setItem("color", themeColor);
@@ -59,10 +65,22 @@ export default function Appearance() {
                 <label>Corners</label>
                 <StyledArticle>
                     <section>
-                        <RadioButton RadioDisabled={true} RadioDcategory="corners" labelName="Square" isChecked={false} />
+                        <RadioButton
+                            RadioDisabled={false}
+                            RadioDcategory="corners"
+                            labelName="Square"
+                            isChecked={borderRadius === "0px"}
+                            onChange={() => handleRadioChange({ target: { value: "0px" } })}
+                        />
                     </section>
                     <section>
-                        <RadioButton RadioDisabled={true} RadioDcategory="corners" labelName="Rounded" isChecked={true} />
+                        <RadioButton
+                            RadioDisabled={false}
+                            RadioDcategory="corners"
+                            labelName="Rounded"
+                            isChecked={borderRadius === "10px"}
+                            onChange={() => handleRadioChange({ target: { value: "10px" } })}
+                        />
                     </section>
                 </StyledArticle>
             </section>

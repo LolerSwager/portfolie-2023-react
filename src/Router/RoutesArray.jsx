@@ -14,6 +14,7 @@ import Permissions from "../Components/Settings/Permissions";
 import Notifications from "../Components/Settings/Notifications";
 import Storage from "../Components/Settings/Storage";
 import DeviceInfo from "../Components/Settings/DeviceInfo";
+import SettingsV2 from "../Pages/SettingsV2";
 
 export const RoutesArray = [
     { name: "Home", path: "/", element: <Navigate to="/Visitkort" />, display: false },
@@ -24,11 +25,12 @@ export const RoutesArray = [
     { name: "Curriculum Vitae", path: "/Cv", element: <Cv />, display: true },
     { name: "GitHub Search", path: "/GithubSearch", element: <GithubSearch />, display: false },
     { name: "Settings", path: "/Settings", element: <Settings />, display: false },
-    { name: "Settings", path: "/Settings/Appearance", element: <Appearance />, display: false },
-    { name: "Settings", path: "/Settings/Permissions", element: <Permissions />, display: false },
-    { name: "Settings", path: "/Settings/Notifications", element: <Notifications />, display: false },
-    { name: "Settings", path: "/Settings/Storage", element: <Storage />, display: false },
-    { name: "Settings", path: "/Settings/DeviceInfo", element: <DeviceInfo />, display: false },
+    { name: "SettingsV2", path: "/Settingsv2", element: <SettingsV2 />, display: false },
+    { name: "Appearance", path: "/Settingsv2/Appearance", element: <Appearance />, display: false },
+    { name: "Permissions", path: "/Settingsv2/Permissions", element: <Permissions />, display: false },
+    { name: "Notifications", path: "/Settingsv2/Notifications", element: <Notifications />, display: false },
+    { name: "Storage", path: "/Settingsv2/Storage", element: <Storage />, display: false },
+    { name: "DeviceInfo", path: "/Settingsv2/DeviceInfo", element: <DeviceInfo />, display: false },
     { name: "QR", path: "/Qr/:themeColor", element: <Qr />, display: false },
     { name: "Sitemap", path: "/Sitemap", element: <SiteMap />, display: false },
     { name: "Sitemap XML", path: "/sitemap.xml", element: null, display: false },

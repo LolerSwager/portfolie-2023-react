@@ -42,7 +42,7 @@ const GlobalStyle = createGlobalStyle`
         --fontColor: var(--fontColorDark);
         --contrastColor: #000000;
         --wrapperColor: var(--wrapperColorDark);
-        --borderRadius: 10px;
+        --borderRadius: ${({ theme }) => (theme.dark.radius ? theme.dark.radius : "10px")};
         --pageMaxWidth: ${({ theme }) => (theme.dark.width ? theme.dark.width : "1200px")};
         --MobileWidth: 600px;
 

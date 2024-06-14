@@ -1,9 +1,9 @@
 import { styled } from "styled-components";
-export default function RadioButton({ RadioDisabled = false, isChecked, labelName, RadioDcategory }) {
+export default function RadioButton({ RadioDisabled = false, isChecked, onChange, labelName, RadioDcategory }) {
     return (
         <StyledRadio>
             <label>
-                <input type="radio" name={RadioDcategory} checked={isChecked} disabled={RadioDisabled} />
+                <input type="radio" name={RadioDcategory} checked={isChecked} onChange={onChange} disabled={RadioDisabled} />
                 {labelName}
             </label>
         </StyledRadio>
