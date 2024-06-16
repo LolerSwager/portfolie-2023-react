@@ -7,7 +7,9 @@ const GlobalStyle = createGlobalStyle`
         box-sizing: border-box;
         font-family: "Poppins", sans-serif;
         color: var(--fontColor);
-       /*  &:focus { // this is the border when tapping throw the page
+        scrollbar-width: thin;
+        scrollbar-color: var( --activeColor) var(--backGroundColor);
+        /*  &:focus { // this is the border when tapping throw the page
             outline: none !important;
             border: 1px solid var(--activeColor);
             box-shadow: 0 0 15px var(--activeColor);
@@ -61,9 +63,11 @@ const GlobalStyle = createGlobalStyle`
         background-color: #000000;
     }
 
+
     *::-webkit-scrollbar-thumb {
         background-color: var(--activeColor);
     }
+
 
     /*  #8400db Active
         #0f0f0f Header
