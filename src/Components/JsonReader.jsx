@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import PropTypes from "prop-types";
-import { faClipboard, faCompress, faExpand, faFileArrowDown, faXmark } from "@fortawesome/free-solid-svg-icons";
+import { faClipboard, faCompress, faEllipsis, faExpand, faFileArrowDown, faXmark } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { styled } from "styled-components";
 import Prism from "prismjs";
@@ -56,9 +56,21 @@ export default function JsonReader({ jsonData, onClose, name = "no headline" }) 
                 <div className="popup-header">
                     <span>
                         <h2>{name}</h2>
-                        <FontAwesomeIcon icon={faFileArrowDown} onClick={handleDownload} />
-                        <FontAwesomeIcon icon={faClipboard} onClick={handleCopyToClipboard} />
-                        {isExpanded ? <FontAwesomeIcon icon={faCompress} onClick={() => setIsExpanded(false)} /> : <FontAwesomeIcon icon={faExpand} onClick={() => setIsExpanded(true)} />}
+                        <ul>
+                            <li onClick={handleCopyToClipboard}>
+                                <FontAwesomeIcon icon={faClipboard} />
+                                <p>Copy</p>
+                            </li>
+                            <li onClick={handleDownload}>
+                                <FontAwesomeIcon icon={faFileArrowDown} />
+                                <p>Download</p>
+                            </li>
+
+                            <li onClick={() => setIsExpanded((prevState) => !prevState)}>
+                                {isExpanded ? <FontAwesomeIcon icon={faCompress} /> : <FontAwesomeIcon icon={faExpand} />}
+                                {isExpanded ? <p>Compress</p> : <p>Expand</p>}
+                            </li>
+                        </ul>
                     </span>
                     <FontAwesomeIcon icon={faXmark} className="faicon" onClick={onClose} />
                 </div>
@@ -91,7 +103,7 @@ const StyledJsonReader = styled.div`
     display: flex;
     align-items: center;
     justify-content: center;
-    z-index: 100000;
+    z-index: 10;
     .popup {
         background: var(--backGroundColor);
         color: white;
@@ -116,11 +128,41 @@ const StyledJsonReader = styled.div`
         justify-content: space-between;
         background: var(--wrapperColor);
         padding: 0.2rem 0.5rem;
-
         span {
             display: flex;
             align-items: center;
             gap: 1rem;
+            ul {
+                display: flex;
+                li {
+                    display: flex;
+                    list-style: none;
+                    align-items: center;
+                    background: var(--wrapperColor);
+                    text-transform: uppercase;
+                    padding: 0.5rem;
+                    gap: 0.5rem;
+                    cursor: pointer;
+                    position: relative;
+                    &:hover * {
+                        fill: var(--activeColor);
+                    }
+                    &:hover p {
+                        display: flex;
+                        color: var(--activeColor);
+                    }
+                    p {
+                        position: absolute;
+                        z-index: 11;
+                        transform: translate(-50%);
+                        left: 1rem;
+                        top: 2rem;
+                        background-color: var(--wrapperColor);
+                        padding: 0.5rem;
+                        display: none;
+                    }
+                }
+            }
         }
         .faicon {
             height: 1.6rem;
