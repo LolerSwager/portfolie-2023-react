@@ -57,7 +57,7 @@ const StyledFloatingTool = styled.ul`
     border: 1px solid black;
     // position: absolute;
     position: fixed;
-    z-index: 100;
+    z-index: 9;
     bottom: 0%;
     right: 0%;
     width: 4rem;
