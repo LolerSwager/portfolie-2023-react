@@ -1,15 +1,16 @@
-import React, { useState, useEffect } from "react";
-import PropTypes from "prop-types";
-import { faClipboard, faCompress, faEllipsis, faExpand, faFileArrowDown, faXmark } from "@fortawesome/free-solid-svg-icons";
+import React, { useState, useEffect, useRef, useCallback } from "react";
+import { faClipboard, faDownLeftAndUpRightToCenter, faFileArrowDown, faFilePen, faTrash, faUpRightAndDownLeftFromCenter, faXmark } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { styled } from "styled-components";
+import styled from "styled-components";
 import Prism from "prismjs";
 import "prismjs/components/prism-json";
 import "../Assets/styles/prism-theme.css";
 
 export default function JsonReader({ jsonData, onClose, name = "no headline" }) {
     const [isExpanded, setIsExpanded] = useState(false);
+    const [fullscreen, setFullscreen] = useState(false);
     const [parsedData, setParsedData] = useState(null);
+    const popupRef = useRef(null);
 
     useEffect(() => {
         if (typeof jsonData === "string") {
@@ -29,7 +30,19 @@ export default function JsonReader({ jsonData, onClose, name = "no headline" }) 
         Prism.highlightAll();
     }, [parsedData, isExpanded]);
 
-    const handleDownload = () => {
+    useEffect(() => {
+        const handleClickOutside = (event) => {
+            if (popupRef.current && !popupRef.current.contains(event.target)) {
+                onClose();
+            }
+        };
+        document.addEventListener("mousedown", handleClickOutside);
+        return () => {
+            document.removeEventListener("mousedown", handleClickOutside);
+        };
+    }, [onClose]);
+
+    const handleDownload = useCallback(() => {
         const jsonString = JSON.stringify(parsedData, null, 2);
         const blob = new Blob([jsonString], { type: "text/plain" });
         const url = window.URL.createObjectURL(blob);
@@ -40,19 +53,19 @@ export default function JsonReader({ jsonData, onClose, name = "no headline" }) 
         a.click();
         a.remove();
         setTimeout(() => window.URL.revokeObjectURL(url), 100);
-    };
+    }, [parsedData, name]);
 
-    const handleCopyToClipboard = () => {
+    const handleCopyToClipboard = useCallback(() => {
         const jsonString = JSON.stringify(parsedData, null, 2);
         navigator.clipboard
             .writeText(jsonString)
             .then(() => alert("JSON copied to clipboard"))
             .catch((err) => console.error("Failed to copy:", err));
-    };
+    }, [parsedData]);
 
     return (
         <StyledJsonReader isExpanded={isExpanded}>
-            <div className="popup">
+            <div className="popup" ref={popupRef}>
                 <div className="popup-header">
                     <span>
                         <h2>{name}</h2>
@@ -65,19 +78,35 @@ export default function JsonReader({ jsonData, onClose, name = "no headline" }) 
                                 <FontAwesomeIcon icon={faFileArrowDown} />
                                 <p>Download</p>
                             </li>
-
-                            <li onClick={() => setIsExpanded((prevState) => !prevState)}>
-                                {isExpanded ? <FontAwesomeIcon icon={faCompress} /> : <FontAwesomeIcon icon={faExpand} />}
-                                {isExpanded ? <p>Compress</p> : <p>Expand</p>}
-                            </li>
+                            {/* <li>
+                                <FontAwesomeIcon icon={faFilePen} />
+                                <p>Edit</p>
+                            </li> */}
+                            {/* <li>
+                                <FontAwesomeIcon icon={faTrash} />
+                                <p>Delete</p>
+                            </li> */}
+                            {/* <li onClick={() => setFullscreen((prevState) => !prevState)}>
+                                {fullscreen ? (
+                                    <>
+                                        <FontAwesomeIcon icon={faDownLeftAndUpRightToCenter} />
+                                        <p>Minimize</p>
+                                    </>
+                                ) : (
+                                    <>
+                                        <FontAwesomeIcon icon={faUpRightAndDownLeftFromCenter} />
+                                        <p>FullScreen</p>
+                                    </>
+                                )}
+                            </li> */}
                         </ul>
                     </span>
                     <FontAwesomeIcon icon={faXmark} className="faicon" onClick={onClose} />
                 </div>
                 <pre className="popup-content">
-                    <code className="language-json">{isExpanded ? JSON.stringify(parsedData, null, 2) : JSON.stringify(parsedData, null, 2).substring(0, 700)}</code>
+                    <code className="language-json">{isExpanded ? JSON.stringify(parsedData, null, 2) : JSON.stringify(parsedData, null, 2).substring(0, 400)}</code>
                 </pre>
-                {JSON.stringify(parsedData, null, 2).length > 700 && (
+                {JSON.stringify(parsedData, null, 2).length > 400 && (
                     <span onClick={() => setIsExpanded((prevState) => !prevState)} className="toggle-button">
                         {isExpanded ? "Show Less" : "Show More"}
                     </span>
@@ -86,20 +115,13 @@ export default function JsonReader({ jsonData, onClose, name = "no headline" }) 
         </StyledJsonReader>
     );
 }
-
-JsonReader.propTypes = {
-    jsonData: PropTypes.oneOfType([PropTypes.object, PropTypes.array, PropTypes.string, PropTypes.number]).isRequired,
-    onClose: PropTypes.func.isRequired,
-    name: PropTypes.string,
-};
-
 const StyledJsonReader = styled.div`
     position: fixed;
     top: 0;
     left: 0;
     right: 0;
     bottom: 0;
-    background: rgba(0, 0, 0, 0.3);
+    background: rgba(0, 0, 0, 0.5);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -116,10 +138,18 @@ const StyledJsonReader = styled.div`
         flex-direction: column;
         border: 2px solid var(--wrapperColor);
         border-radius: var(--borderRadius);
-        margin: 1rem;
-        @media only screen and (min-width: 900px) {
-            max-width: ${({ isExpanded }) => (!isExpanded ? "50%" : "100%;")};
-        }
+        /* @media only screen and (min-width: 750px) {
+            max-width: ${({ isExpanded }) => (!isExpanded ? "50%" : "100%")};
+        } */
+    }
+
+    .popup-smallscreen {
+        width: ;
+    }
+
+    .popup-fullscreen {
+        width: 100vw;
+        height: 100dvh;
     }
 
     .popup-header {
@@ -160,6 +190,7 @@ const StyledJsonReader = styled.div`
                         background-color: var(--wrapperColor);
                         padding: 0.5rem;
                         display: none;
+                        border-radius: var(--borderRadius);
                     }
                 }
             }
