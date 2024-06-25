@@ -27,6 +27,15 @@ export default function App() {
             width: pageWidth,
             radius: Radius,
         },
+        custum: {
+            backgroundColor: "#181818",
+            wrapperColor: "#2D2D2D",
+            primaryColor: themeColor,
+            secondaryColor: "#8400db",
+            borderRadius: Radius,
+            pageWidth: pageWidth,
+            pageFont: "Poppins",
+        },
     };
 
     const [selectedTheme, setSelectedTheme] = useState(theme);
