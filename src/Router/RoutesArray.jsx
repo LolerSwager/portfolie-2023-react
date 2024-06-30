@@ -15,6 +15,7 @@ import Notifications from "../Components/Settings/Notifications";
 import Storage from "../Components/Settings/Storage";
 import DeviceInfo from "../Components/Settings/DeviceInfo";
 import SettingsV2 from "../Pages/SettingsV2";
+import ServerPage from "../Pages/ServerPage";
 
 export const RoutesArray = [
     { name: "Home", path: "/", element: <Navigate to="/Visitkort" />, display: false },
@@ -31,6 +32,7 @@ export const RoutesArray = [
     { name: "Notifications", path: "/Settingsv2/Notifications", element: <Notifications />, display: false },
     { name: "Storage", path: "/Settingsv2/Storage", element: <Storage />, display: false },
     { name: "DeviceInfo", path: "/Settingsv2/DeviceInfo", element: <DeviceInfo />, display: false },
+    { name: "Server Page", path: "/server", element: <ServerPage />, display: false },
     { name: "QR", path: "/Qr/:themeColor", element: <Qr />, display: false },
     { name: "Sitemap", path: "/Sitemap", element: <SiteMap />, display: false },
     { name: "Sitemap XML", path: "/sitemap.xml", element: null, display: false },
