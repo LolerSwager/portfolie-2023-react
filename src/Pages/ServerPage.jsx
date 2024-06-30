@@ -35,4 +35,8 @@ const StyledServerPage = styled.div`
     flex-wrap: wrap;
     gap: 2rem;
     padding: 2rem;
+    @media only screen and (max-width: 500px) {
+        padding: 1rem;
+        gap: 1rem;
+    }
 `;
