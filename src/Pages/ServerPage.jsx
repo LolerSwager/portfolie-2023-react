@@ -8,21 +8,23 @@ export default function ServerPage({}) {
         <Main PageHeader="server page" PageTitle="make a play">
             <StyledServerPage>
                 <GameCard
-                    serverIp="play.lolerswage.com"
-                    serverPort="81"
-                    serverTitle="Server Title Goes Here"
+                    serverIp="pz.jannick.ninja"
+                    serverPort="16261"
+                    serverTitle="Go get em"
                     serverGame="Project Zomboid"
                     serverImage="https://cdn2.steamgriddb.com/icon_thumb/8476d966ed57bf67ad4ce07d59ca80ac.png"
                     isSteam={true}
                 />
-                <GameCard
-                    serverIp="mc.northwing.games"
-                    serverPort="25565"
-                    serverTitle="Server Title Goes Here"
-                    serverGame="Minecraft"
-                    serverImage="https://assets-prd.ignimgs.com/2021/12/14/minecraft-1639513933156.jpg"
-                    isSteam={false}
-                />
+                {
+                    <GameCard
+                        serverIp="mc.northwing.games"
+                        serverPort="25565"
+                        serverTitle="Server Title Goes Here"
+                        serverGame="Minecraft"
+                        serverImage="https://assets-prd.ignimgs.com/2021/12/14/minecraft-1639513933156.jpg"
+                        isSteam={false}
+                    />
+                }
             </StyledServerPage>
         </Main>
     );
