@@ -43,7 +43,7 @@ const StyledGameCard = styled.div`
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     transition: transform 0.2s;
 
-    @media only screen and (min-width: 750px) {
+    @media only screen and (max-width: 750px) {
         width: 100vw;
         padding: 1rem;
     }
