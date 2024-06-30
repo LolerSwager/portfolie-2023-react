@@ -15,8 +15,8 @@ export default function ServerPage({}) {
                     serverImage="https://cdn2.steamgriddb.com/icon_thumb/8476d966ed57bf67ad4ce07d59ca80ac.png"
                     isSteam={true}
                 />
-                {
-                    <GameCard
+
+                {/* <GameCard
                         serverIp="mc.northwing.games"
                         serverPort="25565"
                         serverTitle="Server Title Goes Here"
@@ -24,7 +24,7 @@ export default function ServerPage({}) {
                         serverImage="https://assets-prd.ignimgs.com/2021/12/14/minecraft-1639513933156.jpg"
                         isSteam={false}
                     />
-                }
+                 */}
             </StyledServerPage>
         </Main>
     );
