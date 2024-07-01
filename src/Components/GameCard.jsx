@@ -1,5 +1,5 @@
 import React from "react";
-import { styled } from "styled-components";
+import styled from "styled-components";
 
 export default function GameCard({ serverIp, serverPort, serverTitle, serverGame, serverImage, isSteam }) {
     const steamLink = `steam://connect/${serverIp}:${serverPort}`;
@@ -32,7 +32,7 @@ export default function GameCard({ serverIp, serverPort, serverTitle, serverGame
 }
 
 const StyledGameCard = styled.div`
-    background-color: var(--wrapperColor);
+    position: relative;
     border-radius: var(--borderRadius);
     display: flex;
     flex-direction: column;
@@ -40,15 +40,29 @@ const StyledGameCard = styled.div`
     gap: 1rem;
     padding: 2rem;
     width: 300px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
     transition: transform 0.2s;
+    overflow: hidden;
+
+    background: url("https://m.media-amazon.com/images/M/MV5BYWIyOTU1MTItN2U2MS00MDYzLTg5MWMtMWQ3YmU4NmUzNmZjXkEyXkFqcGdeQXVyMTA0MTM5NjI2._V1_FMjpg_UX1000_.jpg") no-repeat center center;
+    background-size: cover;
+
+    &::after {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: linear-gradient(to bottom, #00000f15, black 65%);
+    }
 
     @media only screen and (max-width: 500px) {
         width: 100%;
     }
 
     &:hover {
-        transform: translateY(-5px);
+        transform: translateY(-0.5rem);
     }
 
     img {
@@ -63,6 +77,8 @@ const StyledGameCard = styled.div`
         align-items: center;
         gap: 1rem;
         width: 100%;
+        z-index: 1;
+        position: relative;
 
         span {
             display: flex;
@@ -95,6 +111,8 @@ const StyledGameCard = styled.div`
         text-decoration: none;
         transition: all 0.25s;
         cursor: pointer;
+        z-index: 1;
+        position: relative;
 
         &:hover {
             background-color: #1a1a1a;
