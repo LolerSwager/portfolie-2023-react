@@ -1,20 +1,19 @@
-import { Link } from "react-router-dom";
 import { styled } from "styled-components";
 import Main from "../Components/Main";
-import { RoutesArray } from "../Router/RoutesArray";
 
 export default function LoginPage() {
+    const handleLogin = () => {
+        window.location.href = `https://api.jannick.ninja/login`;
+    };
+
     return (
         <Main PageHeader="Login" PageTitle="login">
             <StyledLoginPage>
-                <h2> Login Page comming.. </h2>
+                <h2>Login with Discord</h2>
+                <button onClick={handleLogin}>Login</button>
             </StyledLoginPage>
         </Main>
     );
 }
 
-const StyledLoginPage = styled.div`
-    h2 {
-        color: red;
-    }
-`;
+const StyledLoginPage = styled.div``;
