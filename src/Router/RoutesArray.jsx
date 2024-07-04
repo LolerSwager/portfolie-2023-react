@@ -17,6 +17,7 @@ import DeviceInfo from "../Components/Settings/DeviceInfo";
 import SettingsV2 from "../Pages/SettingsV2";
 import ServerPage from "../Pages/ServerPage";
 import LoginPage from "../Pages/LoginPage";
+import SuccessPage from "../Pages/SuccessPage";
 
 export const RoutesArray = [
     { name: "Home", path: "/", element: <Navigate to="/Visitkort" />, display: false, requireLogin: false },
@@ -33,8 +34,9 @@ export const RoutesArray = [
     { name: "Notifications", path: "/Settingsv2/Notifications", element: <Notifications />, display: false, requireLogin: false },
     { name: "Storage", path: "/Settingsv2/Storage", element: <Storage />, display: false, requireLogin: false },
     { name: "DeviceInfo", path: "/Settingsv2/DeviceInfo", element: <DeviceInfo />, display: false, requireLogin: false },
-    { name: "Server Page", path: "/server", element: <ServerPage />, display: false, protected: true, requireLogin: true },
-    { name: "Login Page", path: "/login", element: <LoginPage />, display: false, protected: true, requireLogin: false },
+    { name: "Server Page", path: "/server", element: <ServerPage />, display: false, requireLogin: true },
+    { name: "Login Page", path: "/login", element: <LoginPage />, display: false, requireLogin: false },
+    { name: "Success Page", path: "/success", element: <SuccessPage />, display: false, requireLogin: false },
     { name: "QR", path: "/Qr/:themeColor", element: <Qr />, display: false, requireLogin: false },
     { name: "Sitemap", path: "/Sitemap", element: <SiteMap />, display: false, requireLogin: false },
     { name: "Sitemap XML", path: "/sitemap.xml", element: null, display: false, requireLogin: false },
