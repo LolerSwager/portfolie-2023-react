@@ -7,15 +7,32 @@ const SuccessPage = () => {
     const [user, setUser] = useState(null);
 
     useEffect(() => {
-        const params = new URLSearchParams(location.search);
-        const userData = params.get("user");
-        if (userData) {
-            setUser(JSON.parse(decodeURIComponent(userData)));
-            localStorage.setItem("isAuthenticated", "true");
-            navigate("/"); // Redirect to home or desired page after login
-        } else {
-            navigate("/login"); // Redirect to login if no user data is found
-        }
+        const fetchUserData = async () => {
+            try {
+                const params = new URLSearchParams(location.search);
+                const code = params.get("code");
+
+                if (code) {
+                    const response = await fetch(`http://localhost:3000/callback?code=${code}`);
+                    if (response.ok) {
+                        const userData = await response.json();
+                        setUser(userData);
+                        localStorage.setItem("isAuthenticated", "true");
+                        // Redirect to home or desired page after login
+                        navigate("/");
+                    } else {
+                        throw new Error("Failed to fetch user data");
+                    }
+                } else {
+                    throw new Error("No authorization code found");
+                }
+            } catch (error) {
+                console.error("Error fetching user data:", error.message);
+                navigate("/login"); // Redirect to login page on error
+            }
+        };
+
+        fetchUserData();
     }, [location, navigate]);
 
     return (
