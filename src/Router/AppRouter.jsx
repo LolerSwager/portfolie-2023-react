@@ -13,7 +13,7 @@ export default function AppRouter() {
     return (
         <Routes>
             {RoutesArray.map((route) => (
-                <Route key={route.path} path={route.path} element={route.requireLogin && !isAuthenticated ? <Navigate to="/login" replace /> : route.element} />
+                <Route key={route.path} path={route.path} element={route.requireLogin && !isAuthenticated ? <Navigate to={isAuthenticated ? "/profile" : "/login"} replace /> : route.element} />
             ))}
         </Routes>
     );
