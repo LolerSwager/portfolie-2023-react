@@ -1,14 +1,14 @@
 import { styled } from "styled-components";
-export default function Button({ ButtonDisabled = false, ButtonName, isClicked }) {
+export default function Button({ ButtonDisabled = false, ButtonName, isClicked, color }) {
     return (
-        <StyledButton onClick={isClicked} disabled={ButtonDisabled}>
+        <StyledButton onClick={isClicked} disabled={ButtonDisabled} color={color}>
             {ButtonName}
         </StyledButton>
     );
 }
 
 const StyledButton = styled.button`
-    background-color: var(--activeColor);
+    background-color: ${(props) => (props.color ? props.color : "var(--activeColor)")};
     color: #1a1a1a;
     border: 1px solid transparent;
     border-radius: calc(var(--borderRadius) / 2);
@@ -19,9 +19,9 @@ const StyledButton = styled.button`
     text-decoration: none;
     cursor: pointer;
     &:hover {
-        border-color: var(--activeColor);
+        border-color: ${(props) => (props.color ? props.color : "var(--activeColor)")};
         background-color: #1a1a1a;
-        color: var(--activeColor);
+        color: ${(props) => (props.color ? props.color : "var(--activeColor)")};
     }
     &:disabled {
         background-color: #1a1a1a;
@@ -35,10 +35,10 @@ const StyledButton = styled.button`
     }
     .reversed {
         background-color: #1a1a1a;
-        color: var(--activeColor);
-        border-color: var(--activeColor);
+        color: ${(props) => (props.color ? props.color : "var(--activeColor)")};
+        border-color: ${(props) => (props.color ? props.color : "var(--activeColor)")};
         &:hover {
-            background-color: var(--activeColor);
+            background-color: ${(props) => (props.color ? props.color : "var(--activeColor)")};
             color: #1a1a1a;
         }
     }
