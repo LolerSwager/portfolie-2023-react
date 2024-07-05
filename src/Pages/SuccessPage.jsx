@@ -24,11 +24,12 @@ const SuccessPage = () => {
                 })
                 .catch((error) => {
                     console.error("Error fetching user data:", error);
-                    alert(error);
+
+                    navigate("/login");
                 });
         } else {
-            alert(error);
-            // navigate("/login"); // Redirect to login if no token is found
+            console.error(error);
+            navigate("/login"); // Redirect to login if no token is found
         }
     }, [location, navigate]);
 

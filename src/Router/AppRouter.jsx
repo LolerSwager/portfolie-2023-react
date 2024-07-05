@@ -7,13 +7,13 @@ export default function AppRouter() {
 
     useEffect(() => {
         const auth = sessionStorage.getItem("isAuthenticated");
-        setIsAuthenticated(auth === true);
+        setIsAuthenticated(auth === "true"); // Compare to string "true" not boolean true
     }, []);
 
     return (
         <Routes>
             {RoutesArray.map((route) => (
-                <Route path={route.path} key={route.path} element={route.requireLogin && !isAuthenticated ? <Navigate to="/login" replace /> : route.element} />
+                <Route key={route.path} path={route.path} element={route.requireLogin && !isAuthenticated ? <Navigate to="/login" replace /> : route.element} />
             ))}
         </Routes>
     );
