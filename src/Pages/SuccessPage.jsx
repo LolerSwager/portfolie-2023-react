@@ -7,33 +7,16 @@ const SuccessPage = () => {
     const [user, setUser] = useState(null);
 
     useEffect(() => {
-        const fetchUserData = async () => {
-            try {
-                const params = new URLSearchParams(location.search);
-                const userData = params.get("user");
-                if (userData) {
-                    setUser(JSON.parse(decodeURIComponent(userData)));
-                    localStorage.setItem("isAuthenticated", "true");
-                    // No need to navigate to home page, stay on SuccessPage
-                } else {
-                    throw new Error("No user data found");
-                }
-            } catch (error) {
-                console.error("Error fetching user data:", error.message);
-                alert("Error fetching user data:", error.message);
-                // navigate("/login"); Redirect to login page on error
-            }
-        };
-
-        fetchUserData();
-    }, [location, navigate]);
-
-    // Redirect to login if no user data is found
-    useEffect(() => {
-        if (!user) {
-            navigate("/login");
+        const params = new URLSearchParams(location.search);
+        const userData = params.get("user");
+        if (userData) {
+            setUser(JSON.parse(decodeURIComponent(userData)));
+            localStorage.setItem("isAuthenticated", "true");
+            // Redirect to home or desired page after login
+        } else {
+            navigate("/login"); // Redirect to login if no user data is found
         }
-    }, [user, navigate]);
+    }, [location, navigate]);
 
     return (
         <div>
