@@ -28,7 +28,6 @@ const SuccessPage = () => {
                     navigate("/login");
                 });
         } else {
-            console.error(error);
             navigate("/login"); // Redirect to login if no token is found
         }
     }, [location, navigate]);
