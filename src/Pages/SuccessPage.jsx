@@ -1,7 +1,7 @@
 // SuccessPage.js (Frontend)
 
 import React, { useEffect, useState } from "react";
-import { useLocation, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import Main from "../Components/Main";
 import axios from "axios";
 
@@ -47,6 +47,7 @@ const SuccessPage = () => {
                             Welcome, {user.username}#{user.discriminator}
                         </h2>
                         <img src={`https://cdn.discordapp.com/avatars/${user.id}/${user.avatar}.png`} alt="avatar" />
+                        <Link to="/server">go to server page</Link>
                         <button onClick={handleLogout}>Logout</button>
                     </div>
                 ) : (
