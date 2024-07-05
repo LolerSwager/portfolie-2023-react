@@ -6,7 +6,7 @@ import Main from "../Components/Main";
 
 export default function LoginPage() {
     const handleLogin = () => {
-        window.location.href = `https://api.jannick.ninja/login`;
+        window.location.href = `https://api.jannick.ninja/auth/login`;
     };
 
     return (
