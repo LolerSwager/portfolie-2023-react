@@ -1,6 +1,9 @@
+// SuccessPage.js (Frontend)
+
 import React, { useEffect, useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import Main from "../Components/Main";
+import axios from "axios";
 
 const SuccessPage = () => {
     const location = useLocation();
@@ -9,12 +12,22 @@ const SuccessPage = () => {
 
     useEffect(() => {
         const params = new URLSearchParams(location.search);
-        const userData = params.get("user");
-        if (userData) {
-            setUser(JSON.parse(decodeURIComponent(userData)));
-            sessionStorage.setItem("isAuthenticated", true);
+        const token = params.get("token");
+
+        if (token) {
+            // Send token to backend to verify and fetch user data
+            axios
+                .get(`https://api.jannick.ninja/authenticated?token=${token}`)
+                .then((response) => {
+                    setUser(response.data);
+                    sessionStorage.setItem("isAuthenticated", true);
+                })
+                .catch((error) => {
+                    console.error("Error fetching user data:", error);
+                    navigate("/login");
+                });
         } else {
-            navigate("/login"); // Redirect to login if no user data is found
+            navigate("/login"); // Redirect to login if no token is found
         }
     }, [location, navigate]);
 
