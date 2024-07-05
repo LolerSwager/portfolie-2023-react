@@ -1,8 +1,10 @@
 import { styled } from "styled-components";
-export default function Button({ ButtonDisabled = false, ButtonName, isClicked, color }) {
+export default function Button({ ButtonDisabled = false, ButtonName, isClicked, color, ButtonIconLeft, ButtonIconRight }) {
     return (
         <StyledButton onClick={isClicked} disabled={ButtonDisabled} color={color}>
+            {ButtonIconLeft}
             {ButtonName}
+            {ButtonIconRight}
         </StyledButton>
     );
 }
@@ -18,10 +20,20 @@ const StyledButton = styled.button`
     font-weight: 700;
     text-decoration: none;
     cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    * {
+        fill: #1a1a1a;
+    }
     &:hover {
         border-color: ${(props) => (props.color ? props.color : "var(--activeColor)")};
         background-color: #1a1a1a;
         color: ${(props) => (props.color ? props.color : "var(--activeColor)")};
+        * {
+            fill: ${(props) => (props.color ? props.color : "var(--activeColor)")};
+        }
     }
     &:disabled {
         background-color: #1a1a1a;

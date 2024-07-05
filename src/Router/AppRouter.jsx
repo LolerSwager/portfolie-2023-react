@@ -7,7 +7,7 @@ export default function AppRouter() {
 
     useEffect(() => {
         const auth = sessionStorage.getItem("isAuthenticated");
-        setIsAuthenticated(auth === "true"); // Compare to string "true" not boolean true
+        setIsAuthenticated(auth === "true");
     }, []);
 
     return (
