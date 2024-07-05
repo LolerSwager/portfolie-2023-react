@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
+import Main from "../Components/Main";
 
 const SuccessPage = () => {
     const location = useLocation();
@@ -19,18 +20,20 @@ const SuccessPage = () => {
     }, [location, navigate]);
 
     return (
-        <div>
-            {user ? (
-                <div>
-                    <h1>
-                        Welcome, {user.username}#{user.discriminator}
-                    </h1>
-                    <img src={`https://cdn.discordapp.com/avatars/${user.id}/${user.avatar}.png`} alt="avatar" />
-                </div>
-            ) : (
-                <p>Loading user data...</p>
-            )}
-        </div>
+        <Main PageHeader="Success Page" PageTitle="Success">
+            <div>
+                {user ? (
+                    <div>
+                        <h1>
+                            Welcome, {user.username}#{user.discriminator}
+                        </h1>
+                        <img src={`https://cdn.discordapp.com/avatars/${user.id}/${user.avatar}.png`} alt="avatar" />
+                    </div>
+                ) : (
+                    <p>Loading user data...</p>
+                )}
+            </div>
+        </Main>
     );
 };
 
