@@ -1,4 +1,5 @@
 import { styled } from "styled-components";
+import Button from "../Components/buttons/Button";
 import Main from "../Components/Main";
 
 export default function LoginPage() {
@@ -10,7 +11,7 @@ export default function LoginPage() {
         <Main PageHeader="Login" PageTitle="login">
             <StyledLoginPage>
                 <h2>Login with Discord</h2>
-                <button onClick={handleLogin}>Login</button>
+                <Button ButtonName="Login" isClicked={handleLogin} />
             </StyledLoginPage>
         </Main>
     );

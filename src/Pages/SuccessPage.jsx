@@ -4,6 +4,7 @@ import React, { useEffect, useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import Main from "../Components/Main";
 import axios from "axios";
+import Button from "../Components/buttons/Button";
 
 const SuccessPage = () => {
     const location = useLocation();
@@ -47,7 +48,7 @@ const SuccessPage = () => {
                         </h2>
                         <img src={`https://cdn.discordapp.com/avatars/${user.id}/${user.avatar}.png`} alt="avatar" />
                         <Link to="/server">go to server page</Link>
-                        <button onClick={handleLogout}>Logout</button>
+                        <Button ButtonName="Logout" isClicked={handleLogout} color="red" />
                     </div>
                 ) : (
                     <p>Loading user data...</p>
