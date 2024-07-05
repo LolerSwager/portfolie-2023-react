@@ -20,7 +20,8 @@ const SuccessPage = () => {
                 }
             } catch (error) {
                 console.error("Error fetching user data:", error.message);
-                navigate("/login"); // Redirect to login page on error
+                alert("Error fetching user data:", error.message);
+                // navigate("/login"); Redirect to login page on error
             }
         };
 
