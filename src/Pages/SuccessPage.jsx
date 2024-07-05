@@ -24,7 +24,7 @@ const SuccessPage = () => {
                 })
                 .catch((error) => {
                     console.error("Error fetching user data:", error);
-                    navigate("/login");
+                    alert(error);
                 });
         } else {
             alert(error);
