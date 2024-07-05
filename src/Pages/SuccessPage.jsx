@@ -12,14 +12,14 @@ const SuccessPage = () => {
         const userData = params.get("user");
         if (userData) {
             setUser(JSON.parse(decodeURIComponent(userData)));
-            localStorage.setItem("isAuthenticated", "true");
+            sessionStorage.setItem("isAuthenticated", true);
         } else {
             navigate("/login"); // Redirect to login if no user data is found
         }
     }, [location, navigate]);
 
     const handleLogout = () => {
-        localStorage.removeItem("isAuthenticated");
+        sessionStorage.removeItem("isAuthenticated");
         navigate("/login");
     };
 

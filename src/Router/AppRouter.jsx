@@ -6,9 +6,8 @@ export default function AppRouter() {
     const [isAuthenticated, setIsAuthenticated] = useState(false);
 
     useEffect(() => {
-        // Check if the user is authenticated (e.g., check local storage or an auth context)
-        const auth = localStorage.getItem("isAuthenticated");
-        setIsAuthenticated(auth === "true");
+        const auth = sessionStorage.getItem("isAuthenticated");
+        setIsAuthenticated(auth === true);
     }, []);
 
     return (
