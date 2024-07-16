@@ -2,9 +2,9 @@
 
 import React, { useEffect, useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
-import Main from "../Components/Main";
+import Main from "../../Components/Main";
 import axios from "axios";
-import Button from "../Components/buttons/Button";
+import Button from "../../Components/UI/buttons/Button";
 
 const SuccessPage = () => {
     const location = useLocation();

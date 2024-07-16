@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 import { toast } from "react-toastify";
-import { FaKey, FaSwatchbook, FaWrench, FaRoute, FaCode } from "react-icons/fa6";
+import { FaKey, FaSwatchbook, FaWrench, FaRoute, FaCode, FaMap } from "react-icons/fa6";
 import { GiIsland } from "react-icons/gi";
 import Weather from "./Weather/Weather";
 import WeatherIcons from "./Weather/WeatherIcons";
@@ -19,6 +19,14 @@ export default function KeyAction() {
 
         // event.preventDefault()
 
+        if (event.key === "m" && event.altKey) {
+            toast("Navigating to Sitemap", {
+                closeOnClick: false,
+                autoClose: 1000,
+                icon: <FaMap />,
+            });
+            return navigate("/settings");
+        }
         if (event.key === "w" && event.altKey) {
             toast(<Weather />, {
                 closeOnClick: false,

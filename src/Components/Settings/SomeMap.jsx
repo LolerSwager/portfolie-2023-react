@@ -8,7 +8,7 @@ import { faAndroid, faApple, faChrome, faEdge, faFirefoxBrowser, faLinux, faOper
 import { faDesktop, faInfoCircle, faMapLocation, cation, faSatellite, faShieldHalved, faTriangleExclamation } from "@fortawesome/free-solid-svg-icons";
 import axios from "axios";
 import useCoordinates from "../../Hooks/useCoordinates";
-import ToggleSwitch from "../buttons/ToggleSwitch";
+import ToggleSwitch from "../UI/buttons/ToggleSwitch";
 
 export default function SomeMap() {
     const [oSName, setOSName] = useState("Unknown");

@@ -2,7 +2,7 @@ import { faBluetooth, faNfcSymbol } from "@fortawesome/free-brands-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useEffect, useState } from "react";
 import { styled } from "styled-components";
-import ToggleSwitch from "../buttons/ToggleSwitch";
+import ToggleSwitch from "../UI/buttons/ToggleSwitch";
 import {
     faBell,
     faCamera,

@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 import { useState } from "react";
 import { styled } from "styled-components";
-import ToggleSwitch from "../buttons/ToggleSwitch";
+import ToggleSwitch from "../UI/buttons/ToggleSwitch";
 
 export default function Notifications() {
     const [notificationToggle, setNotificationToggle] = useState();

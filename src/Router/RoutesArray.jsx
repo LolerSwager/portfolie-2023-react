@@ -1,23 +1,23 @@
 import { Navigate } from "react-router-dom";
-import NotFound from "../Pages/NotFound";
+import NotFound from "../Pages/Essential/NotFound";
 import Home from "../Pages/Home";
 import Cv from "../Pages/Cv";
-import Qr from "../Pages/Qr";
-import Settings from "../Pages/Settings";
+import Qr from "../Pages/Essential/Qr";
+import Settings from "../Pages/Settings/Settings";
 import GithubSearch from "../Pages/GithubSearch";
 import BusinessCard from "../Pages/BusinessCard";
-import SiteMap from "../Pages/SiteMap";
-import Projects from "../Pages/Projects";
-import Project from "../Pages/Project";
+import SiteMap from "../Pages/Essential/SiteMap";
+import Projects from "../Pages/Projects/Projects";
+import Project from "../Pages/Projects/Project";
 import Appearance from "../Components/Settings/Appearance";
 import Permissions from "../Components/Settings/Permissions";
 import Notifications from "../Components/Settings/Notifications";
 import Storage from "../Components/Settings/Storage";
 import DeviceInfo from "../Components/Settings/DeviceInfo";
-import SettingsV2 from "../Pages/SettingsV2";
+import SettingsV2 from "../Pages/Settings/SettingsV2";
 import ServerPage from "../Pages/ServerPage";
-import LoginPage from "../Pages/LoginPage";
-import SuccessPage from "../Pages/SuccessPage";
+import LoginPage from "../Pages/Login/LoginPage";
+import SuccessPage from "../Pages/Login/SuccessPage";
 
 export const RoutesArray = [
     { name: "Home", path: "/", element: <Navigate to="/Visitkort" />, display: false, requireLogin: false },

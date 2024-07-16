@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react";
 import { styled } from "styled-components";
 import ColorPalettes from "../ColorPalettes";
-import RadioButton from "../buttons/RadioButton";
-import ToggleSwitch from "../buttons/ToggleSwitch";
+import RadioButton from "../UI/buttons/RadioButton";
+import ToggleSwitch from "../UI/buttons/ToggleSwitch";
 import ColorPicker from "../ColorPicker";
 
 export default function Appearance() {

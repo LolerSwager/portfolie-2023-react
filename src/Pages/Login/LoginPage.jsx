@@ -1,8 +1,8 @@
 import { faDiscord } from "@fortawesome/free-brands-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { styled } from "styled-components";
-import Button from "../Components/buttons/Button";
-import Main from "../Components/Main";
+import Button from "../../Components/UI/buttons/Button";
+import Main from "../../Components/Main";
 
 export default function LoginPage() {
     const handleLogin = () => {

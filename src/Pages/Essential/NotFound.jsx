@@ -2,7 +2,7 @@ import { faHouseChimney, faLeftLong } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useNavigate, Link } from "react-router-dom";
 import styled from "styled-components";
-import Main from "../Components/Main";
+import Main from "../../Components/Main";
 
 export default function NotFound() {
     const wlp = window.location.pathname;

@@ -1,12 +1,12 @@
 import { styled } from "styled-components";
-import Appearance from "../Components/Settings/Appearance";
-import DeviceInfo from "../Components/Settings/DeviceInfo";
-import Notifications from "../Components/Settings/Notifications";
-import Permissions from "../Components/Settings/Permissions";
-import Storage from "../Components/Settings/Storage";
-import Main from "../Components/Main";
+import Appearance from "../../Components/Settings/Appearance";
+import DeviceInfo from "../../Components/Settings/DeviceInfo";
+import Notifications from "../../Components/Settings/Notifications";
+import Permissions from "../../Components/Settings/Permissions";
+import Storage from "../../Components/Settings/Storage";
+import Main from "../../Components/Main";
 import { Link } from "react-router-dom";
-import Button from "../Components/buttons/Button";
+import Button from "../../Components/UI/buttons/Button";
 
 export default function SettingsV2() {
     return (

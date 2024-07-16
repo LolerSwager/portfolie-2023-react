@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import { styled } from "styled-components";
-import Main from "../Components/Main";
-import { RoutesArray } from "../Router/RoutesArray";
+import Main from "../../Components/Main";
+import { RoutesArray } from "../../Router/RoutesArray";
 export default function SiteMap() {
     return (
         <Main PageHeader="Site map" PageTitle="en visualisering over sitemap">

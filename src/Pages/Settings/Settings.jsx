@@ -1,12 +1,13 @@
 import { styled } from "styled-components";
-import Appearance from "../Components/Settings/Appearance";
-import DeviceInfo from "../Components/Settings/DeviceInfo";
-import SomeMap from "../Components/Settings/SomeMap";
-import Notifications from "../Components/Settings/Notifications";
-import Permissions from "../Components/Settings/Permissions";
-import Storage from "../Components/Settings/Storage";
-import useWindowSize from "../Hooks/useWindowSize";
-import Main from "../Components/Main";
+import Appearance from "../../Components/Settings/Appearance";
+import DeviceInfo from "../../Components/Settings/DeviceInfo";
+import SomeMap from "../../Components/Settings/SomeMap";
+import Notifications from "../../Components/Settings/Notifications";
+import Permissions from "../../Components/Settings/Permissions";
+import Storage from "../../Components/Settings/Storage";
+import useWindowSize from "../../Hooks/useWindowSize";
+import Main from "../../Components/Main";
+import { Link } from "react-router-dom";
 
 export default function Settings() {
     const { width } = useWindowSize();
@@ -44,6 +45,11 @@ export default function Settings() {
                         <Notifications />
                         <Storage />
                         {width < 1200 ? <DeviceInfo /> : <SomeMap />}
+                        <div>
+                            <Link to="/sitemap">open sitemap page</Link>
+                            <br />
+                            <Link to="/server">open server page</Link>
+                        </div>
                     </StyledWrapper>
                 </SpacingGrid>
             </StyledSettings>
