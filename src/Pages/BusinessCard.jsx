@@ -2,9 +2,10 @@ import { styled } from "styled-components";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useState } from "react";
 import Schare from "../Components/Schare";
-import { faGithub, faLinkedin } from "@fortawesome/free-brands-svg-icons";
-import { faEnvelope, faPersonDigging, faPhone, faShare, faUserNinja } from "@fortawesome/free-solid-svg-icons";
+import { faGithubSquare, faLinkedin, faTwitterSquare } from "@fortawesome/free-brands-svg-icons";
+import { faEnvelope, faPhone, faShare } from "@fortawesome/free-solid-svg-icons";
 import Main from "../Components/Main";
+import Button from "../Components/UI/buttons/Button";
 export default function BusinessCard() {
     const profileImage = "https://lh3.googleusercontent.com/pw/AP1GczOuZ3boWGWxlyiAxqT2HJE1fC-HbbDORRoM7YUUtRyKonRTkHjdmZZpBwNsn_KwqewIZtULQZXhenbzlOy7UkyU1hV9jh3SralFSsoJ6RhQ2CyvLlA=w2400";
 
@@ -16,20 +17,15 @@ export default function BusinessCard() {
                 <div className="profile">
                     <img src={profileImage} alt="Image of Jannick Nielsen" loading="lazy" />
                     <h2>Jannick VanderHoef Trolle Nielsen</h2>
-                    <div className="Media">
-                        <a href="https://www.linkedin.com/in/jannick-nielsen-web/" title="Kontakt mig på Linkedin">
-                            <FontAwesomeIcon icon={faLinkedin} className="faicon" />
-                        </a>
-                        <a href="https://github.com/LolerSwager" title="Tjæk min Github">
-                            <FontAwesomeIcon icon={faGithub} className="faicon" />
-                        </a>
-                        <p onClick={() => (window.location = "mailto:JannickTrolleNielsen@hotmail.com ?subject=I have a job for you")} title="Kontakt mig på E-mail">
-                            <FontAwesomeIcon icon={faEnvelope} className="faicon" />
-                        </p>
-                        <p onClick={() => setSharingState((prevState) => !prevState)}>
-                            <FontAwesomeIcon icon={faShare} className="faicon" />
-                        </p>
-                    </div>
+                </div>
+                <div className="links">
+                    <Button
+                        ButtonName="Email"
+                        ButtonIconLeft={<FontAwesomeIcon icon={faEnvelope} />}
+                        isClicked={() => (window.location = "mailto:JannickTrolleNielsen@hotmail.com")}
+                        color="var(--fontColor)"
+                    />
+                    <Button ButtonName="Phone" ButtonIconLeft={<FontAwesomeIcon icon={faPhone} />} isClicked={() => window.open("tel:+4520665586")} color="var(--activeColor)" />
                 </div>
                 <div className="about">
                     <h3>About</h3>
@@ -43,31 +39,29 @@ export default function BusinessCard() {
                     </p>
                     <p>
                         Jeg bor pt i Frederikshavn 9900 med min kærste, men vi er meget klar til at flytte for det rigtige job. <span onClick={() => setSharingState(true)}>Del</span> gerne mit
-                        business card
+                        Visitkort kort
                     </p>
                 </div>
-                <div className="LinkList">
-                    <h3>Links</h3>
-                    <ul>
-                        <li>
-                            <p onClick={() => window.open("tel:+4520665586")} title="Ring til mig :D">
-                                <FontAwesomeIcon icon={faPhone} />
-                                Ring til mig på: +45 20 66 55 86
-                            </p>
-                        </li>
-                        <li>
-                            <a href="https://jannick.ninja/cv">
-                                <FontAwesomeIcon icon={faUserNinja} />
-                                Jannick Vanderhoef Trolle Nielsen CV
-                            </a>
-                        </li>
-                        <li>
-                            <a href="https://vanderhoef.dk">
-                                <FontAwesomeIcon icon={faPersonDigging} />
-                                Mit nuværende projekt: Vanderhoef.dk
-                            </a>
-                        </li>
-                    </ul>
+                <div className="interests">
+                    <h3>Interesser</h3>
+                    <p>Illustrator, Innovation, webudvikling, Design, Plante elsker, Music entusiast</p>
+                </div>
+                <div className="Media">
+                    <a href="https://github.com/LolerSwager" title="Github">
+                        <FontAwesomeIcon icon={faGithubSquare} className="faicon" />
+                    </a>
+                    <a href="https://www.linkedin.com/in/jannick-nielsen-web/" title="Linkedin">
+                        <FontAwesomeIcon icon={faLinkedin} className="faicon" />
+                    </a>
+                    <a href="https://www.twitter.com/lolerswager" target="_blank" rel="noreferrer" title="Twitter">
+                        <FontAwesomeIcon icon={faTwitterSquare} className="faicon" />
+                    </a>
+                    <p onClick={() => (window.location = "mailto:JannickTrolleNielsen@hotmail.com")} title="Email">
+                        <FontAwesomeIcon icon={faEnvelope} className="faicon" />
+                    </p>
+                    <p onClick={() => setSharingState((prevState) => !prevState)}>
+                        <FontAwesomeIcon icon={faShare} className="faicon" />
+                    </p>
                 </div>
                 {sharingState === true ? <Schare url="https://jannick.ninja/businesscard" msg="Tjæk lige ham her ud :O" ssht="business card" setSharingState={setSharingState} /> : <></>}
             </StyledHome>
@@ -111,6 +105,11 @@ const StyledHome = styled.section`
             transition: 0.2s, background-position 0s;
         }
     }
+    .links {
+        display: flex;
+        margin: auto 1rem;
+        gap: 1rem;
+    }
     .about {
         width: 100%;
         p {
@@ -128,7 +127,25 @@ const StyledHome = styled.section`
             }
         }
     }
+    .interests {
+        width: 100%;
+        p {
+            margin: 0 0 1rem 0;
+            &:hover {
+                span {
+                    color: var(--activeColor);
+                    cursor: pointer;
+                }
+            }
+        }
+        &:hover {
+            b {
+                color: var(--activeColor);
+            }
+        }
+    }
     .Media {
+        background-color: #161619;
         display: flex;
         align-items: center;
         justify-content: start;
@@ -136,35 +153,13 @@ const StyledHome = styled.section`
         cursor: pointer;
         .faicon {
             padding: 0.5rem;
-            height: 1.6rem;
-            width: 1.6rem;
+            height: 2.2rem;
+            width: 2.2rem;
+
             &:hover {
                 background-color: var(--activeColor);
-            }
-        }
-    }
-    .LinkList {
-        width: 100%;
-        ul {
-            list-style: none;
-            width: 100%;
-            li {
-                a,
-                p {
-                    color: var(--textColor);
-                    text-decoration: none;
-                    display: flex;
-                    align-items: center;
-                    gap: 0.5rem;
-                    width: 100%;
-                    padding: 0.5rem;
-                    margin: 0.5rem 0;
-                    border-radius: var(--borderRadius);
-                    background-color: var(--wrapperColor);
-                    cursor: pointer;
-                    &:hover {
-                        background-color: var(--activeColor);
-                    }
+                * {
+                    fill: #1a1a1a;
                 }
             }
         }
