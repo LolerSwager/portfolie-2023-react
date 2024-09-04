@@ -2,6 +2,7 @@ import { styled } from "styled-components";
 import Main from "../../Components/Main";
 import VScreenshot from "../../Assets/image/vanderhoef_screnshot.webp";
 import { Link } from "react-router-dom";
+import Button from "../../Components/UI/buttons/Button";
 
 export default function Projects() {
     return (
@@ -27,6 +28,12 @@ export default function Projects() {
                     </div>
                 </section>
             </StyledProjects>
+            <StyledGithubBanner>
+                <Link to="/GithubSearch">
+                    {/*  <img src="" alt="" /> */}
+                    <h3>Github Search</h3>
+                </Link>
+            </StyledGithubBanner>
         </Main>
     );
 }
@@ -144,4 +151,18 @@ const StyledProjects = styled.article`
             }
         }
     }
+`;
+
+const StyledGithubBanner = styled.div`
+    background: linear-gradient(25deg, rgb(132, 0, 219, 1) 10%, var(--activeColor) 90%);
+    box-shadow: 0px 0px 10px 1px #000000ee;
+    margin: 5rem 0 1rem 1rem;
+    padding: 1rem;
+    border-radius: var(--borderRadius);
+    aspect-ratio: 5 / 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    font-size: 2rem;
 `;
