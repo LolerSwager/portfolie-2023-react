@@ -4,7 +4,7 @@ import { useState } from "react";
 import { faBars, faGear, faX } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { RoutesArray } from "../../Router/RoutesArray";
-
+import Logo from "../../Assets/image/JN-logo-v2.svg";
 export default function Header() {
     const [menuState, setMenuState] = useState(false);
     return (
@@ -13,7 +13,9 @@ export default function Header() {
                 <span className="burgerMenu" aria-label="Open burger menu" onClick={() => setMenuState((prevState) => !prevState)}>
                     {menuState ? <FontAwesomeIcon icon={faX} /> : <FontAwesomeIcon icon={faBars} />}
                 </span>
-                {/* <div>Jannick V.T.N</div> */}
+                {/*   <Link to="/">
+                    <img src={Logo} alt="logo Jannick Nielsen &/ Ninja" />
+                </Link> */}
                 <ul>
                     {RoutesArray.map((route) =>
                         route.display === true ? (
@@ -89,6 +91,9 @@ const StyledHeader = styled.header`
                     }
                 }
             }
+        }
+        img {
+            height: 50px;
         }
     }
     @media only screen and (max-width: 500px) {
