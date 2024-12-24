@@ -6,6 +6,7 @@ import { faGithubSquare, faLinkedin, faTwitterSquare } from "@fortawesome/free-b
 import { faEnvelope, faPhone, faShare } from "@fortawesome/free-solid-svg-icons";
 import Main from "../Components/Main";
 import Button from "../Components/UI/buttons/Button";
+import Duolingo from "../Components/Duolingo";
 export default function BusinessCard() {
     const profileImage = "https://lh3.googleusercontent.com/pw/AP1GczOuZ3boWGWxlyiAxqT2HJE1fC-HbbDORRoM7YUUtRyKonRTkHjdmZZpBwNsn_KwqewIZtULQZXhenbzlOy7UkyU1hV9jh3SralFSsoJ6RhQ2CyvLlA=w2400";
 
@@ -15,8 +16,9 @@ export default function BusinessCard() {
         <Main PageHeader="Visitkort" PageTitle="Visitkort af Jannick Vanderhoef Trolle Nielsen">
             <StyledHome>
                 <div className="profile">
-                    <img src={profileImage} alt="Image of Jannick Nielsen" loading="lazy" />
-                    <h2>Jannick VanderHoef Trolle Nielsen</h2>
+                    <Duolingo />
+                    <img src={profileImage} alt="Image of Jannick Nielsen" loading="lazy" className="profile_img" />
+                    <h2>Jannick Vanderhoef Trolle Nielsen</h2>
                 </div>
                 <div className="links">
                     <Button
@@ -84,9 +86,10 @@ const StyledHome = styled.section`
         flex-direction: column;
         align-items: center;
         position: relative;
-        img {
+        .profile_img {
             width: 100%;
-            padding: 1.5rem;
+            margin: 1.5rem;
+            border: 7px solid var(--backGroundColor);
             border-radius: 50%;
             object-fit: cover;
             object-position: left top;
@@ -107,6 +110,7 @@ const StyledHome = styled.section`
     }
     .links {
         display: flex;
+        justify-content: space-around;
         margin: auto 1rem;
         gap: 1rem;
     }
