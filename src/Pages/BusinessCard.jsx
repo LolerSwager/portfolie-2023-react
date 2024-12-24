@@ -6,7 +6,7 @@ import { faGithubSquare, faLinkedin, faTwitterSquare } from "@fortawesome/free-b
 import { faEnvelope, faPhone, faShare } from "@fortawesome/free-solid-svg-icons";
 import Main from "../Components/Main";
 import Button from "../Components/UI/buttons/Button";
-import Duolingo from "../Components/Duolingo";
+/* import Duolingo from "../Components/Duolingo"; */
 export default function BusinessCard() {
     const profileImage = "https://lh3.googleusercontent.com/pw/AP1GczOuZ3boWGWxlyiAxqT2HJE1fC-HbbDORRoM7YUUtRyKonRTkHjdmZZpBwNsn_KwqewIZtULQZXhenbzlOy7UkyU1hV9jh3SralFSsoJ6RhQ2CyvLlA=w2400";
 
@@ -16,7 +16,7 @@ export default function BusinessCard() {
         <Main PageHeader="Visitkort" PageTitle="Visitkort af Jannick Vanderhoef Trolle Nielsen">
             <StyledHome>
                 <div className="profile">
-                    <Duolingo />
+                    {/* <Duolingo /> */}
                     <img src={profileImage} alt="Image of Jannick Nielsen" loading="lazy" className="profile_img" />
                     <h2>Jannick Vanderhoef Trolle Nielsen</h2>
                 </div>
