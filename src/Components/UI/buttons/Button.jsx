@@ -30,7 +30,7 @@ const StyledButton = styled.button`
     &:hover {
         border-color: ${(props) => (props.color ? props.color : "var(--activeColor)")};
         background-color: #1a1a1a;
-        color: ${(props) => (props.color ? props.color : "var(--activeColor)")};
+        color: ${(props) => (props.color ? props.color : "var(--activeColor)")} !important;
         * {
             fill: ${(props) => (props.color ? props.color : "var(--activeColor)")};
         }
@@ -47,7 +47,7 @@ const StyledButton = styled.button`
     }
     .reversed {
         background-color: #1a1a1a;
-        color: ${(props) => (props.color ? props.color : "var(--activeColor)")};
+        color: ${(props) => (props.color ? props.color : "var(--activeColor)")} !important;
         border-color: ${(props) => (props.color ? props.color : "var(--activeColor)")};
         &:hover {
             background-color: ${(props) => (props.color ? props.color : "var(--activeColor)")};
