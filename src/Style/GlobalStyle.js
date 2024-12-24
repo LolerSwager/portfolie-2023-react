@@ -67,14 +67,6 @@ const GlobalStyle = createGlobalStyle`
     *::-webkit-scrollbar-thumb {
         background-color: var(--activeColor);
     }
-
-
-    /*  #8400db Active
-        #0f0f0f Header
-        #000000 Footer
-
-        some #0080ff
-    */
 `;
 
 export default GlobalStyle;
