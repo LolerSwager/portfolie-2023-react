@@ -4,9 +4,10 @@ import { useEffect, useState } from "react";
 import { styled } from "styled-components";
 
 const Duolingo = () => {
-    const [data, setData] = useState(null);
+    const [data, setData] = useState({ users: [] });
     const [error, setError] = useState(null);
     const [username, setUsername] = useState("lolerswager");
+    const [debouncedUsername, setDebouncedUsername] = useState(username);
     const [doulingoStats, setDoulingoStats] = useState(false);
 
     const duolingoUrl = `https://www.duolingo.com/2017-06-30/users?username=${username}&fields=streak,streakData{currentStreak,previousStreak}}`;
@@ -14,6 +15,16 @@ const Duolingo = () => {
     const HandleUsername = (event) => {
         setUsername(event.target.value);
     };
+
+    useEffect(() => {
+        const handler = setTimeout(() => {
+            setDebouncedUsername(username);
+        }, 1000);
+
+        return () => {
+            clearTimeout(handler);
+        };
+    }, [username]);
 
     useEffect(() => {
         const fetchData = async () => {
@@ -30,10 +41,14 @@ const Duolingo = () => {
             }
         };
         fetchData();
-    }, [username]);
+    }, [debouncedUsername]);
 
     if (error) {
         return <div>Error: {error}</div>;
+    }
+
+    if (!data?.users?.length) {
+        return <div>No data available for the username.</div>;
     }
 
     return (
@@ -56,7 +71,7 @@ const Duolingo = () => {
                     {data &&
                         data?.users?.[0].courses.map((item) => {
                             return (
-                                <li>
+                                <li key={item.learningLanguage}>
                                     <span>
                                         <img src={"https://ardslot.com/s/" + item.learningLanguage + ".svg"} alt={item.learningLanguage} />
                                         <p>{item.title}</p>
