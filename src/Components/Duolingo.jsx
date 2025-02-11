@@ -30,16 +30,23 @@ const Duolingo = () => {
         const fetchData = async () => {
             try {
                 const response = await fetch(duolingoUrl);
+
                 if (!response.ok) {
-                    throw new Error(`HTTP error! status: ${response.status}`);
+                    throw new Error(`HTTP error! Status: ${response.status}`);
                 }
+
                 const result = await response.json();
                 setData(result);
             } catch (error) {
-                setError(error);
-                console.error(error);
+                if (error.message.includes("Failed to fetch")) {
+                    setError("CORS error: The request was blocked. Please check if the API allows cross-origin requests.");
+                } else {
+                    setError(error.message);
+                }
+                console.error("Fetch error:", error);
             }
         };
+
         fetchData();
     }, [debouncedUsername]);
 
