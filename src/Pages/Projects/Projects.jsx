@@ -56,8 +56,6 @@ export default function Projects() {
             Sportscenter Nord er en progressiv webapplikation (PWA) designet til
             at administrere og spore træningsplaner og fremskridt.
           </p>
-        </section>
-        <section className="projekt-link">
           <div>
             <Link to="sportscenternord">Check Projektet</Link>
           </div>
@@ -125,12 +123,6 @@ const StyledProjects = styled.article`
   }
   .projekt-text {
     grid-area: projekt-text;
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
-  }
-  .projekt-link {
-    grid-area: projekt-link;
     display: flex;
     flex-direction: column;
     gap: 1rem;
