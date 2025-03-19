@@ -14,11 +14,7 @@ export default function Project() {
     >
       <StyledProject>
         <StyledHeader>
-          <img
-            src={VScreenshot}
-            alt="et skærmbilled af vanderhoef.dk start skærm i det man kommer ind på siden"
-            loading="lazy"
-          />
+          <img src={VScreenshot} alt="sportscenternord.dk" loading="eager" />
         </StyledHeader>
         <StyledTags>
           <h3>Redskaber Brugt</h3>
