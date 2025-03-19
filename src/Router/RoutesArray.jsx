@@ -37,6 +37,13 @@ export const RoutesArray = [
   },
   {
     name: "Visitkort",
+    path: "/businesscard",
+    element: <BusinessCard />,
+    display: false,
+    requireLogin: false,
+  },
+  {
+    name: "Visitkort",
     path: "/Visitkort",
     element: <BusinessCard />,
     display: true,
