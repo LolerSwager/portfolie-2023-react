@@ -2,6 +2,7 @@ import { styled } from "styled-components";
 import Main from "../../Components/Main";
 import VScreenshot from "../../Assets/image/vanderhoef_screnshot.webp";
 import Sportscenternord from "../../Assets/image/sportscenternord-phone-tilted.png";
+import TileTracker from "../../Assets/image/tile-tracker.png";
 import { Link } from "react-router-dom";
 import Button from "../../Components/UI/buttons/Button";
 
@@ -11,7 +12,7 @@ export default function Projects() {
       PageHeader="Projektor"
       PageTitle="Projektor af Jannick Vanderhoef Trolle Nielsen"
     >
-      {/*   <StyledProjects>
+      {/*  <StyledProjects>
         <section className="projekt-header">
           <h2>Vanderhoef.dk</h2>
         </section>
@@ -32,8 +33,6 @@ export default function Projects() {
             væsener og hendes rejse med dem gennem hundeudstillinger og livet
             derhjemme.
           </p>
-        </section>
-        <section className="projekt-link">
           <div>
             <Link to="Vanderhoef">Check Projektet</Link>
           </div>
@@ -58,6 +57,30 @@ export default function Projects() {
           </p>
           <div>
             <Link to="sportscenternord">Check Projektet</Link>
+          </div>
+        </section>
+      </StyledProjects>
+      <StyledProjects>
+        <section className="projekt-header">
+          <h2>Tile-Tracker</h2>
+        </section>
+        <section className="projekt-left">
+          <img
+            src={TileTracker}
+            alt="et skærmbilled af vanderhoef.dk start skærm i det man kommer ind på siden"
+            loading="lazy"
+          />
+        </section>
+        <section className="projekt-text">
+          <h3>Om projektet </h3>
+          <p>
+            Tile-Tracker er et avanceret og brugervenligt dashboard, der kan
+            tilpasses fuldstændigt efter brugerens behov. Med Tile-Tracker kan
+            du organisere og overvåge en række forskellige elementer i små,
+            praktiske fliser.
+          </p>
+          <div>
+            <Link to="TileTracker">Check Projektet</Link>
           </div>
         </section>
       </StyledProjects>

@@ -19,6 +19,7 @@ import ServerPage from "../Pages/ServerPage";
 import LoginPage from "../Pages/Login/LoginPage";
 import SuccessPage from "../Pages/Login/SuccessPage";
 import Sportscenternord from "../Pages/Projects/Sportscenternord";
+import TileTracker from "../Pages/Projects/TileTracker";
 
 export const RoutesArray = [
   {
@@ -67,6 +68,13 @@ export const RoutesArray = [
     name: "Sportscenternord",
     path: "/Projektor/Sportscenternord",
     element: <Sportscenternord />,
+    display: false,
+    requireLogin: false,
+  },
+  {
+    name: "TileTracker",
+    path: "/Projektor/TileTracker",
+    element: <TileTracker />,
     display: false,
     requireLogin: false,
   },
