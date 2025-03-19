@@ -9,8 +9,8 @@ import { Link } from "react-router-dom";
 export default function Project() {
   return (
     <Main
-      PageHeader="sportscenternord.dk"
-      PageTitle="sportscenternord.dk lavet af Jannick Vanderhoef Trolle Nielsen"
+      PageHeader="Tile-Tracker"
+      PageTitle="Tile-Tracker lavet af Jannick Vanderhoef Trolle Nielsen"
     >
       <StyledProject>
         <StyledHeader>
@@ -70,7 +70,7 @@ export default function Project() {
               <FontAwesomeIcon icon={faGithub} />
               Github
             </a>
-            <Link to="/TileTracker" className="reversed">
+            <Link to="/Projektor" className="reversed">
               Go Back
             </Link>
           </div>
