@@ -1,6 +1,5 @@
 import { styled } from "styled-components";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faHouseChimney } from "@fortawesome/free-solid-svg-icons";
 import { faGithub } from "@fortawesome/free-brands-svg-icons";
 import Main from "../../Components/Main";
 import VScreenshot from "../../Assets/image/vanderhoef_screnshot.webp";

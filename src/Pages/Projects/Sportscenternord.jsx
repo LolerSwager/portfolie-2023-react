@@ -1,12 +1,11 @@
 import { styled } from "styled-components";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faHouseChimney } from "@fortawesome/free-solid-svg-icons";
 import { faGithub } from "@fortawesome/free-brands-svg-icons";
 import Main from "../../Components/Main";
 import VScreenshot from "../../Assets/image/sportscenternord-phone.png";
 import { Link } from "react-router-dom";
 
-export default function Project() {
+export default function Sportscenternord() {
   return (
     <Main
       PageHeader="sportscenternord.dk"
