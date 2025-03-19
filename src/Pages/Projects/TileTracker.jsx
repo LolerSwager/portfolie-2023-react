@@ -2,7 +2,7 @@ import { styled } from "styled-components";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faGithub } from "@fortawesome/free-brands-svg-icons";
 import Main from "../../Components/Main";
-import VScreenshot from "../../Assets/image/tile-tracker.png";
+import TileTracker from "../../Assets/image/tile-tracker.png";
 import { Link } from "react-router-dom";
 
 export default function TileTracker() {
@@ -13,7 +13,7 @@ export default function TileTracker() {
     >
       <StyledProject>
         <StyledHeader>
-          <img src={VScreenshot} alt="tile-tracker dashboard" loading="eager" />
+          <img src={TileTracker} alt="tile-tracker dashboard" loading="eager" />
         </StyledHeader>
         <StyledTags>
           <h3>Redskaber Brugt</h3>
