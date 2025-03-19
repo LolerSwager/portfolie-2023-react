@@ -13,11 +13,7 @@ export default function TileTracker() {
     >
       <StyledProject>
         <StyledHeader>
-          <img
-            src={TileTrackerImage}
-            alt="tile-tracker dashboard"
-            loading="eager"
-          />
+          <img src={TileTrackerImage} alt="tile-tracker dashboard" />
         </StyledHeader>
         <StyledTags>
           <h3>Redskaber Brugt</h3>

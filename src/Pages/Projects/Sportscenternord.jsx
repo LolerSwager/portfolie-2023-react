@@ -2,7 +2,7 @@ import { styled } from "styled-components";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faGithub } from "@fortawesome/free-brands-svg-icons";
 import Main from "../../Components/Main";
-import Sportscenternord from "../../Assets/image/sportscenternord-phone.png";
+import SportscenternordImage from "../../Assets/image/sportscenternord-phone.png";
 import { Link } from "react-router-dom";
 
 export default function Sportscenternord() {
@@ -13,11 +13,7 @@ export default function Sportscenternord() {
     >
       <StyledProject>
         <StyledHeader>
-          <img
-            src={Sportscenternord}
-            alt="sportscenternord.dk"
-            loading="eager"
-          />
+          <img src={SportscenternordImage} alt="sportscenternord.dk" />
         </StyledHeader>
         <StyledTags>
           <h3>Redskaber Brugt</h3>
