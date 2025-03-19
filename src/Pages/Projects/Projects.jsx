@@ -4,7 +4,6 @@ import VScreenshot from "../../Assets/image/vanderhoef_screnshot.webp";
 import Sportscenternord from "../../Assets/image/sportscenternord-phone-tilted.png";
 import TileTracker from "../../Assets/image/tile-tracker.png";
 import { Link } from "react-router-dom";
-import Button from "../../Components/UI/buttons/Button";
 
 export default function Projects() {
   return (
