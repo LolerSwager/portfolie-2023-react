@@ -243,7 +243,7 @@ const SearchHeader = styled.div`
       outline: none !important;
       border: 1px solid var(--activeColor);
       box-shadow: 0 0 15px var(--activeColor);
-      font-size: 1.5rem;
+      font-size: 1rem;
       transition: all 0.2s;
     }
   }
