@@ -1,9 +1,17 @@
 import {
+  fa0,
+  fa9,
+  faA,
+  faArrowDown19,
+  faArrowDown91,
+  faArrowDownAZ,
+  faArrowDownZA,
+  faCalendarDays,
   faFilter,
   faFlask,
-  faFlaskVial,
   faGrip,
   faGripLines,
+  faZ,
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { styled } from "styled-components";
@@ -55,9 +63,32 @@ export default function GithubSearch() {
               <FontAwesomeIcon icon={faFlask} />
               <p>labs</p>
             </DropDownMenuItem>
+            <DropDownMenuHr />
             <DropDownMenuItem>
-              <FontAwesomeIcon icon={faFlaskVial} />
-              <p>beta</p>
+              <FontAwesomeIcon icon={faCalendarDays} />
+              <p>Latest Updated</p>
+            </DropDownMenuItem>
+            <DropDownMenuItem>
+              <FontAwesomeIcon icon={faCalendarDays} />
+              <p>Oldest</p>
+            </DropDownMenuItem>
+            <DropDownMenuHr />
+            <DropDownMenuItem>
+              <FontAwesomeIcon icon={faArrowDownAZ} />
+              <p>A-Z</p>
+            </DropDownMenuItem>
+            <DropDownMenuItem>
+              <FontAwesomeIcon icon={faArrowDownZA} />
+              <p>Z-A</p>
+            </DropDownMenuItem>
+            <DropDownMenuHr />
+            <DropDownMenuItem>
+              <FontAwesomeIcon icon={faArrowDown19} />
+              <p>0-9 small to big</p>
+            </DropDownMenuItem>
+            <DropDownMenuItem>
+              <FontAwesomeIcon icon={faArrowDown91} />
+              <p>9-0 big to small</p>
             </DropDownMenuItem>
           </DropDownMenu>
         )}
@@ -173,6 +204,7 @@ const Abutton = styled.a`
     color: var(--contrastColor);
   }
 `;
+
 const SearchHeader = styled.div`
   width: 100%;
   border-bottom: 2px solid var(--wrapperColor);
@@ -201,6 +233,8 @@ const SearchHeader = styled.div`
     border: 1px solid var(--contrastColor);
     padding: 0.3rem 0.5rem;
     border-radius: calc(var(--borderRadius) / 2);
+    transition: all 0.5s;
+
     &:hover {
       border: 1px solid var(--wrapperColor);
     }
@@ -209,6 +243,8 @@ const SearchHeader = styled.div`
       outline: none !important;
       border: 1px solid var(--activeColor);
       box-shadow: 0 0 15px var(--activeColor);
+      font-size: 1.5rem;
+      transition: all 0.2s;
     }
   }
   button {
