@@ -234,6 +234,7 @@ const SearchHeader = styled.div`
     padding: 0.3rem 0.5rem;
     border-radius: calc(var(--borderRadius) / 2);
     transition: all 0.5s;
+    width: 100%;
 
     &:hover {
       border: 1px solid var(--wrapperColor);
