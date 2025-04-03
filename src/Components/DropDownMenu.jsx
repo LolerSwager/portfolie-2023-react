@@ -1,30 +1,57 @@
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useCallback } from "react";
 import styled from "styled-components";
 
-const DropDownMenu = ({ children, onClose }) => {
+const DropDownMenu = ({
+  children,
+  onClose,
+  position = { top: "30px", right: "75px" },
+}) => {
   const dropdownRef = useRef(null);
 
-  useEffect(() => {
-    const handleClickOutside = (event) => {
+  const handleClickOutside = useCallback(
+    (event) => {
       if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
         onClose(false);
       }
-    };
+    },
+    [onClose]
+  );
 
+  const handleKeyDown = useCallback(
+    (event) => {
+      if (event.key === "Escape") {
+        onClose(false);
+      }
+    },
+    [onClose]
+  );
+
+  const handleScroll = useCallback(() => onClose(false), [onClose]);
+
+  useEffect(() => {
     document.addEventListener("mousedown", handleClickOutside);
+    document.addEventListener("keydown", handleKeyDown);
+    window.addEventListener("scroll", handleScroll);
+
     return () => {
       document.removeEventListener("mousedown", handleClickOutside);
+      document.removeEventListener("keydown", handleKeyDown);
+      window.removeEventListener("scroll", handleScroll);
     };
-  }, []);
+  }, [handleClickOutside, handleKeyDown, handleScroll]);
 
-  return <StyledDropDownMenu ref={dropdownRef}>{children}</StyledDropDownMenu>;
+  return (
+    <StyledDropDownMenu ref={dropdownRef} style={position}>
+      {children}
+    </StyledDropDownMenu>
+  );
 };
 
 const StyledDropDownMenu = styled.ul`
   text-align: left;
   position: absolute;
-  right: 75px;
-  top: 30px;
+  /*  right: 75px;
+  top: 30px; */
   overflow: unset;
   padding: 0.5rem !important;
   margin: 0 !important;
@@ -32,7 +59,7 @@ const StyledDropDownMenu = styled.ul`
   border-radius: 10px 0 10px 10px;
   border: 1px solid transparent;
   list-style: none;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 4px 12px #00000055;
   animation: fadeIn 0.2s ease-in-out;
   z-index: 100;
   gap: 0px !important; //force gap removal
@@ -56,7 +83,7 @@ const StyledDropDownMenu = styled.ul`
     }
   }
   &:hover {
-    border-color: var(--activeColor);
+    box-shadow: 0px 0px 10px 1px var(--activeColor);
   }
 `;
 
@@ -75,7 +102,7 @@ const DropDownMenuItem = styled.li`
   transition: background-color 0.2s ease, color 0.2s ease;
 
   &:hover {
-    background-color: rgba(255, 255, 255, 0.1) !important;
+    background-color: #ffffff19 !important;
     color: #fff;
   }
 
