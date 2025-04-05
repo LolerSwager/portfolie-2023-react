@@ -3,37 +3,40 @@ import { styled } from "styled-components";
 import Breadcrumb from "./Breadcrumb";
 
 export default function Main({ PageHeader, PageTitle, children }) {
-    useEffect(() => {
-        document.title = PageTitle || PageHeader;
-    }, [PageTitle, PageHeader]);
-    return (
-        <StyledMain>
-            <Breadcrumb />
-            <div className="ContainerMax">
-                <h1>{PageHeader}</h1>
-                {children}
-            </div>
-        </StyledMain>
-    );
+  useEffect(() => {
+    document.title = PageTitle || PageHeader;
+  }, [PageTitle, PageHeader]);
+  return (
+    <StyledMain>
+      <Breadcrumb />
+      <div className="ContainerMax">
+        <h1>{PageHeader}</h1>
+        {children}
+      </div>
+    </StyledMain>
+  );
 }
 
 const StyledMain = styled.main`
-    .ContainerMax {
-        max-width: var(--pageMaxWidth);
-        width: 100%;
-        padding: 0 1rem 3rem 0;
-        margin: 0 auto;
-        h1 {
-            background-color: var(--activeColor);
-            color: var(--contrastColor);
-            display: flex;
-            padding: 0.2rem 1rem;
-            font-size: 2.5rem;
-            margin-bottom: 3rem;
-            width: max-content;
-        }
-        @media only screen and (max-width: 700px) {
-            padding: 0;
-        }
+  .ContainerMax {
+    max-width: var(--pageMaxWidth);
+    width: 100%;
+    padding: 0 1rem 3rem 0;
+    margin: 0 auto;
+    h1 {
+      background-color: var(--activeColor);
+      color: var(--contrastColor);
+      display: flex;
+      padding: 0.2rem 1rem;
+      font-size: 2.5rem;
+      margin-bottom: 3rem;
+      width: max-content;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
     }
+    @media only screen and (max-width: 700px) {
+      padding: 0;
+    }
+  }
 `;
