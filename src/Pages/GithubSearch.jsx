@@ -19,6 +19,7 @@ import {
 } from "../Components/DropDownMenu";
 import GithubCard from "../Components/GithubSearch/GithubCard";
 import useWindowSize from "../Hooks/useWindowSize";
+import Main from "../Components/Main";
 
 export default function GithubSearch() {
   const [dropDownMenuState, setDropDownMenuState] = useState(false);
@@ -53,8 +54,10 @@ export default function GithubSearch() {
   }, [width]);
 
   return (
-    <StyledMain>
-      <h1>Github Search</h1>
+    <Main
+      PageHeader="Github Search"
+      PageTitle="Github Search af Jannick Vanderhoef Trolle Nielsen"
+    >
       <h2>Liste over Github</h2>
       <small>
         found {githubData.length ? githubData.length : "0"} public repositories
@@ -123,7 +126,7 @@ export default function GithubSearch() {
           <p>No repositories found.</p>
         )}
       </CardWrapper>
-    </StyledMain>
+    </Main>
   );
 }
 
