@@ -16,18 +16,19 @@ const GithubCard = ({ data }) => {
   const [languagesTags, setLanguagesTags] = useState([]);
 
   useEffect(() => {
-    async function getlanguagesTags() {
+    async function getLanguagesTags() {
       try {
         const res = await fetch(languages_url);
         const data = await res.json();
-        setLanguagesTags(data);
+        const languageNames = Object.keys(data);
+        setLanguagesTags(languageNames);
       } catch (error) {
-        console.error("Error fetching data:", error);
+        console.error("Error fetching languages:", error);
         setLanguagesTags([]);
       }
     }
-    getlanguagesTags();
-  }, []);
+    getLanguagesTags();
+  }, [languages_url]); // Add languages_url as a dependency
 
   console.log(languagesTags);
 
@@ -38,14 +39,16 @@ const GithubCard = ({ data }) => {
       </Image>
       <CardBody>
         <h3>{name}</h3>
-        <p>{pushed_at}</p>
-        <p>{updated_at}</p>
+        <Row>
+          <p>{pushed_at}</p>
+          <p>{updated_at}</p>
+        </Row>
         <p>{description}</p>
 
         <LanTags>
-          {languagesTags > 0 ? (
-            languagesTags?.map((languageTag) => (
-              <li key={languageTag}>languageTag</li>
+          {languagesTags && languagesTags.length > 0 ? (
+            languagesTags.map((languageTag) => (
+              <li key={languageTag}>{languageTag}</li>
             ))
           ) : (
             <p>No tags found.</p>
@@ -108,7 +111,6 @@ const LanTags = styled.ul`
   display: flex;
   gap: 1rem;
   list-style: none;
-  padding: 1rem 1rem 0 1rem;
   overflow: hidden;
   li {
     font-weight: 700;
@@ -122,7 +124,7 @@ const LanTags = styled.ul`
 
 const Row = styled.span`
   display: flex;
-
+  flex-wrap: wrap;
   gap: 1rem;
 `;
 

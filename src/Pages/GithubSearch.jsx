@@ -137,7 +137,10 @@ const SearchHeader = styled.div`
   max-width: var(--pageMaxWidth);
   margin: auto;
   transition: all 0.5s;
-  position: relative;
+  position: sticky;
+  top: 0;
+  background-color: var(--backGroundColor) !important;
+  z-index: 10;
 
   &:hover {
     &:before {
