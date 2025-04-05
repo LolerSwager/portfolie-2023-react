@@ -1,7 +1,8 @@
 import { useState, useEffect } from "react";
 import styled from "styled-components";
-
-const GithubCard = ({ data }) => {
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faGithubSquare } from "@fortawesome/free-brands-svg-icons";
+const GithubCard = ({ data, CardType }) => {
   const {
     name,
     description,
@@ -15,7 +16,7 @@ const GithubCard = ({ data }) => {
 
   const [languagesTags, setLanguagesTags] = useState([]);
 
-  useEffect(() => {
+  /*   useEffect(() => {
     async function getLanguagesTags() {
       try {
         const res = await fetch(languages_url);
@@ -29,12 +30,12 @@ const GithubCard = ({ data }) => {
     }
     getLanguagesTags();
   }, [languages_url]); // Add languages_url as a dependency
-
+ */
   console.log(languagesTags);
 
   return (
-    <StyledGithubCard>
-      <Image>
+    <StyledGithubCard CardType={CardType}>
+      <Image CardType={CardType}>
         <h6>{name}</h6>
       </Image>
       <CardBody>
@@ -57,6 +58,7 @@ const GithubCard = ({ data }) => {
         <Row>
           {visibility === "public" && (
             <Abutton href={html_url} target="_blank" rel="noreferrer">
+              <FontAwesomeIcon icon={faGithubSquare} />
               Github
             </Abutton>
           )}
@@ -76,7 +78,7 @@ const StyledGithubCard = styled.article`
   background-color: var(--wrapperColor);
   overflow: hidden;
   display: flex;
-  flex-direction: column;
+  flex-direction: ${(props) => (props.CardType ? "column" : "row")};
   gap: 1rem;
   box-shadow: 0px 0px 10px 1px #000000ee;
 `;
@@ -89,7 +91,8 @@ const CardBody = styled.section`
 `;
 
 const Image = styled.div`
-  aspect-ratio: 3 / 1;
+  aspect-ratio: ${(props) => props.CardType && "3 / 1"};
+  max-width: ${(props) => props.CardType || "400px"};
   width: 100%;
   background: linear-gradient(
     25deg,

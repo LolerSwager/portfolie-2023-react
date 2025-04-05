@@ -18,11 +18,14 @@ import {
   DropDownMenuHr,
 } from "../Components/DropDownMenu";
 import GithubCard from "../Components/GithubSearch/GithubCard";
+import useWindowSize from "../Hooks/useWindowSize";
 
 export default function GithubSearch() {
   const [dropDownMenuState, setDropDownMenuState] = useState(false);
   const [CardType, setCardType] = useState(false);
   const [githubData, setGithubData] = useState([]);
+
+  const { width } = useWindowSize();
 
   useEffect(() => {
     async function getGithubData() {
@@ -92,17 +95,21 @@ export default function GithubSearch() {
             </DropDownMenuItem>
           </DropDownMenu>
         )}
-        <button onClick={() => setCardType((prevState) => !prevState)}>
-          {CardType ? (
-            <FontAwesomeIcon icon={faGripLines} />
-          ) : (
-            <FontAwesomeIcon icon={faGrip} />
-          )}
-        </button>
+        {width > 765 && (
+          <button onClick={() => setCardType((prevState) => !prevState)}>
+            {CardType ? (
+              <FontAwesomeIcon icon={faGripLines} />
+            ) : (
+              <FontAwesomeIcon icon={faGrip} />
+            )}
+          </button>
+        )}
       </SearchHeader>
-      <CardWrapper>
+      <CardWrapper CardType={CardType}>
         {githubData.length > 0 ? (
-          githubData.map((card) => <GithubCard key={card.id} data={card} />)
+          githubData.map((card) => (
+            <GithubCard key={card.id} data={card} CardType={CardType} />
+          ))
         ) : (
           <p>No repositories found.</p>
         )}
@@ -122,7 +129,8 @@ const StyledMain = styled.main`
 const CardWrapper = styled.section`
   display: grid;
   width: 100%;
-  grid-template-columns: repeat(auto-fill, minmax(330px, 1fr));
+  grid-template-columns: ${(props) =>
+    props.CardType ? "repeat(auto-fill, minmax(330px, 1fr))" : "1fr"};
   gap: 2rem;
   padding: 2rem;
 `;
