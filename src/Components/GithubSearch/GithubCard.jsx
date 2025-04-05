@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import styled from "styled-components";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faGithubSquare } from "@fortawesome/free-brands-svg-icons";
+import { faGithub } from "@fortawesome/free-brands-svg-icons";
 const GithubCard = ({ data, CardType }) => {
   const {
     name,
@@ -41,8 +41,8 @@ const GithubCard = ({ data, CardType }) => {
       <CardBody>
         <h3>{name}</h3>
         <Row>
-          <p>{pushed_at}</p>
-          <p>{updated_at}</p>
+          <p>Pushed on: {new Date(pushed_at).toLocaleDateString()}</p>
+          <p>Last updated: {new Date(updated_at).toLocaleDateString()}</p>
         </Row>
         <p>{description}</p>
 
@@ -58,7 +58,7 @@ const GithubCard = ({ data, CardType }) => {
         <Row>
           {visibility === "public" && (
             <Abutton href={html_url} target="_blank" rel="noreferrer">
-              <FontAwesomeIcon icon={faGithubSquare} />
+              <FontAwesomeIcon icon={faGithub} />
               Github
             </Abutton>
           )}
@@ -132,7 +132,12 @@ const Row = styled.span`
 `;
 
 const Abutton = styled.a`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
   color: black;
+
   border: none;
   border-radius: calc(var(--borderRadius) / 2);
   font-weight: 600;
@@ -144,6 +149,9 @@ const Abutton = styled.a`
   &:hover {
     background-color: var(--activeColor);
     color: var(--contrastColor);
+  }
+  * {
+    fill: black;
   }
 `;
 

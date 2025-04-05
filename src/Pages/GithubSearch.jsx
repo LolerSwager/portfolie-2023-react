@@ -43,6 +43,15 @@ export default function GithubSearch() {
     getGithubData();
   }, []);
 
+  useEffect(() => {
+    const handleResize = () => {
+      if (width <= 765) {
+        setCardType(true);
+      }
+    };
+    handleResize();
+  }, [width]);
+
   return (
     <StyledMain>
       <h1>Github Search</h1>
