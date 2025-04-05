@@ -16,7 +16,7 @@ const GithubCard = ({ data, CardType }) => {
 
   const [languagesTags, setLanguagesTags] = useState([]);
 
-  /*   useEffect(() => {
+  useEffect(() => {
     async function getLanguagesTags() {
       try {
         const res = await fetch(languages_url);
@@ -29,8 +29,8 @@ const GithubCard = ({ data, CardType }) => {
       }
     }
     getLanguagesTags();
-  }, [languages_url]); // Add languages_url as a dependency
- */
+  }, [languages_url]);
+
   console.log(languagesTags);
 
   return (
@@ -135,7 +135,7 @@ const Abutton = styled.a`
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 1rem;
+  gap: 0.5rem;
   color: black;
 
   border: none;
