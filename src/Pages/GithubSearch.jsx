@@ -16,6 +16,7 @@ import {
   DropDownMenu,
   DropDownMenuItem,
   DropDownMenuHr,
+  DropDownMenuContent,
 } from "../Components/DropDownMenu";
 import GithubCard from "../Components/GithubSearch/GithubCard";
 import useWindowSize from "../Hooks/useWindowSize";
@@ -25,6 +26,58 @@ export default function GithubSearch() {
   const [dropDownMenuState, setDropDownMenuState] = useState(false);
   const [CardType, setCardType] = useState(false);
   const [githubData, setGithubData] = useState([]);
+  const [search, setSearch] = useState("");
+  const [dropDownMenu, setDropDownMenu] = useState([
+    {
+      id: 1,
+      name: "labs",
+      icon: faFlask,
+      active: true,
+      onClick: () => {},
+    },
+    {
+      id: 2,
+      name: "Latest Updated",
+      icon: faCalendarDays,
+      active: false,
+      onClick: () => {},
+    },
+    {
+      id: 3,
+      name: "Oldest",
+      icon: faCalendarDays,
+      active: false,
+      onClick: () => {},
+    },
+    {
+      id: 4,
+      name: "A-Z",
+      icon: faArrowDownAZ,
+      active: false,
+      onClick: () => {},
+    },
+    {
+      id: 5,
+      name: "Z-A",
+      icon: faArrowDownZA,
+      active: false,
+      onClick: () => {},
+    },
+    {
+      id: 6,
+      name: "0-9 small to big",
+      icon: faArrowDown19,
+      active: false,
+      onClick: () => {},
+    },
+    {
+      id: 7,
+      name: "9-0 big to small",
+      icon: faArrowDown91,
+      active: false,
+      onClick: () => {},
+    },
+  ]);
 
   const { width } = useWindowSize();
 
@@ -58,55 +111,65 @@ export default function GithubSearch() {
       PageHeader="Github Search"
       PageTitle="Github Search af Jannick Vanderhoef Trolle Nielsen"
     >
-      <h2>Liste over Github</h2>
-      <small>
-        found {githubData.length ? githubData.length : "0"} public repositories
-      </small>
+      <Margin>
+        <h2>Liste over Github</h2>
+        <small>
+          found {githubData.length ? githubData.length : "0"} public
+          repositories
+        </small>
+      </Margin>
       <SearchHeader>
         <input
           type="search"
           id="github-search"
           placeholder="Search repositories..."
           aria-label="Search GitHub repositories"
+          onChange={(event) => setSearch(event.target.value)}
         />
-        <button onClick={() => setDropDownMenuState((prevState) => !prevState)}>
-          <FontAwesomeIcon icon={faFilter} />
-        </button>
-        {dropDownMenuState && (
-          <DropDownMenu onClose={() => setDropDownMenuState(false)}>
-            <DropDownMenuItem>
-              <FontAwesomeIcon icon={faFlask} />
-              <p>labs</p>
-            </DropDownMenuItem>
-            <DropDownMenuHr />
-            <DropDownMenuItem>
-              <FontAwesomeIcon icon={faCalendarDays} />
-              <p>Latest Updated</p>
-            </DropDownMenuItem>
-            <DropDownMenuItem>
-              <FontAwesomeIcon icon={faCalendarDays} />
-              <p>Oldest</p>
-            </DropDownMenuItem>
-            <DropDownMenuHr />
-            <DropDownMenuItem>
-              <FontAwesomeIcon icon={faArrowDownAZ} />
-              <p>A-Z</p>
-            </DropDownMenuItem>
-            <DropDownMenuItem>
-              <FontAwesomeIcon icon={faArrowDownZA} />
-              <p>Z-A</p>
-            </DropDownMenuItem>
-            <DropDownMenuHr />
-            <DropDownMenuItem>
-              <FontAwesomeIcon icon={faArrowDown19} />
-              <p>0-9 small to big</p>
-            </DropDownMenuItem>
-            <DropDownMenuItem>
-              <FontAwesomeIcon icon={faArrowDown91} />
-              <p>9-0 big to small</p>
-            </DropDownMenuItem>
-          </DropDownMenu>
-        )}
+
+        <DropDownMenu onClose={() => setDropDownMenuState(false)}>
+          <button
+            onClick={() => setDropDownMenuState((prevState) => !prevState)}
+          >
+            <FontAwesomeIcon icon={faFilter} />
+          </button>
+          {dropDownMenuState && (
+            <DropDownMenuContent>
+              <DropDownMenuItem className="active">
+                <FontAwesomeIcon icon={faFlask} />
+                <p>labs</p>
+              </DropDownMenuItem>
+              <DropDownMenuHr />
+              <DropDownMenuItem>
+                <FontAwesomeIcon icon={faCalendarDays} />
+                <p>Latest Updated</p>
+              </DropDownMenuItem>
+              <DropDownMenuItem>
+                <FontAwesomeIcon icon={faCalendarDays} />
+                <p>Oldest</p>
+              </DropDownMenuItem>
+              <DropDownMenuHr />
+              <DropDownMenuItem>
+                <FontAwesomeIcon icon={faArrowDownAZ} />
+                <p>A-Z</p>
+              </DropDownMenuItem>
+              <DropDownMenuItem>
+                <FontAwesomeIcon icon={faArrowDownZA} />
+                <p>Z-A</p>
+              </DropDownMenuItem>
+              <DropDownMenuHr />
+              <DropDownMenuItem>
+                <FontAwesomeIcon icon={faArrowDown19} />
+                <p>0-9 small to big</p>
+              </DropDownMenuItem>
+              <DropDownMenuItem>
+                <FontAwesomeIcon icon={faArrowDown91} />
+                <p>9-0 big to small</p>
+              </DropDownMenuItem>
+            </DropDownMenuContent>
+          )}
+        </DropDownMenu>
+
         {width > 765 && (
           <button onClick={() => setCardType((prevState) => !prevState)}>
             {CardType ? (
@@ -119,9 +182,16 @@ export default function GithubSearch() {
       </SearchHeader>
       <CardWrapper CardType={CardType}>
         {githubData.length > 0 ? (
-          githubData.map((card) => (
-            <GithubCard key={card.id} data={card} CardType={CardType} />
-          ))
+          githubData
+            .filter((card) => {
+              return (
+                search === "" ||
+                card.name.toLowerCase().includes(search.toLowerCase())
+              );
+            })
+            .map((card) => (
+              <GithubCard key={card.id} data={card} CardType={CardType} />
+            ))
         ) : (
           <p>No repositories found.</p>
         )}
@@ -129,14 +199,6 @@ export default function GithubSearch() {
     </Main>
   );
 }
-
-const StyledMain = styled.main`
-  h1,
-  h2,
-  small {
-    margin: 0 2rem;
-  }
-`;
 
 const CardWrapper = styled.section`
   display: grid;
@@ -172,6 +234,7 @@ const SearchHeader = styled.div`
       animation: fill 5000ms infinite linear;
     }
   }
+
   input {
     color: var(--fontcolor);
     background-color: var(--wrapperColor);
@@ -193,6 +256,7 @@ const SearchHeader = styled.div`
       transition: all 0.2s;
     }
   }
+
   button {
     color: var(--contrastColor);
     background-color: transparent;
@@ -200,15 +264,7 @@ const SearchHeader = styled.div`
     cursor: pointer;
     font-size: 1.3rem;
   }
-  @-webkit-keyframes run {
-    0% {
-      left: 0;
-    }
 
-    100% {
-      left: 100%;
-    }
-  }
   @-webkit-keyframes fill {
     0% {
       width: 0%;
@@ -231,4 +287,8 @@ const SearchHeader = styled.div`
       left: 0;
     }
   }
+`;
+
+const Margin = styled.div`
+  margin: 0 2rem !important;
 `;

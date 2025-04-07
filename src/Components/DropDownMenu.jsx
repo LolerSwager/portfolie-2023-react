@@ -1,11 +1,7 @@
 import { useEffect, useRef, useCallback } from "react";
 import styled from "styled-components";
 
-const DropDownMenu = ({
-  children,
-  onClose,
-  position = { top: "30px", right: "75px" },
-}) => {
+const DropDownMenu = ({ children, onClose }) => {
   const dropdownRef = useRef(null);
 
   const handleClickOutside = useCallback(
@@ -40,23 +36,25 @@ const DropDownMenu = ({
     };
   }, [handleClickOutside, handleKeyDown, handleScroll]);
 
-  return (
-    <StyledDropDownMenu ref={dropdownRef} style={position}>
-      {children}
-    </StyledDropDownMenu>
-  );
+  return <StyledDropDownMenu ref={dropdownRef}>{children}</StyledDropDownMenu>;
 };
 
-const StyledDropDownMenu = styled.ul`
+const StyledDropDownMenu = styled.menu`
+  position: static;
+  top: 0;
+  right: 0;
+`;
+
+const DropDownMenuContent = styled.ul`
   text-align: left;
   position: absolute;
-  /*  right: 75px;
-  top: 30px; */
+  right: 0;
+  top: 100%;
   overflow: unset;
   padding: 0.5rem !important;
   margin: 0 !important;
   background-color: #181818;
-  border-radius: 10px 0 10px 10px;
+  border-radius: 10px 10px 10px 10px;
   border: 1px solid transparent;
   list-style: none;
   box-shadow: 0 4px 12px #00000055;
@@ -84,6 +82,9 @@ const StyledDropDownMenu = styled.ul`
   }
   &:hover {
     box-shadow: 0px 0px 10px 1px var(--activeColor);
+  }
+  .active {
+    background-color: var(--activeColor) !important;
   }
 `;
 
@@ -127,4 +128,5 @@ const DropDownMenuHr = styled.hr`
   border-top: 1px solid #333;
   margin: 0.5rem 0rem;
 `;
-export { DropDownMenu, DropDownMenuItem, DropDownMenuHr };
+
+export { DropDownMenu, DropDownMenuContent, DropDownMenuItem, DropDownMenuHr };
