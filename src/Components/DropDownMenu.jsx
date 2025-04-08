@@ -86,6 +86,13 @@ const DropDownMenuContent = styled.ul`
   .active {
     background-color: var(--activeColor) !important;
   }
+  .disabled {
+    background-color: transparent !important;
+    &:hover {
+      background-color: transparent !important;
+      cursor: default !important;
+    }
+  }
 `;
 
 const DropDownMenuItem = styled.li`

@@ -2,8 +2,6 @@ import { useState, useEffect } from "react";
 import { styled } from "styled-components";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
-  faArrowDown19,
-  faArrowDown91,
   faArrowDownAZ,
   faArrowDownZA,
   faCalendarDays,
@@ -21,63 +19,49 @@ import {
 import GithubCard from "../Components/GithubSearch/GithubCard";
 import useWindowSize from "../Hooks/useWindowSize";
 import Main from "../Components/Main";
+import { useDebounce } from "../Hooks/useDebounce";
 
 export default function GithubSearch() {
   const [dropDownMenuState, setDropDownMenuState] = useState(false);
   const [CardType, setCardType] = useState(false);
   const [githubData, setGithubData] = useState([]);
-  const [search, setSearch] = useState("");
+  const [searchQuery, setSearchQuery] = useState("");
+  const [activeFilter, setActiveFilter] = useState("latest");
+  const [searchTags, setSearchTags] = useState([]);
   const [dropDownMenu, setDropDownMenu] = useState([
     {
       id: 1,
       name: "labs",
       icon: faFlask,
       active: true,
-      onClick: () => {},
     },
     {
       id: 2,
       name: "Latest Updated",
       icon: faCalendarDays,
       active: false,
-      onClick: () => {},
     },
     {
       id: 3,
       name: "Oldest",
       icon: faCalendarDays,
       active: false,
-      onClick: () => {},
     },
     {
       id: 4,
       name: "A-Z",
       icon: faArrowDownAZ,
       active: false,
-      onClick: () => {},
     },
     {
       id: 5,
       name: "Z-A",
       icon: faArrowDownZA,
       active: false,
-      onClick: () => {},
-    },
-    {
-      id: 6,
-      name: "0-9 small to big",
-      icon: faArrowDown19,
-      active: false,
-      onClick: () => {},
-    },
-    {
-      id: 7,
-      name: "9-0 big to small",
-      icon: faArrowDown91,
-      active: false,
-      onClick: () => {},
     },
   ]);
+
+  const debouncedSearchQuery = useDebounce(searchQuery, 300);
 
   const { width } = useWindowSize();
 
@@ -106,6 +90,50 @@ export default function GithubSearch() {
     handleResize();
   }, [width]);
 
+  const handleFilterChange = (filterId) => {
+    setActiveFilter(filterId);
+    setDropDownMenuState(false);
+  };
+
+  const filteredAndSortedRepos = () => {
+    return githubData
+      .filter((repo) =>
+        debouncedSearchQuery === ""
+          ? true
+          : repo.name.toLowerCase().includes(debouncedSearchQuery.toLowerCase())
+      )
+      .filter((repo) => {
+        if (searchTags.length === 0) return true;
+        return searchTags.some(
+          (tag) =>
+            repo.language &&
+            repo.language.toLowerCase().includes(tag.toLowerCase())
+        );
+      })
+      .sort((a, b) => {
+        if (activeFilter === "recentlyUpdated") {
+          return new Date(b.updated_at) - new Date(a.updated_at);
+        }
+        if (activeFilter === "lastupdated") {
+          return new Date(a.updated_at) - new Date(b.updated_at);
+        }
+        if (activeFilter === "latest") {
+          return new Date(b.pushed_at) - new Date(a.pushed_at);
+        }
+        if (activeFilter === "oldest") {
+          return new Date(a.pushed_at) - new Date(b.pushed_at);
+        }
+        if (activeFilter === "az") {
+          return a.name.localeCompare(b.name);
+        }
+        if (activeFilter === "za") {
+          return b.name.localeCompare(a.name);
+        }
+
+        return 0;
+      });
+  };
+
   return (
     <Main
       PageHeader="Github Search"
@@ -124,7 +152,7 @@ export default function GithubSearch() {
           id="github-search"
           placeholder="Search repositories..."
           aria-label="Search GitHub repositories"
-          onChange={(event) => setSearch(event.target.value)}
+          onChange={(event) => setSearchQuery(event.target.value)}
         />
 
         <DropDownMenu onClose={() => setDropDownMenuState(false)}>
@@ -135,36 +163,78 @@ export default function GithubSearch() {
           </button>
           {dropDownMenuState && (
             <DropDownMenuContent>
-              <DropDownMenuItem className="active">
+              <DropDownMenuItem className="disabled">
                 <FontAwesomeIcon icon={faFlask} />
                 <p>labs</p>
               </DropDownMenuItem>
               <DropDownMenuHr />
-              <DropDownMenuItem>
+              <DropDownMenuItem
+                onClick={() =>
+                  setActiveFilter((prevFilter) =>
+                    prevFilter === "recentlyUpdated" ? "" : "recentlyUpdated"
+                  )
+                }
+                className={activeFilter === "recentlyUpdated" ? "active" : ""}
+              >
                 <FontAwesomeIcon icon={faCalendarDays} />
-                <p>Latest Updated</p>
+                <p>recently updated</p>
               </DropDownMenuItem>
-              <DropDownMenuItem>
+              <DropDownMenuItem
+                onClick={() =>
+                  setActiveFilter((prevFilter) =>
+                    prevFilter === "lastupdated" ? "" : "lastupdated"
+                  )
+                }
+                className={activeFilter === "lastupdated" ? "active" : ""}
+              >
                 <FontAwesomeIcon icon={faCalendarDays} />
-                <p>Oldest</p>
+                <p>last updated</p>
               </DropDownMenuItem>
               <DropDownMenuHr />
-              <DropDownMenuItem>
+              <DropDownMenuItem
+                onClick={() =>
+                  setActiveFilter((prevFilter) =>
+                    prevFilter === "latest" ? "" : "latest"
+                  )
+                }
+                className={activeFilter === "latest" ? "active" : ""}
+              >
+                <FontAwesomeIcon icon={faCalendarDays} />
+                <p>newest repositories</p>
+              </DropDownMenuItem>
+              <DropDownMenuItem
+                onClick={() =>
+                  setActiveFilter((prevFilter) =>
+                    prevFilter === "oldest" ? "" : "oldest"
+                  )
+                }
+                className={activeFilter === "oldest" ? "active" : ""}
+              >
+                <FontAwesomeIcon icon={faCalendarDays} />
+                <p>Oldest repositories</p>
+              </DropDownMenuItem>
+              <DropDownMenuHr />
+              <DropDownMenuItem
+                onClick={() =>
+                  setActiveFilter((prevFilter) =>
+                    prevFilter === "az" ? "" : "az"
+                  )
+                }
+                className={activeFilter === "az" ? "active" : ""}
+              >
                 <FontAwesomeIcon icon={faArrowDownAZ} />
                 <p>A-Z</p>
               </DropDownMenuItem>
-              <DropDownMenuItem>
+              <DropDownMenuItem
+                onClick={() =>
+                  setActiveFilter((prevFilter) =>
+                    prevFilter === "za" ? "" : "za"
+                  )
+                }
+                className={activeFilter === "za" ? "active" : ""}
+              >
                 <FontAwesomeIcon icon={faArrowDownZA} />
                 <p>Z-A</p>
-              </DropDownMenuItem>
-              <DropDownMenuHr />
-              <DropDownMenuItem>
-                <FontAwesomeIcon icon={faArrowDown19} />
-                <p>0-9 small to big</p>
-              </DropDownMenuItem>
-              <DropDownMenuItem>
-                <FontAwesomeIcon icon={faArrowDown91} />
-                <p>9-0 big to small</p>
               </DropDownMenuItem>
             </DropDownMenuContent>
           )}
@@ -181,19 +251,14 @@ export default function GithubSearch() {
         )}
       </SearchHeader>
       <CardWrapper CardType={CardType}>
-        {githubData.length > 0 ? (
-          githubData
-            .filter((card) => {
-              return (
-                search === "" ||
-                card.name.toLowerCase().includes(search.toLowerCase())
-              );
-            })
-            .map((card) => (
-              <GithubCard key={card.id} data={card} CardType={CardType} />
-            ))
-        ) : (
+        {githubData.length === 0 ? (
           <p>No repositories found.</p>
+        ) : filteredAndSortedRepos().length === 0 ? (
+          <p>No repositories match your search or filter criteria.</p>
+        ) : (
+          filteredAndSortedRepos().map((repo) => (
+            <GithubCard key={repo.id} data={repo} CardType={CardType} />
+          ))
         )}
       </CardWrapper>
     </Main>

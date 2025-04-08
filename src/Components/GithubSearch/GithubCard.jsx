@@ -45,6 +45,7 @@ const GithubCard = ({ data, CardType }) => {
           <p>Last updated: {new Date(updated_at).toLocaleDateString()}</p>
         </Row>
         <p>{description}</p>
+        <h3>Tags</h3>
         <LanTags>
           {languagesTags && languagesTags.length > 0 ? (
             languagesTags.map((languageTag) => (
@@ -111,13 +112,18 @@ const Image = styled.div`
 
 const LanTags = styled.ul`
   display: flex;
+  flex-wrap: wrap;
   gap: 1rem;
   list-style: none;
   overflow: hidden;
+  width: 100%;
   li {
     font-weight: 700;
     cursor: pointer;
     transition: all 0.2s ease;
+    background-color: #f9f9f92f;
+    padding: 0.2rem 0.4rem;
+    border-radius: calc(var(--borderRadius) / 2);
     &:hover {
       color: var(--activeColor);
     }
@@ -146,6 +152,9 @@ const Abutton = styled.a`
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+  max-width: 300px;
+  box-sizing: border-box;
+  transition: all 0.2s ease;
   &:hover {
     background-color: var(--activeColor);
     color: var(--contrastColor);
