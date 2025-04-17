@@ -9,6 +9,7 @@ import {
   faFlask,
   faGrip,
   faGripLines,
+  faX,
 } from "@fortawesome/free-solid-svg-icons";
 import {
   DropDownMenu,
@@ -28,38 +29,6 @@ export default function GithubSearch() {
   const [searchQuery, setSearchQuery] = useState("");
   const [activeFilter, setActiveFilter] = useState("latest");
   const [searchTags, setSearchTags] = useState([]);
-  const [dropDownMenu, setDropDownMenu] = useState([
-    {
-      id: 1,
-      name: "labs",
-      icon: faFlask,
-      active: true,
-    },
-    {
-      id: 2,
-      name: "Latest Updated",
-      icon: faCalendarDays,
-      active: false,
-    },
-    {
-      id: 3,
-      name: "Oldest",
-      icon: faCalendarDays,
-      active: false,
-    },
-    {
-      id: 4,
-      name: "A-Z",
-      icon: faArrowDownAZ,
-      active: false,
-    },
-    {
-      id: 5,
-      name: "Z-A",
-      icon: faArrowDownZA,
-      active: false,
-    },
-  ]);
 
   const debouncedSearchQuery = useDebounce(searchQuery, 300);
 
@@ -89,11 +58,6 @@ export default function GithubSearch() {
     };
     handleResize();
   }, [width]);
-
-  const handleFilterChange = (filterId) => {
-    setActiveFilter(filterId);
-    setDropDownMenuState(false);
-  };
 
   const filteredAndSortedRepos = () => {
     return githubData
@@ -134,6 +98,16 @@ export default function GithubSearch() {
       });
   };
 
+  const handleTagAdd = (tag) => {
+    if (!searchTags.includes(tag)) {
+      setSearchTags((prevTags) => [...prevTags, tag]);
+    }
+  };
+
+  const handleTagRemove = (tag) => {
+    setSearchTags((prevTags) => prevTags.filter((t) => t !== tag));
+  };
+
   return (
     <Main
       PageHeader="Github Search"
@@ -155,100 +129,109 @@ export default function GithubSearch() {
           onChange={(event) => setSearchQuery(event.target.value)}
         />
 
-        <DropDownMenu onClose={() => setDropDownMenuState(false)}>
-          <button
-            onClick={() => setDropDownMenuState((prevState) => !prevState)}
-          >
-            <FontAwesomeIcon icon={faFilter} />
-          </button>
-          {dropDownMenuState && (
-            <DropDownMenuContent>
-              <DropDownMenuItem className="disabled">
-                <FontAwesomeIcon icon={faFlask} />
-                <p>labs</p>
-              </DropDownMenuItem>
-              <DropDownMenuHr />
-              <DropDownMenuItem
-                onClick={() =>
-                  setActiveFilter((prevFilter) =>
-                    prevFilter === "recentlyUpdated" ? "" : "recentlyUpdated"
-                  )
-                }
-                className={activeFilter === "recentlyUpdated" ? "active" : ""}
-              >
-                <FontAwesomeIcon icon={faCalendarDays} />
-                <p>recently updated</p>
-              </DropDownMenuItem>
-              <DropDownMenuItem
-                onClick={() =>
-                  setActiveFilter((prevFilter) =>
-                    prevFilter === "lastupdated" ? "" : "lastupdated"
-                  )
-                }
-                className={activeFilter === "lastupdated" ? "active" : ""}
-              >
-                <FontAwesomeIcon icon={faCalendarDays} />
-                <p>last updated</p>
-              </DropDownMenuItem>
-              <DropDownMenuHr />
-              <DropDownMenuItem
-                onClick={() =>
-                  setActiveFilter((prevFilter) =>
-                    prevFilter === "latest" ? "" : "latest"
-                  )
-                }
-                className={activeFilter === "latest" ? "active" : ""}
-              >
-                <FontAwesomeIcon icon={faCalendarDays} />
-                <p>newest repositories</p>
-              </DropDownMenuItem>
-              <DropDownMenuItem
-                onClick={() =>
-                  setActiveFilter((prevFilter) =>
-                    prevFilter === "oldest" ? "" : "oldest"
-                  )
-                }
-                className={activeFilter === "oldest" ? "active" : ""}
-              >
-                <FontAwesomeIcon icon={faCalendarDays} />
-                <p>Oldest repositories</p>
-              </DropDownMenuItem>
-              <DropDownMenuHr />
-              <DropDownMenuItem
-                onClick={() =>
-                  setActiveFilter((prevFilter) =>
-                    prevFilter === "az" ? "" : "az"
-                  )
-                }
-                className={activeFilter === "az" ? "active" : ""}
-              >
-                <FontAwesomeIcon icon={faArrowDownAZ} />
-                <p>A-Z</p>
-              </DropDownMenuItem>
-              <DropDownMenuItem
-                onClick={() =>
-                  setActiveFilter((prevFilter) =>
-                    prevFilter === "za" ? "" : "za"
-                  )
-                }
-                className={activeFilter === "za" ? "active" : ""}
-              >
-                <FontAwesomeIcon icon={faArrowDownZA} />
-                <p>Z-A</p>
-              </DropDownMenuItem>
-            </DropDownMenuContent>
-          )}
-        </DropDownMenu>
-
-        {width > 765 && (
-          <button onClick={() => setCardType((prevState) => !prevState)}>
-            {CardType ? (
-              <FontAwesomeIcon icon={faGripLines} />
-            ) : (
-              <FontAwesomeIcon icon={faGrip} />
+        <span>
+          <DropDownMenu onClose={() => setDropDownMenuState(false)}>
+            <button
+              onClick={() => setDropDownMenuState((prevState) => !prevState)}
+            >
+              <FontAwesomeIcon icon={faFilter} />
+            </button>
+            {dropDownMenuState && (
+              <DropDownMenuContent>
+                <DropDownMenuItem className="disabled">
+                  <FontAwesomeIcon icon={faFlask} />
+                  <p>labs</p>
+                </DropDownMenuItem>
+                <DropDownMenuHr />
+                <DropDownMenuItem
+                  onClick={() =>
+                    setActiveFilter((prevFilter) =>
+                      prevFilter === "recentlyUpdated" ? "" : "recentlyUpdated"
+                    )
+                  }
+                  className={activeFilter === "recentlyUpdated" ? "active" : ""}
+                >
+                  <FontAwesomeIcon icon={faCalendarDays} />
+                  <p>recently updated</p>
+                </DropDownMenuItem>
+                <DropDownMenuItem
+                  onClick={() =>
+                    setActiveFilter((prevFilter) =>
+                      prevFilter === "lastupdated" ? "" : "lastupdated"
+                    )
+                  }
+                  className={activeFilter === "lastupdated" ? "active" : ""}
+                >
+                  <FontAwesomeIcon icon={faCalendarDays} />
+                  <p>last updated</p>
+                </DropDownMenuItem>
+                <DropDownMenuHr />
+                <DropDownMenuItem
+                  onClick={() =>
+                    setActiveFilter((prevFilter) =>
+                      prevFilter === "latest" ? "" : "latest"
+                    )
+                  }
+                  className={activeFilter === "latest" ? "active" : ""}
+                >
+                  <FontAwesomeIcon icon={faCalendarDays} />
+                  <p>newest repositories</p>
+                </DropDownMenuItem>
+                <DropDownMenuItem
+                  onClick={() =>
+                    setActiveFilter((prevFilter) =>
+                      prevFilter === "oldest" ? "" : "oldest"
+                    )
+                  }
+                  className={activeFilter === "oldest" ? "active" : ""}
+                >
+                  <FontAwesomeIcon icon={faCalendarDays} />
+                  <p>Oldest repositories</p>
+                </DropDownMenuItem>
+                <DropDownMenuHr />
+                <DropDownMenuItem
+                  onClick={() =>
+                    setActiveFilter((prevFilter) =>
+                      prevFilter === "az" ? "" : "az"
+                    )
+                  }
+                  className={activeFilter === "az" ? "active" : ""}
+                >
+                  <FontAwesomeIcon icon={faArrowDownAZ} />
+                  <p>A-Z</p>
+                </DropDownMenuItem>
+                <DropDownMenuItem
+                  onClick={() =>
+                    setActiveFilter((prevFilter) =>
+                      prevFilter === "za" ? "" : "za"
+                    )
+                  }
+                  className={activeFilter === "za" ? "active" : ""}
+                >
+                  <FontAwesomeIcon icon={faArrowDownZA} />
+                  <p>Z-A</p>
+                </DropDownMenuItem>
+              </DropDownMenuContent>
             )}
-          </button>
-        )}
+          </DropDownMenu>
+
+          {width > 765 && (
+            <button onClick={() => setCardType((prevState) => !prevState)}>
+              {CardType ? (
+                <FontAwesomeIcon icon={faGripLines} />
+              ) : (
+                <FontAwesomeIcon icon={faGrip} />
+              )}
+            </button>
+          )}
+        </span>
+        <LanTags>
+          {searchTags.map((tag) => (
+            <li key={tag} onClick={() => handleTagRemove(tag)}>
+              {tag} <FontAwesomeIcon icon={faX} />
+            </li>
+          ))}
+        </LanTags>
       </SearchHeader>
       <CardWrapper CardType={CardType}>
         {githubData.length === 0 ? (
@@ -257,7 +240,12 @@ export default function GithubSearch() {
           <p>No repositories match your search or filter criteria.</p>
         ) : (
           filteredAndSortedRepos().map((repo) => (
-            <GithubCard key={repo.id} data={repo} CardType={CardType} />
+            <GithubCard
+              key={repo.id}
+              data={repo}
+              CardType={CardType}
+              handleTagAdd={handleTagAdd}
+            />
           ))
         )}
       </CardWrapper>
@@ -278,7 +266,7 @@ const SearchHeader = styled.div`
   width: 100%;
   border-bottom: 2px solid var(--wrapperColor);
   display: grid;
-  grid-template-columns: 1fr auto auto;
+  grid-template-columns: 1fr auto;
   gap: 1rem;
   padding: 1rem 2rem;
   max-width: var(--pageMaxWidth);
@@ -288,6 +276,11 @@ const SearchHeader = styled.div`
   top: 0;
   background-color: var(--backGroundColor) !important;
   z-index: 10;
+
+  span {
+    display: flex;
+    gap: inherit;
+  }
 
   &:hover {
     &:before {
@@ -356,4 +349,33 @@ const SearchHeader = styled.div`
 
 const Margin = styled.div`
   margin: 0 2rem !important;
+`;
+
+const LanTags = styled.ul`
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  list-style: none;
+  overflow: hidden;
+  width: 100%;
+  li {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    background-color: #f9f9f92f;
+    padding: 0.2rem 0.4rem;
+    border-radius: calc(var(--borderRadius) / 2);
+    &:hover {
+      color: var(--activeColor);
+      * {
+        fill: var(--activeColor);
+      }
+    }
+    svg {
+      font-size: 0.7rem;
+    }
+  }
 `;

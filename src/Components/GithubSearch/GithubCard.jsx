@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import styled from "styled-components";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faGithub } from "@fortawesome/free-brands-svg-icons";
-const GithubCard = ({ data, CardType }) => {
+const GithubCard = ({ data, CardType, handleTagAdd }) => {
   const {
     name,
     description,
@@ -49,7 +49,9 @@ const GithubCard = ({ data, CardType }) => {
         <LanTags>
           {languagesTags && languagesTags.length > 0 ? (
             languagesTags.map((languageTag) => (
-              <li key={languageTag}>{languageTag}</li>
+              <li key={languageTag} onClick={() => handleTagAdd(languageTag)}>
+                {languageTag}
+              </li>
             ))
           ) : (
             <p>No tags found.</p>
