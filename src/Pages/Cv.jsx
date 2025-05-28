@@ -178,7 +178,7 @@ const StyledList = styled.article`
             height: 100%;
             width: 3px;
             position: absolute;
-            top: 31px;
+            top: 36px;
             left: -20px;
           }
         }
