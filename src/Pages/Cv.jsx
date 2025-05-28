@@ -167,7 +167,7 @@ const StyledList = styled.article`
           width: 17px;
           border-radius: 50%;
           position: absolute;
-          top: 5px;
+          top: 10px;
           left: -27px;
         }
 
@@ -220,6 +220,8 @@ const StyledList = styled.article`
     align-items: center;
     gap: 0.5rem;
     text-decoration: none;
+    position: relative;
+    overflow: hidden;
     &:hover {
       background-color: color-mix(in srgb, var(--activeColor) 40%, transparent);
       cursor: pointer;
@@ -238,7 +240,7 @@ const StyledList = styled.article`
     content: "";
     position: absolute;
     left: -27px;
-    top: 5px;
+    top: 10px;
     width: 17px;
     height: 17px;
     border-radius: 50%;
@@ -247,9 +249,9 @@ const StyledList = styled.article`
     z-index: 2;
   }
 
-  @-webkit-keyframes pulse {
+  @keyframes pulse {
     0% {
-      transform: scale(0);
+      transform: scale(0.5);
       opacity: 1;
     }
     50% {
