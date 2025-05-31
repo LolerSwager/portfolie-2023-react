@@ -49,7 +49,7 @@ export default function Cv() {
                     <h4>Learn Next.js</h4>
                     <h5>scrimba</h5>
                   </span>
-                  <h5>2025 - now</h5>
+                  <h5>2025-now</h5>
                 </div>
               </span>
             </li>
@@ -59,7 +59,7 @@ export default function Cv() {
                   <h4>Learn Typescript</h4>
                   <h5>scrimba</h5>
                 </span>
-                <h5>2025 - 2025</h5>
+                <h5>2025-2025</h5>
               </div>
               <a
                 className="certificate"
@@ -236,17 +236,35 @@ const StyledList = styled.article`
     }
   }
 
-  .PulseEfect::before {
-    content: "";
-    position: absolute;
-    left: -27px;
-    top: 10px;
-    width: 17px;
-    height: 17px;
-    border-radius: 50%;
-    background: var(--activeColor);
-    animation: pulse 2000ms infinite linear;
-    z-index: 2;
+  .PulseEfect {
+    &::after {
+      content: "";
+      height: calc(100% + 12px);
+      width: 3px;
+      position: absolute;
+      top: 30px;
+      left: -20px;
+      z-index: 1;
+      background: repeating-linear-gradient(
+        to bottom,
+        var(--backGroundColor),
+        var(--backGroundColor) 0.5rem,
+        transparent 5px,
+        transparent 1rem
+      );
+    }
+    &::before {
+      content: "";
+      position: absolute;
+      left: -27px;
+      top: 10px;
+      width: 17px;
+      height: 17px;
+      border-radius: 50%;
+      background: var(--activeColor);
+      animation: pulse 2000ms infinite linear;
+      z-index: 2;
+    }
   }
 
   @keyframes pulse {
