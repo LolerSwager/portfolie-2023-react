@@ -67,7 +67,7 @@ export default function Cv() {
                 </p>
                 <a
                   className="certificate"
-                  href="https://scrimba.com/certificate-cert24zAwJ77fGKP7LfQ2ifrEP2wD856gBdEGegvE"
+                  href="https://scrimba.com/certificate-cert29m6qiCmMf3T1RQ8LiRbC9U9ek36gfYUk9eAUMYUzGimY"
                   target="_blank"
                   rel="noopener noreferrer"
                 >
